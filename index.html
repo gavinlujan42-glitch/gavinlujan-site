@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Gavin Lujan is an innovative executive technology leader focused on CIO strategy, cybersecurity, cloud integration, human-centered design, collaboration, team building, communication workshops, and resilient modernization." />
   <title>Gavin Lujan | Innovative Technology Executive</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23070809'/%3E%3Cg fill='none' stroke='%23d6a84b' stroke-width='7' stroke-linecap='square' stroke-linejoin='miter'%3E%3Cpath d='M50 17v55M48 31L26 19l8 20-22 8 28 8M52 31l22-12-8 20 22 8-28 8M50 72l-12 13M50 72l12 13'/%3E%3Cpath d='M43 23h14M43 46h14'/%3E%3C/g%3E%3C/svg%3E" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config={theme:{extend:{colors:{night:'#070809',panel:'#0d0f11',bone:'#eeeae1',zia:'#d6a84b',steel:'#9ca3af'}}}};
@@ -31,6 +32,7 @@
     .avanyu{position:fixed;inset:10px;z-index:100;pointer-events:none;border:1px solid rgba(214,168,75,.12)}
     .avanyu:before,.avanyu:after{content:'';position:absolute;width:72px;height:1px;background:#d6a84b;opacity:.55}
     .avanyu:before{top:-1px;left:28px}.avanyu:after{right:28px;bottom:-1px}
+    .hawk-mark{filter:drop-shadow(0 0 10px rgba(214,168,75,.12))}
     @media(max-width:700px){.avanyu{inset:5px}.desktop-nav{display:none}}
   </style>
 </head>
@@ -39,8 +41,16 @@
 
   <header class="sticky top-0 z-50 border-b border-white/5 bg-night/90 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-      <a href="#home" class="flex items-center gap-3">
-        <svg class="h-8 w-8 text-zia" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="5"/><path d="M50 2V27M50 73V98M2 50H27M73 50H98" stroke="currentColor" stroke-width="5"/></svg>
+      <a href="#home" class="flex items-center gap-3" aria-label="Gavin Lujan home">
+        <svg class="hawk-mark h-11 w-11 text-zia" viewBox="0 0 100 100" fill="none" role="img" aria-label="Hawk petroglyph logo">
+          <g stroke="currentColor" stroke-width="6.5" stroke-linecap="square" stroke-linejoin="miter">
+            <path d="M50 15V73"/>
+            <path d="M47 31L25 18L33 39L11 47L40 56"/>
+            <path d="M53 31L75 18L67 39L89 47L60 56"/>
+            <path d="M42 24H58M42 46H58"/>
+            <path d="M50 73L37 87M50 73L63 87"/>
+          </g>
+        </svg>
         <div>
           <div class="text-sm font-bold tracking-[.18em] text-white">GAVIN LUJAN</div>
           <div class="text-[9px] uppercase tracking-[.16em] text-gray-600">Innovative Technology Executive</div>
@@ -124,9 +134,7 @@
     <section class="border-b border-white/5">
       <div class="mx-auto max-w-5xl px-6 py-24 text-center">
         <p class="eyebrow">A Simple Equation</p>
-        <blockquote class="mx-auto mt-8 max-w-4xl text-2xl font-light leading-relaxed text-white md:text-4xl">
-          “Everything comes down, risk and trust. Those two things. It's all simple math from there.”
-        </blockquote>
+        <blockquote class="mx-auto mt-8 max-w-4xl text-2xl font-light leading-relaxed text-white md:text-4xl">“Everything comes down, risk and trust. Those two things. It's all simple math from there.”</blockquote>
         <p class="mx-auto mt-8 max-w-2xl leading-8 text-gray-400">Contact me if you'd like to learn more or if I can help you with anything. Looking forward to it. Thank you.</p>
         <p class="mt-5 font-semibold tracking-[.16em] text-zia">GAVIN</p>
       </div>
