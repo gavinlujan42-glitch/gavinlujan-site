@@ -3,334 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gavin Lujan, CIO and Cyber Security Architect. Cloud system integration, human-centered design, NIST CSF and RMF governance, cyber resilience, and infrastructure modernization." />
+  <meta name="description" content="Gavin Lujan, CIO and Cyber Security Architect. Cloud integration, human-centered design, NIST CSF and RMF governance, and resilient modernization." />
   <title>Gavin Lujan | CIO & Cyber Security Architect</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            void: '#040405', ink: '#09090c', graphite: '#111117',
-            signal: '#4968ff', magenta: '#f02b87', zia: '#e8b34d',
-            terminal: '#64efbd', bone: '#e8e3d7'
-          },
-          boxShadow: {
-            signal: '0 0 46px rgba(73,104,255,.16)',
-            ember: '0 0 40px rgba(232,179,77,.12)'
-          }
-        }
-      }
-    };
+    tailwind.config={theme:{extend:{colors:{void:'#040405',ink:'#09090c',signal:'#4968ff',magenta:'#f02b87',zia:'#e8b34d',terminal:'#64efbd',bone:'#e8e3d7'}}}};
   </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: #aaaab5;
-      background:
-        radial-gradient(circle at 88% 8%, rgba(240,43,135,.07), transparent 27rem),
-        radial-gradient(circle at 8% 28%, rgba(73,104,255,.09), transparent 35rem),
-        #040405;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      opacity: .3;
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, black, transparent 92%);
-    }
-    .display { font-family: 'Oswald', sans-serif; }
-    .mono { font-family: 'JetBrains Mono', monospace; }
-    .feather-title {
-      font-family: 'Oswald', sans-serif;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -.045em;
-      line-height: .88;
-      text-shadow: 0 0 28px rgba(73,104,255,.08);
-    }
-    .wolf-card {
-      position: relative;
-      background: linear-gradient(145deg, rgba(15,15,20,.97), rgba(7,7,10,.97));
-      border: 1px solid rgba(255,255,255,.08);
-      clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
-      transition: .3s ease;
-    }
-    .wolf-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0;
-      width: 44%; height: 1px;
-      background: linear-gradient(90deg, #e8b34d, transparent);
-    }
-    .wolf-card:hover { transform: translateY(-4px); border-color: rgba(73,104,255,.6); box-shadow: 0 0 34px rgba(73,104,255,.11); }
-    .prairie-frame {
-      border: 1px solid rgba(232,179,77,.24);
-      background:
-        linear-gradient(90deg, transparent 0 9%, rgba(232,179,77,.08) 9% 9.3%, transparent 9.3% 90.7%, rgba(232,179,77,.08) 90.7% 91%, transparent 91%),
-        rgba(8,8,11,.88);
-    }
-    .cut-button { clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px); }
-    .signal-line { height: 1px; background: linear-gradient(90deg, transparent, #4968ff, #f02b87, #e8b34d, transparent); }
-    .scanline { background: linear-gradient(to bottom, transparent 49%, rgba(255,255,255,.015) 50%); background-size: 100% 4px; }
-    .modal-backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(12px); }
-    .hidden-modal { display: none; }
-    .project-lock { transition: .3s ease; }
-    .project-lock:hover { border-color: rgba(232,179,77,.52); }
-    @media (prefers-reduced-motion: no-preference) {
-      .orbit { animation: orbit 28s linear infinite; transform-origin: center; }
-      .pulse { animation: pulse 4s ease-in-out infinite; }
-      @keyframes orbit { to { transform: rotate(360deg); } }
-      @keyframes pulse { 0%,100% { opacity:.28; } 50% { opacity:.85; } }
-    }
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;color:#aaaab5;background:radial-gradient(circle at 88% 8%,rgba(240,43,135,.08),transparent 27rem),radial-gradient(circle at 8% 28%,rgba(73,104,255,.1),transparent 35rem),#040405;overflow-x:hidden}body:before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 92%)}.display,.feather{font-family:Oswald,sans-serif}.mono{font-family:'JetBrains Mono',monospace}.feather{font-weight:700;text-transform:uppercase;letter-spacing:-.045em;line-height:.9}.card{position:relative;background:linear-gradient(145deg,rgba(15,15,20,.97),rgba(7,7,10,.97));border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));transition:.3s}.card:before{content:'';position:absolute;left:0;top:0;width:44%;height:1px;background:linear-gradient(90deg,#e8b34d,transparent)}.card:hover{transform:translateY(-4px);border-color:rgba(73,104,255,.6)}.cut{clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.frame{border:1px solid rgba(232,179,77,.24);background:rgba(8,8,11,.96)}.modal-bg{background:rgba(0,0,0,.84);backdrop-filter:blur(14px)}.hidden-modal{display:none}.tab-active{color:#fff;border-color:#e8b34d;background:rgba(232,179,77,.08)}.field{width:100%;border:1px solid rgba(255,255,255,.12);background:#000;padding:.8rem 1rem;color:#fff;outline:none}.field:focus{border-color:#4968ff}.toast{position:fixed;right:1rem;bottom:1rem;z-index:200;max-width:24rem;border:1px solid rgba(100,239,189,.35);background:#09090c;padding:1rem 1.2rem;color:#d8fff1;box-shadow:0 0 30px rgba(100,239,189,.12)}
   </style>
 </head>
-
 <body class="min-h-screen selection:bg-magenta selection:text-white">
-  <header class="sticky top-0 z-50 border-b border-white/5 bg-void/88 backdrop-blur-xl">
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-void/90 backdrop-blur-xl">
     <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-6 py-5">
-      <a href="#home" class="flex items-center gap-4" aria-label="Gavin Lujan home">
-        <div class="grid h-12 w-12 place-items-center border border-zia/40 bg-black text-zia shadow-ember">
-          <svg class="h-8 w-8" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="5"/>
-            <path d="M50 2V27M50 73V98M2 50H27M73 50H98" stroke="currentColor" stroke-width="5"/>
-          </svg>
-        </div>
-        <div>
-          <div class="display text-base font-bold tracking-[.2em] text-white">GAVIN LUJAN</div>
-          <div class="mono text-[9px] uppercase tracking-[.2em] text-gray-500">CIO // Cyber Security Architect</div>
-        </div>
+      <a href="#home" class="flex items-center gap-4">
+        <div class="grid h-12 w-12 place-items-center border border-zia/40 bg-black text-zia"><svg class="h-8 w-8" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="5"/><path d="M50 2V27M50 73V98M2 50H27M73 50H98" stroke="currentColor" stroke-width="5"/></svg></div>
+        <div><div class="display text-base font-bold tracking-[.2em] text-white">GAVIN LUJAN</div><div class="mono text-[9px] uppercase tracking-[.2em] text-gray-500">CIO // Cyber Security Architect</div></div>
       </a>
-
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-3 mono text-[9px] uppercase tracking-[.16em] text-gray-500">
-        <a href="#capabilities" class="hover:text-signal">Capabilities</a>
-        <a href="#cloud" class="hover:text-signal">Cloud Integration</a>
-        <a href="#human" class="hover:text-signal">Human Design</a>
-        <a href="#doctrine" class="hover:text-signal">NIST Doctrine</a>
-        <a href="#journal" class="hover:text-signal">Project Journal</a>
-        <a href="#engage" class="border-b border-magenta pb-1 text-white hover:text-magenta">Engage</a>
+      <div class="flex flex-wrap items-center gap-5 mono text-[9px] uppercase tracking-[.16em] text-gray-500">
+        <a href="#capabilities" class="hover:text-signal">Capabilities</a><a href="#doctrine" class="hover:text-signal">Doctrine</a><a href="#journal" class="hover:text-signal">Projects</a><a href="#engage" class="hover:text-magenta">Contact</a>
+        <button onclick="openGate('login')" class="border border-zia/40 px-4 py-2 text-zia hover:bg-zia hover:text-black">Member Access</button>
       </div>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="scanline relative overflow-hidden border-b border-white/5">
-      <div class="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.12fr_.88fr]">
-        <div class="relative z-10">
-          <div class="mb-8 flex flex-wrap items-center gap-4 mono text-[10px] uppercase tracking-[.22em]">
-            <span class="border border-terminal/25 bg-terminal/5 px-3 py-2 text-terminal">● Command Online</span>
-            <span class="text-gray-600">Architecture // Security // Human Systems</span>
-          </div>
-          <p class="mb-5 mono text-xs uppercase tracking-[.4em] text-zia">Professional ZIAWOLF doctrine</p>
-          <h1 class="feather-title max-w-5xl text-6xl text-white sm:text-7xl lg:text-[7rem]">
-            Design the system.<br>
-            <span class="bg-gradient-to-r from-signal via-indigo-300 to-magenta bg-clip-text text-transparent">Strengthen the human.</span>
-          </h1>
-          <p class="mt-9 max-w-2xl text-lg font-light leading-8 text-gray-400">
-            Gavin Lujan brings executive leadership, cyber security architecture, cloud system integration, and human-centered operating design together under one discipline: resilient mission delivery.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-5">
-            <a href="#engage" class="cut-button bg-white px-9 py-4 text-xs font-black uppercase tracking-[.18em] text-black transition hover:bg-magenta hover:text-white">Initiate Advisory →</a>
-            <button onclick="openVault()" class="cut-button border border-zia/35 bg-zia/5 px-9 py-4 text-xs font-black uppercase tracking-[.18em] text-zia transition hover:bg-zia hover:text-black">Secure Repository</button>
-          </div>
-        </div>
-
-        <div class="relative hidden min-h-[560px] lg:block" aria-hidden="true">
-          <div class="absolute inset-14 rounded-full bg-signal/8 blur-3xl"></div>
-          <svg class="absolute inset-0 h-full w-full" viewBox="0 0 600 600" fill="none">
-            <g class="orbit">
-              <circle cx="300" cy="300" r="245" stroke="#4968ff" stroke-opacity=".32" stroke-dasharray="3 11"/>
-              <circle cx="300" cy="300" r="205" stroke="#e8b34d" stroke-opacity=".22"/>
-              <path d="M300 48V106M300 494V552M48 300H106M494 300H552" stroke="#e8b34d" stroke-width="3"/>
-            </g>
-            <path d="M300 86L448 188L474 344L382 482H218L126 344L152 188L300 86Z" stroke="#4968ff" stroke-opacity=".52"/>
-            <path d="M205 198L262 148L300 238L338 148L395 198L365 333L300 438L235 333L205 198Z" fill="#09090c" stroke="#e8b34d" stroke-width="2.5"/>
-            <path d="M246 242L281 265M354 242L319 265M235 333L270 308L300 332L330 308L365 333" stroke="#f02b87" stroke-width="4"/>
-            <circle class="pulse" cx="300" cy="300" r="8" fill="#64efbd"/>
-            <path d="M300 438V515" stroke="#e8b34d" stroke-opacity=".6"/>
-            <path d="M284 470L300 500L316 470" stroke="#e8b34d" stroke-width="2"/>
-          </svg>
-          <div class="absolute bottom-8 left-8 border-l border-zia/50 pl-4 mono text-[9px] uppercase leading-6 tracking-[.18em] text-gray-500">
-            Prairie geometry // cyber command<br><span class="text-white">Gavin Lujan is the brand</span>
-          </div>
-        </div>
+    <section id="home" class="border-b border-white/5">
+      <div class="mx-auto grid min-h-[78vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.1fr_.9fr]">
+        <div><p class="mono text-xs uppercase tracking-[.4em] text-zia">Professional ZIAWOLF doctrine</p><h1 class="feather mt-5 text-6xl text-white sm:text-7xl lg:text-[7rem]">Design the system.<br><span class="bg-gradient-to-r from-signal via-indigo-300 to-magenta bg-clip-text text-transparent">Strengthen the human.</span></h1><p class="mt-9 max-w-2xl text-lg font-light leading-8 text-gray-400">Executive technology leadership, cyber security architecture, cloud integration, human-centered operating design, and resilient mission delivery.</p><div class="mt-10 flex flex-wrap gap-4"><a href="#engage" class="cut bg-white px-8 py-4 text-xs font-black uppercase tracking-[.18em] text-black hover:bg-magenta hover:text-white">Start a Conversation</a><button onclick="openGate('guest')" class="cut border border-zia/40 bg-zia/5 px-8 py-4 text-xs font-black uppercase tracking-[.18em] text-zia hover:bg-zia hover:text-black">Enter as Guest</button></div></div>
+        <div class="frame p-8"><div class="mono text-[10px] uppercase tracking-[.2em] text-terminal">● Public command layer online</div><div class="mt-8 grid gap-4 sm:grid-cols-2"><div class="card p-6"><div class="mono text-[9px] text-signal">CLOUD</div><h3 class="mt-4 font-bold text-white">System Integration</h3><p class="mt-2 text-sm leading-6 text-gray-500">Identity, data, applications, infrastructure, and observability connected with discipline.</p></div><div class="card p-6"><div class="mono text-[9px] text-magenta">HUMAN</div><h3 class="mt-4 font-bold text-white">Operating Design</h3><p class="mt-2 text-sm leading-6 text-gray-500">Clear roles, decisions, ownership, and service experiences.</p></div><div class="card p-6"><div class="mono text-[9px] text-zia">NIST</div><h3 class="mt-4 font-bold text-white">CSF + RMF</h3><p class="mt-2 text-sm leading-6 text-gray-500">Govern, identify, protect, detect, respond, recover, and continuously monitor.</p></div><div class="card p-6"><div class="mono text-[9px] text-terminal">MISSION</div><h3 class="mt-4 font-bold text-white">Resilient Delivery</h3><p class="mt-2 text-sm leading-6 text-gray-500">Modernization linked to measurable risk reduction and operational outcomes.</p></div></div></div>
       </div>
     </section>
 
-    <section id="capabilities" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="mb-14 grid gap-8 lg:grid-cols-[.65fr_1.35fr]">
-        <p class="mono text-[10px] uppercase tracking-[.25em] text-signal">01 // Executive Capabilities</p>
-        <div>
-          <h2 class="feather-title text-5xl text-white md:text-7xl">Command with clarity.<br>Build with consequence.</h2>
-          <p class="mt-6 max-w-2xl leading-7 text-gray-500">Strategic leadership linked directly to architecture, operating models, governance, and measurable risk reduction.</p>
-        </div>
-      </div>
-      <div class="grid gap-5 md:grid-cols-3">
-        <article class="wolf-card p-8"><div class="mono text-[10px] text-zia">01 // CIO ADVISORY</div><h3 class="mt-7 text-xl font-bold text-white">Executive Technology Leadership</h3><p class="mt-4 text-sm leading-7 text-gray-500">Portfolio strategy, modernization roadmaps, governance structures, executive briefings, and mission-aligned investment decisions.</p></article>
-        <article class="wolf-card p-8"><div class="mono text-[10px] text-zia">02 // CYBER ARCHITECTURE</div><h3 class="mt-7 text-xl font-bold text-white">Security by Design</h3><p class="mt-4 text-sm leading-7 text-gray-500">Zero Trust, defense in depth, identity, segmentation, resilience, monitoring, and threat-informed architecture.</p></article>
-        <article class="wolf-card p-8"><div class="mono text-[10px] text-zia">03 // HUMAN SYSTEMS</div><h3 class="mt-7 text-xl font-bold text-white">Operating Model Design</h3><p class="mt-4 text-sm leading-7 text-gray-500">Roles, accountability, decision pathways, culture, change management, and human-centered service design.</p></article>
-      </div>
-    </section>
+    <section id="capabilities" class="mx-auto max-w-7xl px-6 py-24"><p class="mono text-[10px] uppercase tracking-[.25em] text-signal">01 // Executive Capabilities</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Command with clarity.<br>Build with consequence.</h2><div class="mt-12 grid gap-5 md:grid-cols-3"><article class="card p-8"><h3 class="text-xl font-bold text-white">CIO Advisory</h3><p class="mt-4 text-sm leading-7 text-gray-500">Portfolio strategy, modernization roadmaps, governance, executive briefings, and mission-aligned investment.</p></article><article class="card p-8"><h3 class="text-xl font-bold text-white">Cyber Architecture</h3><p class="mt-4 text-sm leading-7 text-gray-500">Zero Trust, defense in depth, identity, segmentation, resilience, monitoring, and threat-informed design.</p></article><article class="card p-8"><h3 class="text-xl font-bold text-white">Human Systems</h3><p class="mt-4 text-sm leading-7 text-gray-500">Roles, accountability, decision pathways, culture, change management, and service design.</p></article></div></section>
 
-    <section id="cloud" class="border-y border-white/5 bg-ink/80 py-24">
-      <div class="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[.9fr_1.1fr]">
-        <div>
-          <p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">02 // Cloud System Integration</p>
-          <h2 class="feather-title mt-8 text-5xl text-white md:text-7xl">One mission.<br>Many systems.<br>One control plane.</h2>
-          <p class="mt-7 max-w-xl leading-8 text-gray-500">Cloud integration is not a migration stunt. It is the disciplined connection of identity, data, applications, infrastructure, observability, security, and operating ownership.</p>
-        </div>
-        <div class="prairie-frame p-8 md:p-10">
-          <svg class="mb-8 h-52 w-full" viewBox="0 0 700 220" fill="none" aria-hidden="true">
-            <rect x="25" y="75" width="130" height="70" stroke="#e8b34d" stroke-opacity=".7"/><text x="90" y="116" text-anchor="middle" fill="#e8e3d7" font-size="14" font-family="JetBrains Mono">LEGACY</text>
-            <rect x="285" y="25" width="130" height="70" stroke="#4968ff"/><text x="350" y="66" text-anchor="middle" fill="#e8e3d7" font-size="14" font-family="JetBrains Mono">CLOUD</text>
-            <rect x="545" y="75" width="130" height="70" stroke="#f02b87"/><text x="610" y="116" text-anchor="middle" fill="#e8e3d7" font-size="14" font-family="JetBrains Mono">MISSION</text>
-            <circle cx="350" cy="170" r="34" stroke="#64efbd"/><text x="350" y="175" text-anchor="middle" fill="#64efbd" font-size="12" font-family="JetBrains Mono">TRUST</text>
-            <path d="M155 110H285M415 60L545 110M350 95V136M155 110L316 170M545 110L384 170" stroke="#77788a" stroke-dasharray="5 5"/>
-          </svg>
-          <div class="grid gap-6 sm:grid-cols-2">
-            <div><h3 class="font-bold text-white">Integration Architecture</h3><p class="mt-2 text-sm leading-6 text-gray-500">APIs, event flows, identity federation, data contracts, middleware, and dependency mapping.</p></div>
-            <div><h3 class="font-bold text-white">Secure Landing Zones</h3><p class="mt-2 text-sm leading-6 text-gray-500">Guardrails, network patterns, logging, secrets, policy-as-code, and environment separation.</p></div>
-            <div><h3 class="font-bold text-white">Hybrid Modernization</h3><p class="mt-2 text-sm leading-6 text-gray-500">Pragmatic coexistence between legacy platforms, SaaS, cloud-native services, and on-prem systems.</p></div>
-            <div><h3 class="font-bold text-white">Operational Ownership</h3><p class="mt-2 text-sm leading-6 text-gray-500">SRE thinking, runbooks, service levels, FinOps, change control, and measurable accountability.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="doctrine" class="border-y border-white/5 bg-black py-24"><div class="mx-auto max-w-7xl px-6"><p class="mono text-[10px] uppercase tracking-[.25em] text-zia">02 // NIST CSF + RMF Doctrine</p><div class="mt-8 grid gap-12 lg:grid-cols-2"><div><h2 class="feather text-5xl text-white md:text-7xl">The code is resilience.<br>The mantra is evidence.</h2><p class="mt-7 leading-8 text-gray-500">Risk becomes a repeatable command language when governance, controls, evidence, authorization, and continuous monitoring operate as one system.</p></div><div class="frame p-8 mono text-sm uppercase leading-9 tracking-[.12em] text-bone">Govern the cycle.<br>Identify what matters.<br>Protect what matters.<br>Detect what changes.<br>Respond with discipline.<br>Recover stronger.</div></div></div></section>
 
-    <section id="human" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="grid gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-        <div class="order-2 lg:order-1">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="wolf-card p-6"><div class="mono text-[9px] text-magenta">PEOPLE</div><div class="mt-5 text-3xl font-black text-white">Purpose</div><p class="mt-3 text-sm leading-6 text-gray-500">Why the work matters.</p></div>
-            <div class="wolf-card p-6"><div class="mono text-[9px] text-signal">PROCESS</div><div class="mt-5 text-3xl font-black text-white">Clarity</div><p class="mt-3 text-sm leading-6 text-gray-500">How decisions move.</p></div>
-            <div class="wolf-card p-6"><div class="mono text-[9px] text-terminal">PLATFORM</div><div class="mt-5 text-3xl font-black text-white">Leverage</div><p class="mt-3 text-sm leading-6 text-gray-500">Where technology helps.</p></div>
-            <div class="wolf-card p-6"><div class="mono text-[9px] text-zia">PROOF</div><div class="mt-5 text-3xl font-black text-white">Evidence</div><p class="mt-3 text-sm leading-6 text-gray-500">What confirms success.</p></div>
-          </div>
-        </div>
-        <div class="order-1 lg:order-2">
-          <p class="mono text-[10px] uppercase tracking-[.25em] text-magenta">03 // Human Design</p>
-          <h2 class="feather-title mt-8 text-5xl text-white md:text-7xl">Systems fail where humans disappear.</h2>
-          <p class="mt-7 leading-8 text-gray-500">Human design means building technology around real decisions, real constraints, real incentives, and real users. It aligns people, process, platform, and proof so strategy survives contact with daily operations.</p>
-          <blockquote class="mt-8 border-l border-zia pl-6 text-lg italic leading-8 text-gray-300">“The strongest architecture is one people can understand, operate, challenge, and improve.”</blockquote>
-        </div>
-      </div>
-    </section>
+    <section id="journal" class="mx-auto max-w-7xl px-6 py-24"><div class="flex flex-wrap items-end justify-between gap-8"><div><p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">03 // Field Journal</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Project signals from the edge.</h2></div><button onclick="openGate('register')" class="cut border border-zia/35 bg-zia/5 px-7 py-3 mono text-[10px] uppercase tracking-[.16em] text-zia hover:bg-zia hover:text-black">Request Member Access</button></div><div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4"><article class="card p-6"><div class="mono text-[9px] text-magenta">PROJECT AVANYU</div><h3 class="mt-5 text-lg font-bold text-white">Sovereign Data Current</h3><p class="mt-3 text-sm leading-6 text-gray-500">Mission data, agent orchestration, provenance, and water-aware infrastructure.</p><button onclick="protectedBrief()" class="mt-6 mono text-[9px] uppercase text-zia">🔒 Access brief</button></article><article class="card p-6"><div class="mono text-[9px] text-signal">PROJECT IRON ACEQUIA</div><h3 class="mt-5 text-lg font-bold text-white">Integration Fabric</h3><p class="mt-3 text-sm leading-6 text-gray-500">Controlled flow, shared stewardship, hybrid integration, and continuity.</p><button onclick="protectedBrief()" class="mt-6 mono text-[9px] uppercase text-zia">🔒 Access brief</button></article><article class="card p-6"><div class="mono text-[9px] text-terminal">PROJECT HAWKGLASS</div><h3 class="mt-5 text-lg font-bold text-white">Cyber Observatory</h3><p class="mt-3 text-sm leading-6 text-gray-500">Board-facing telemetry, controls, dependencies, and decision intelligence.</p><button onclick="protectedBrief()" class="mt-6 mono text-[9px] uppercase text-zia">🔒 Access brief</button></article><article class="card p-6"><div class="mono text-[9px] text-zia">PROJECT NIGHTSHADE</div><h3 class="mt-5 text-lg font-bold text-white">Human-AI Doctrine</h3><p class="mt-3 text-sm leading-6 text-gray-500">Trusted AI collaboration, accountability, escalation, and evidence.</p><button onclick="protectedBrief()" class="mt-6 mono text-[9px] uppercase text-zia">🔒 Access brief</button></article></div></section>
 
-    <div class="signal-line"></div>
-
-    <section id="doctrine" class="bg-black py-24">
-      <div class="mx-auto max-w-7xl px-6">
-        <p class="mono text-[10px] uppercase tracking-[.25em] text-zia">04 // NIST CSF + RMF Doctrine</p>
-        <div class="mt-8 grid gap-12 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <h2 class="feather-title text-5xl text-white md:text-7xl">The code is resilience.<br>The mantra is evidence.</h2>
-            <p class="mt-7 max-w-xl leading-8 text-gray-500">NIST CSF establishes the operating rhythm. RMF establishes the lifecycle discipline. Together they turn risk into a repeatable command language.</p>
-            <div class="mt-9 border border-zia/20 bg-zia/5 p-7 mono text-sm uppercase leading-8 tracking-[.12em] text-bone">
-              Identify what matters.<br>
-              Protect what matters.<br>
-              Detect what changes.<br>
-              Respond with discipline.<br>
-              Recover stronger.<br>
-              Govern the entire cycle.
-            </div>
-          </div>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-signal">CSF // IDENTIFY</span><h3 class="mt-4 font-bold text-white">Know the terrain</h3><p class="mt-2 text-sm leading-6 text-gray-500">Assets, mission, data, dependencies, threats, and risk context.</p></div>
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-signal">CSF // PROTECT</span><h3 class="mt-4 font-bold text-white">Reduce exposure</h3><p class="mt-2 text-sm leading-6 text-gray-500">Controls, identity, hardening, training, and architecture patterns.</p></div>
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-magenta">CSF // DETECT</span><h3 class="mt-4 font-bold text-white">See the signal</h3><p class="mt-2 text-sm leading-6 text-gray-500">Telemetry, logging, monitoring, analytics, and anomaly awareness.</p></div>
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-magenta">CSF // RESPOND</span><h3 class="mt-4 font-bold text-white">Move decisively</h3><p class="mt-2 text-sm leading-6 text-gray-500">Roles, communications, containment, analysis, and action.</p></div>
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-terminal">CSF // RECOVER</span><h3 class="mt-4 font-bold text-white">Restore the mission</h3><p class="mt-2 text-sm leading-6 text-gray-500">Continuity, recovery, lessons learned, and resilience improvement.</p></div>
-            <div class="wolf-card p-6"><span class="mono text-[9px] text-zia">RMF // GOVERN</span><h3 class="mt-4 font-bold text-white">Own the risk</h3><p class="mt-2 text-sm leading-6 text-gray-500">Prepare, categorize, select, implement, assess, authorize, monitor.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="journal" class="mx-auto max-w-7xl px-6 py-24">
-      <div class="mb-12 flex flex-wrap items-end justify-between gap-8">
-        <div>
-          <p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">05 // Field Journal</p>
-          <h2 class="feather-title mt-7 text-5xl text-white md:text-7xl">Project signals from the edge.</h2>
-        </div>
-        <button onclick="openVault()" class="cut-button border border-zia/35 bg-zia/5 px-7 py-3 mono text-[10px] uppercase tracking-[.16em] text-zia hover:bg-zia hover:text-black">Repository Login</button>
-      </div>
-
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <article class="project-lock border border-white/8 bg-ink p-6"><div class="mono text-[9px] text-magenta">PROJECT AVANYU</div><h3 class="mt-5 text-lg font-bold text-white">Sovereign Data Current</h3><p class="mt-3 text-sm leading-6 text-gray-500">A secure architecture concept for mission data, agent orchestration, provenance, and water-aware infrastructure.</p><button onclick="openVault()" class="mt-6 mono text-[9px] uppercase tracking-[.15em] text-zia">🔒 Access brief</button></article>
-        <article class="project-lock border border-white/8 bg-ink p-6"><div class="mono text-[9px] text-signal">PROJECT IRON ACEQUIA</div><h3 class="mt-5 text-lg font-bold text-white">Resilient Integration Fabric</h3><p class="mt-3 text-sm leading-6 text-gray-500">A cloud and legacy integration pattern built around controlled flow, shared stewardship, and operational continuity.</p><button onclick="openVault()" class="mt-6 mono text-[9px] uppercase tracking-[.15em] text-zia">🔒 Access brief</button></article>
-        <article class="project-lock border border-white/8 bg-ink p-6"><div class="mono text-[9px] text-terminal">PROJECT HAWKGLASS</div><h3 class="mt-5 text-lg font-bold text-white">Executive Cyber Observatory</h3><p class="mt-3 text-sm leading-6 text-gray-500">A board-facing command layer that turns telemetry, controls, and mission dependencies into decision intelligence.</p><button onclick="openVault()" class="mt-6 mono text-[9px] uppercase tracking-[.15em] text-zia">🔒 Access brief</button></article>
-        <article class="project-lock border border-white/8 bg-ink p-6"><div class="mono text-[9px] text-zia">PROJECT NIGHTSHADE</div><h3 class="mt-5 text-lg font-bold text-white">Human-AI Operating Doctrine</h3><p class="mt-3 text-sm leading-6 text-gray-500">A governance model for trusted AI collaboration, human accountability, escalation, and evidence-driven automation.</p><button onclick="openVault()" class="mt-6 mono text-[9px] uppercase tracking-[.15em] text-zia">🔒 Access brief</button></article>
-      </div>
-      <p class="mt-5 mono text-[9px] uppercase tracking-[.12em] text-gray-700">Project names are public-facing codenames. Detailed materials require authorized access.</p>
-    </section>
-
-    <section id="engage" class="border-y border-white/5 bg-black py-24">
-      <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
-        <div>
-          <p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">Secure Channel // Open</p>
-          <h2 class="feather-title mt-7 text-5xl text-white md:text-7xl">Bring the hard problem.<br>Leave with a battle plan.</h2>
-          <p class="mt-7 max-w-2xl leading-8 text-gray-500">Available for CIO and vCISO advisory, cloud integration strategy, cyber architecture reviews, human-centered operating design, NIST assessments, and modernization planning.</p>
-        </div>
-        <div class="lg:text-right">
-          <a href="mailto:gavinlujan@gmail.com" class="cut-button inline-block bg-gradient-to-r from-signal to-magenta px-9 py-4 text-xs font-black uppercase tracking-[.18em] text-white">gavinlujan@gmail.com</a>
-          <p class="mt-4 mono text-[9px] uppercase tracking-[.16em] text-gray-600">Gavin Lujan // CIO // Cyber Security Architect</p>
-        </div>
-      </div>
-    </section>
+    <section id="engage" class="border-y border-white/5 bg-black py-24"><div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.1fr_.9fr]"><div><p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">Secure Channel // Open</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Bring the hard problem.<br>Leave with a battle plan.</h2><p class="mt-7 max-w-2xl leading-8 text-gray-500">Contact Gavin directly or use the quick message assistant to prepare an email.</p><a href="mailto:gavinlujan@gmail.com" class="mt-8 inline-block text-zia underline underline-offset-8">gavinlujan@gmail.com</a></div><form onsubmit="sendQuickMessage(event)" class="frame space-y-4 p-7"><div><label class="mono text-[9px] uppercase text-gray-500">Your name</label><input id="contactName" class="field mt-2" required></div><div><label class="mono text-[9px] uppercase text-gray-500">Your email</label><input id="contactEmail" type="email" class="field mt-2" required></div><div><label class="mono text-[9px] uppercase text-gray-500">What would you like to discuss?</label><textarea id="contactMessage" class="field mt-2 min-h-32" required></textarea></div><button class="cut w-full bg-gradient-to-r from-signal to-magenta px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-white">Ask the Message Assistant</button><p class="text-xs leading-5 text-gray-600">This opens your email app with a prepared message. No message is transmitted by this page itself.</p></form></div></section>
   </main>
 
-  <footer class="px-6 py-10">
-    <div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-5 mono text-[9px] uppercase tracking-[.16em] text-gray-700">
-      <p>© 2026 Gavin Lujan. All systems reserved.</p>
-      <p>New Mexico rooted // Mission hardened</p>
-    </div>
-  </footer>
+  <footer class="px-6 py-10"><div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-5 mono text-[9px] uppercase tracking-[.16em] text-gray-700"><p>© 2026 Gavin Lujan. All systems reserved.</p><p>New Mexico rooted // Mission hardened</p></div></footer>
 
-  <div id="vaultModal" class="hidden-modal modal-backdrop fixed inset-0 z-[100] grid place-items-center p-5" role="dialog" aria-modal="true" aria-labelledby="vaultTitle">
-    <div class="prairie-frame relative w-full max-w-md p-8 shadow-signal">
-      <button onclick="closeVault()" class="absolute right-4 top-4 mono text-xs text-gray-600 hover:text-white" aria-label="Close login">X</button>
-      <div class="mb-7 flex items-center gap-4">
-        <div class="grid h-11 w-11 place-items-center border border-zia/40 text-zia">GL</div>
-        <div><h2 id="vaultTitle" class="display text-xl font-bold uppercase tracking-[.12em] text-white">Secure Repository</h2><p class="mono text-[9px] uppercase tracking-[.14em] text-gray-600">Authorized access only</p></div>
-      </div>
-      <form onsubmit="attemptLogin(event)" class="space-y-5">
-        <div><label for="accessId" class="mono text-[9px] uppercase tracking-[.15em] text-gray-500">Access ID</label><input id="accessId" required class="mt-2 w-full border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none focus:border-signal" placeholder="ENTER ACCESS ID"></div>
-        <div><label for="accessKey" class="mono text-[9px] uppercase tracking-[.15em] text-gray-500">Security Key</label><input id="accessKey" type="password" required class="mt-2 w-full border border-white/10 bg-black px-4 py-3 text-sm text-white outline-none focus:border-magenta" placeholder="••••••••••••"></div>
-        <button class="cut-button w-full bg-white px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-black hover:bg-zia">Authenticate</button>
-      </form>
-      <p id="loginStatus" class="mt-5 hidden mono text-[9px] uppercase tracking-[.12em] text-magenta"></p>
-      <p class="mt-6 text-xs leading-5 text-gray-700">This interface is a presentation layer only. Production repository access requires server-side authentication, authorization, audit logging, and encrypted session management.</p>
+  <div id="gateModal" class="hidden-modal modal-bg fixed inset-0 z-[100] grid place-items-center overflow-y-auto p-5" role="dialog" aria-modal="true">
+    <div class="frame relative my-8 w-full max-w-2xl p-7 md:p-9"><button onclick="closeGate()" class="absolute right-4 top-4 mono text-xs text-gray-500 hover:text-white">X</button><div class="mb-7"><div class="display text-2xl font-bold uppercase tracking-[.12em] text-white">ZIAWOLF Access Gate</div><p class="mt-2 mono text-[9px] uppercase tracking-[.14em] text-gray-600">Public guest access // Member registration // Secure login</p></div><div class="mb-7 grid grid-cols-3 gap-2"><button id="tabGuest" onclick="showPanel('guest')" class="border border-white/10 px-3 py-3 mono text-[9px] uppercase">Guest</button><button id="tabRegister" onclick="showPanel('register')" class="border border-white/10 px-3 py-3 mono text-[9px] uppercase">Register</button><button id="tabLogin" onclick="showPanel('login')" class="border border-white/10 px-3 py-3 mono text-[9px] uppercase">Login</button></div>
+      <section id="panelGuest"><h2 class="text-xl font-bold text-white">Welcome, guest.</h2><p class="mt-3 text-sm leading-6 text-gray-500">Enter the public site without an account. Protected project briefs and member materials remain locked.</p><div class="mt-6"><label class="mono text-[9px] uppercase text-gray-500">Email, optional</label><input id="guestEmail" type="email" class="field mt-2" placeholder="you@example.com"></div><label class="mt-5 flex items-start gap-3 text-sm text-gray-400"><input id="guestConsent" type="checkbox" class="mt-1 accent-[#e8b34d]"><span>Allow Gavin Lujan / ZIAWOLF to contact me with relevant information. I may opt out at any time.</span></label><button onclick="enterGuest()" class="cut mt-7 w-full bg-white px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-black hover:bg-zia">Acknowledge & Enter as Guest</button></section>
+      <section id="panelRegister" class="hidden"><h2 class="text-xl font-bold text-white">Request member access.</h2><p class="mt-3 text-sm leading-6 text-gray-500">Submit your email and purpose. After approval, the secure system will display a one-time QR code for Google Authenticator, Microsoft Authenticator, 1Password, or another TOTP app.</p><form onsubmit="requestAccess(event)" class="mt-6 space-y-4"><input id="regName" class="field" required placeholder="Full name"><input id="regEmail" type="email" class="field" required placeholder="Email address"><textarea id="regPurpose" class="field min-h-24" required placeholder="Why are you requesting access?"></textarea><label class="flex items-start gap-3 text-sm text-gray-400"><input id="regConsent" required type="checkbox" class="mt-1 accent-[#e8b34d]"><span>I agree to be contacted about this access request and related information.</span></label><button class="cut w-full bg-zia px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-black">Submit Access Request</button></form><p class="mt-5 text-xs leading-5 text-gray-600">Security note: the authenticator QR code must not be emailed because it contains the account's MFA secret. It should be displayed once inside an encrypted enrollment session.</p></section>
+      <section id="panelLogin" class="hidden"><h2 class="text-xl font-bold text-white">Member login.</h2><form onsubmit="memberLogin(event)" class="mt-6 space-y-4"><input id="loginEmail" type="email" class="field" required placeholder="Email address"><input id="loginPassword" type="password" class="field" required placeholder="Password"><input id="loginTotp" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" class="field" required placeholder="6-digit authenticator code"><button class="cut w-full bg-white px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-black hover:bg-terminal">Authenticate</button></form><p id="loginStatus" class="mt-5 hidden mono text-[9px] uppercase tracking-[.12em] text-magenta"></p></section>
     </div>
   </div>
+  <div id="toast" class="toast hidden"></div>
 
   <script>
-    const modal = document.getElementById('vaultModal');
-    function openVault() { modal.classList.remove('hidden-modal'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('accessId').focus(), 50); }
-    function closeVault() { modal.classList.add('hidden-modal'); document.body.style.overflow = ''; document.getElementById('loginStatus').classList.add('hidden'); }
-    function attemptLogin(event) {
-      event.preventDefault();
-      const status = document.getElementById('loginStatus');
-      status.textContent = 'ACCESS REQUEST RECORDED // ADMINISTRATOR APPROVAL REQUIRED';
-      status.classList.remove('hidden');
-    }
-    modal.addEventListener('click', (event) => { if (event.target === modal) closeVault(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeVault(); });
+    const gate=document.getElementById('gateModal');
+    function openGate(panel='guest'){gate.classList.remove('hidden-modal');document.body.style.overflow='hidden';showPanel(panel)}
+    function closeGate(){gate.classList.add('hidden-modal');document.body.style.overflow=''}
+    function showPanel(name){['guest','register','login'].forEach(x=>{document.getElementById('panel'+x[0].toUpperCase()+x.slice(1)).classList.toggle('hidden',x!==name);document.getElementById('tab'+x[0].toUpperCase()+x.slice(1)).classList.toggle('tab-active',x===name)})}
+    function notify(message){const t=document.getElementById('toast');t.textContent=message;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),5000)}
+    function enterGuest(){const email=document.getElementById('guestEmail').value.trim();const consent=document.getElementById('guestConsent').checked;localStorage.setItem('ziawolfGuest','true');localStorage.setItem('ziawolfContactConsent',consent?'yes':'no');if(email)localStorage.setItem('ziawolfGuestEmail',email);closeGate();notify('WELCOME, GUEST // PUBLIC ACCESS GRANTED')}
+    function requestAccess(e){e.preventDefault();const name=encodeURIComponent(document.getElementById('regName').value);const email=encodeURIComponent(document.getElementById('regEmail').value);const purpose=encodeURIComponent(document.getElementById('regPurpose').value);const subject=encodeURIComponent('ZIAWOLF Member Access Request');const body=encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\nAccess purpose:\n${decodeURIComponent(purpose)}\n\nContact consent: Yes`);window.location.href=`mailto:gavinlujan@gmail.com?subject=${subject}&body=${body}`;notify('ACCESS REQUEST PREPARED // COMPLETE IT IN YOUR EMAIL APP')}
+    function memberLogin(e){e.preventDefault();const s=document.getElementById('loginStatus');s.textContent='SECURE BACKEND NOT CONNECTED // AUTHENTICATION CANNOT YET BE VERIFIED';s.classList.remove('hidden')}
+    function protectedBrief(){openGate('login')}
+    function sendQuickMessage(e){e.preventDefault();const name=document.getElementById('contactName').value;const email=document.getElementById('contactEmail').value;const msg=document.getElementById('contactMessage').value;const subject=encodeURIComponent('Website inquiry from '+name);const body=encodeURIComponent(`Hello Gavin,\n\n${msg}\n\nFrom: ${name}\nEmail: ${email}`);window.location.href=`mailto:gavinlujan@gmail.com?subject=${subject}&body=${body}`}
+    gate.addEventListener('click',e=>{if(e.target===gate)closeGate()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGate()});window.addEventListener('DOMContentLoaded',()=>{if(localStorage.getItem('ziawolfGuest')!=='true')openGate('guest')});
   </script>
 </body>
 </html>
