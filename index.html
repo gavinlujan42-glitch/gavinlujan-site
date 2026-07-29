@@ -3,57 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gavin Lujan, innovative executive technology leader specializing in CIO strategy, enterprise architecture, cybersecurity, cloud integration, human-centered design, and resilient modernization." />
-  <title>Gavin Lujan | Innovative Executive Technology Leader</title>
+  <meta name="description" content="Gavin Lujan is an innovative executive technology leader focused on CIO strategy, cybersecurity, cloud integration, human-centered design, and resilient modernization." />
+  <title>Gavin Lujan | Innovative Technology Executive</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{void:'#040405',ink:'#09090c',signal:'#4968ff',magenta:'#f02b87',zia:'#e8b34d',terminal:'#64efbd',bone:'#e8e3d7'}}}};</script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{night:'#070809',panel:'#0d0f11',bone:'#eeeae1',zia:'#d6a84b',steel:'#9ca3af'}}}};
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;padding:14px;font-family:Inter,sans-serif;color:#aaaab5;background:radial-gradient(circle at 88% 8%,rgba(240,43,135,.08),transparent 27rem),radial-gradient(circle at 8% 28%,rgba(73,104,255,.1),transparent 35rem),#040405;overflow-x:hidden}body:before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 92%)}.display,.feather{font-family:Oswald,sans-serif}.mono{font-family:'JetBrains Mono',monospace}.feather{font-weight:700;text-transform:uppercase;letter-spacing:-.045em;line-height:.9}.card{position:relative;background:linear-gradient(145deg,rgba(15,15,20,.97),rgba(7,7,10,.97));border:1px solid rgba(255,255,255,.08);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));transition:.3s}.card:before{content:'';position:absolute;left:0;top:0;width:44%;height:1px;background:linear-gradient(90deg,#e8b34d,transparent)}.card:hover{transform:translateY(-4px);border-color:rgba(73,104,255,.6)}.cut{clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px)}.frame{border:1px solid rgba(232,179,77,.24);background:rgba(8,8,11,.96)}.field{width:100%;border:1px solid rgba(255,255,255,.12);background:#000;padding:.8rem 1rem;color:#fff;outline:none}.field:focus{border-color:#4968ff}.avanyu-frame{position:fixed;inset:0;z-index:120;pointer-events:none}.avanyu-frame svg{width:100%;height:100%}.avanyu-path{fill:none;stroke:#000;stroke-width:16;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(232,179,77,.16))}.avanyu-detail{fill:none;stroke:#1b1b1b;stroke-width:2.5;stroke-linecap:round}.earth-dedication{position:fixed;left:50%;bottom:7px;z-index:121;transform:translateX(-50%);pointer-events:none;white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,227,215,.38)}@media(max-width:700px){body{padding:8px}.avanyu-path{stroke-width:10}.earth-dedication{font-size:6px;letter-spacing:.1em}}
+    :root{color-scheme:dark}
+    *{box-sizing:border-box}
+    body{margin:0;background:#070809;color:#9ca3af;font-family:Inter,sans-serif;overflow-x:hidden}
+    body:before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 80% 5%,rgba(214,168,75,.07),transparent 28rem)}
+    .display{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:-.035em;line-height:.95}
+    .eyebrow{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:#d6a84b;font-weight:600}
+    .panel{background:rgba(13,15,17,.82);border:1px solid rgba(255,255,255,.08)}
+    .rule{height:1px;background:linear-gradient(90deg,#d6a84b,rgba(214,168,75,0))}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;transition:.2s}
+    .btn-primary{background:#eeeae1;color:#070809}
+    .btn-primary:hover{background:#d6a84b}
+    .btn-secondary{border:1px solid rgba(214,168,75,.45);color:#d6a84b}
+    .btn-secondary:hover{background:#d6a84b;color:#070809}
+    .field{width:100%;border:1px solid rgba(255,255,255,.12);background:#090a0b;padding:.85rem 1rem;color:#fff;outline:none}
+    .field:focus{border-color:#d6a84b}
+    .avanyu{position:fixed;inset:10px;z-index:100;pointer-events:none;border:1px solid rgba(214,168,75,.12)}
+    .avanyu:before,.avanyu:after{content:'';position:absolute;width:72px;height:1px;background:#d6a84b;opacity:.55}
+    .avanyu:before{top:-1px;left:28px}.avanyu:after{right:28px;bottom:-1px}
+    @media(max-width:700px){.avanyu{inset:5px}.desktop-nav{display:none}}
   </style>
 </head>
-<body class="min-h-screen selection:bg-magenta selection:text-white">
-  <div class="avanyu-frame" aria-hidden="true">
-    <svg viewBox="0 0 1600 1000" preserveAspectRatio="none">
-      <path class="avanyu-path" d="M34 870 C22 710 30 500 42 328 C52 185 82 84 190 44 C360 -18 560 58 704 38 C852 18 1018 -12 1170 38 C1298 80 1392 58 1516 126 C1580 162 1572 290 1560 408 C1548 532 1585 648 1550 786 C1520 906 1402 960 1270 956 C1120 952 1000 918 850 948 C680 982 504 960 342 952 C184 944 62 930 34 870 Z"/>
-      <path class="avanyu-detail" d="M95 205 C210 88 376 126 516 96 M1090 84 C1240 66 1402 116 1502 220 M1498 760 C1380 854 1210 878 1070 856 M532 900 C350 928 186 878 78 786"/>
-      <path class="avanyu-detail" d="M60 330 Q90 300 120 330 T180 330 T240 330 M1360 690 Q1390 660 1420 690 T1480 690 T1540 690"/>
-      <path d="M148 78 L184 42 L214 90 L180 78 Z" fill="#000"/><circle cx="177" cy="63" r="4" fill="#e8b34d"/>
-      <path d="M1458 914 L1418 952 L1390 904 L1425 916 Z" fill="#000"/><circle cx="1428" cy="932" r="4" fill="#64efbd"/>
-    </svg>
-  </div>
-  <div class="earth-dedication">With respect to the Earth and all her children</div>
+<body class="selection:bg-zia selection:text-night">
+  <div class="avanyu" aria-hidden="true"></div>
 
-  <header class="sticky top-0 z-50 border-b border-white/5 bg-void/90 backdrop-blur-xl">
-    <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-5 px-6 py-5">
-      <a href="#home" class="flex items-center gap-4"><div class="grid h-12 w-12 place-items-center border border-zia/40 bg-black text-zia"><svg class="h-8 w-8" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="5"/><path d="M50 2V27M50 73V98M2 50H27M73 50H98" stroke="currentColor" stroke-width="5"/></svg></div><div><div class="display text-base font-bold tracking-[.2em] text-white">GAVIN LUJAN</div><div class="mono text-[9px] uppercase tracking-[.18em] text-gray-500">Innovative Executive Technology Leader</div></div></a>
-      <div class="flex flex-wrap items-center gap-5 mono text-[9px] uppercase tracking-[.16em] text-gray-500"><a href="#capabilities" class="hover:text-signal">Capabilities</a><a href="#doctrine" class="hover:text-signal">Doctrine</a><a href="#journal" class="hover:text-signal">Projects</a><a href="#engage" class="hover:text-magenta">Contact</a><a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="text-zia hover:text-white" aria-label="Gavin Lujan on LinkedIn">LinkedIn</a></div>
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-night/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <a href="#home" class="flex items-center gap-3">
+        <svg class="h-8 w-8 text-zia" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="13" stroke="currentColor" stroke-width="5"/><path d="M50 2V27M50 73V98M2 50H27M73 50H98" stroke="currentColor" stroke-width="5"/></svg>
+        <div>
+          <div class="text-sm font-bold tracking-[.18em] text-white">GAVIN LUJAN</div>
+          <div class="text-[9px] uppercase tracking-[.16em] text-gray-600">Innovative Technology Executive</div>
+        </div>
+      </a>
+      <div class="desktop-nav flex items-center gap-7 text-[10px] font-semibold uppercase tracking-[.15em] text-gray-500">
+        <a href="#expertise" class="hover:text-white">Expertise</a>
+        <a href="#approach" class="hover:text-white">Approach</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="text-zia hover:text-white">LinkedIn</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section id="home" class="border-b border-white/5"><div class="mx-auto grid min-h-[78vh] max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.1fr_.9fr]"><div><p class="mono text-xs uppercase tracking-[.4em] text-zia">Innovative Executive Technology Leadership</p><h1 class="feather mt-5 text-6xl text-white sm:text-7xl lg:text-[7rem]">Design the system.<br><span class="bg-gradient-to-r from-signal via-indigo-300 to-magenta bg-clip-text text-transparent">Strengthen the human.</span></h1><p class="mt-9 max-w-2xl text-lg font-light leading-8 text-gray-400">CIO strategy, enterprise architecture, cybersecurity, cloud integration, human-centered operating design, and resilient mission delivery.</p><div class="mt-10 flex flex-wrap gap-4"><a href="#engage" class="cut bg-white px-8 py-4 text-xs font-black uppercase tracking-[.18em] text-black hover:bg-magenta hover:text-white">Start a Conversation</a><a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="cut border border-zia/40 px-8 py-4 text-xs font-black uppercase tracking-[.18em] text-zia hover:bg-zia hover:text-black">Connect on LinkedIn</a></div></div><div class="frame p-8"><div class="mono text-[10px] uppercase tracking-[.2em] text-terminal">● Public command layer online</div><div class="mt-8 grid gap-4 sm:grid-cols-2"><div class="card p-6"><div class="mono text-[9px] text-signal">CLOUD</div><h3 class="mt-4 font-bold text-white">System Integration</h3><p class="mt-2 text-sm leading-6 text-gray-500">Identity, data, applications, infrastructure, and observability connected with discipline.</p></div><div class="card p-6"><div class="mono text-[9px] text-magenta">HUMAN</div><h3 class="mt-4 font-bold text-white">Operating Design</h3><p class="mt-2 text-sm leading-6 text-gray-500">Clear roles, decisions, ownership, and service experiences.</p></div><div class="card p-6"><div class="mono text-[9px] text-zia">NIST</div><h3 class="mt-4 font-bold text-white">CSF + RMF</h3><p class="mt-2 text-sm leading-6 text-gray-500">Govern, identify, protect, detect, respond, recover, and continuously monitor.</p></div><div class="card p-6"><div class="mono text-[9px] text-terminal">MISSION</div><h3 class="mt-4 font-bold text-white">Resilient Delivery</h3><p class="mt-2 text-sm leading-6 text-gray-500">Modernization linked to measurable risk reduction and operational outcomes.</p></div></div></div></div></section>
+    <section id="home" class="border-b border-white/5">
+      <div class="mx-auto grid min-h-[76vh] max-w-6xl items-center gap-14 px-6 py-20 lg:grid-cols-[1.25fr_.75fr]">
+        <div>
+          <p class="eyebrow">Executive Technology Leadership</p>
+          <h1 class="display mt-6 max-w-4xl text-6xl text-white sm:text-7xl lg:text-8xl">Modern systems.<br><span class="text-zia">Human purpose.</span></h1>
+          <p class="mt-8 max-w-2xl text-lg font-light leading-8 text-gray-400">I lead complex technology organizations through modernization, cybersecurity, cloud integration, and mission-focused change.</p>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-primary">Start a conversation</a>
+            <a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View LinkedIn</a>
+          </div>
+        </div>
+        <aside class="panel p-8">
+          <p class="eyebrow">Leadership Focus</p>
+          <div class="rule mt-5"></div>
+          <div class="mt-7 space-y-7">
+            <div><h2 class="font-semibold text-white">Cloud System Integration</h2><p class="mt-2 text-sm leading-6">Connecting identity, data, applications, infrastructure, and operations into a coherent enterprise platform.</p></div>
+            <div><h2 class="font-semibold text-white">Cybersecurity & Risk</h2><p class="mt-2 text-sm leading-6">Applying NIST CSF and RMF as practical systems for governance, evidence, resilience, and continuous improvement.</p></div>
+            <div><h2 class="font-semibold text-white">Human-Centered Design</h2><p class="mt-2 text-sm leading-6">Clarifying ownership, decisions, service experiences, and the operating structures that help people succeed.</p></div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-    <section id="capabilities" class="mx-auto max-w-7xl px-6 py-24"><p class="mono text-[10px] uppercase tracking-[.25em] text-signal">01 // Executive Capabilities</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Command with clarity.<br>Build with consequence.</h2><div class="mt-12 grid gap-5 md:grid-cols-3"><article class="card p-8"><h3 class="text-xl font-bold text-white">CIO Advisory</h3><p class="mt-4 text-sm leading-7 text-gray-500">Portfolio strategy, modernization roadmaps, governance, executive briefings, and mission-aligned investment.</p></article><article class="card p-8"><h3 class="text-xl font-bold text-white">Cyber Architecture</h3><p class="mt-4 text-sm leading-7 text-gray-500">Zero Trust, defense in depth, identity, segmentation, resilience, monitoring, and threat-informed design.</p></article><article class="card p-8"><h3 class="text-xl font-bold text-white">Human Systems</h3><p class="mt-4 text-sm leading-7 text-gray-500">Roles, accountability, decision pathways, culture, change management, and service design.</p></article></div></section>
+    <section id="expertise" class="mx-auto max-w-6xl px-6 py-24">
+      <p class="eyebrow">Core Expertise</p>
+      <div class="mt-7 grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+        <h2 class="display text-5xl text-white md:text-6xl">Clarity at the intersection of strategy, systems, and service.</h2>
+        <div class="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">
+          <article class="bg-night p-7"><h3 class="font-semibold text-white">CIO Strategy</h3><p class="mt-3 text-sm leading-6">Portfolio governance, modernization roadmaps, investment alignment, and executive decision support.</p></article>
+          <article class="bg-night p-7"><h3 class="font-semibold text-white">Enterprise Architecture</h3><p class="mt-3 text-sm leading-6">Practical target states that unite applications, data, integration, infrastructure, and security.</p></article>
+          <article class="bg-night p-7"><h3 class="font-semibold text-white">Cyber Resilience</h3><p class="mt-3 text-sm leading-6">Zero Trust, defense in depth, identity, observability, continuity, and threat-informed design.</p></article>
+          <article class="bg-night p-7"><h3 class="font-semibold text-white">Organizational Design</h3><p class="mt-3 text-sm leading-6">Accountability, operating models, change leadership, culture, and sustainable delivery practices.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section id="doctrine" class="border-y border-white/5 bg-black py-24"><div class="mx-auto max-w-7xl px-6"><p class="mono text-[10px] uppercase tracking-[.25em] text-zia">02 // NIST CSF + RMF Doctrine</p><div class="mt-8 grid gap-12 lg:grid-cols-2"><div><h2 class="feather text-5xl text-white md:text-7xl">The code is resilience.<br>The mantra is evidence.</h2><p class="mt-7 leading-8 text-gray-500">Risk becomes a repeatable command language when governance, controls, evidence, authorization, and continuous monitoring operate as one system.</p></div><div class="frame p-8 mono text-sm uppercase leading-9 tracking-[.12em] text-bone">Govern the cycle.<br>Identify what matters.<br>Protect what matters.<br>Detect what changes.<br>Respond with discipline.<br>Recover stronger.</div></div></div></section>
+    <section id="approach" class="border-y border-white/5 bg-panel/50">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-2">
+        <div>
+          <p class="eyebrow">NIST CSF + RMF</p>
+          <h2 class="display mt-7 text-5xl text-white md:text-6xl">Resilience is the code.<br>Evidence is the language.</h2>
+        </div>
+        <div class="border-l border-zia/30 pl-8">
+          <p class="text-lg leading-8 text-gray-400">Govern what matters. Identify risk. Protect the mission. Detect change. Respond with discipline. Recover stronger.</p>
+          <p class="mt-6 text-sm leading-7">The framework is not decoration. It is the connective tissue between executive accountability, technical controls, operational evidence, and continuous monitoring.</p>
+        </div>
+      </div>
+    </section>
 
-    <section id="journal" class="mx-auto max-w-7xl px-6 py-24"><div><p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">03 // Field Journal</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Project signals from the edge.</h2></div><div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4"><article class="card p-6"><div class="mono text-[9px] text-magenta">PROJECT AVANYU</div><h3 class="mt-5 text-lg font-bold text-white">Sovereign Data Current</h3><p class="mt-3 text-sm leading-6 text-gray-500">Mission data, agent orchestration, provenance, and water-aware infrastructure.</p></article><article class="card p-6"><div class="mono text-[9px] text-signal">PROJECT IRON ACEQUIA</div><h3 class="mt-5 text-lg font-bold text-white">Integration Fabric</h3><p class="mt-3 text-sm leading-6 text-gray-500">Controlled flow, shared stewardship, hybrid integration, and continuity.</p></article><article class="card p-6"><div class="mono text-[9px] text-terminal">PROJECT HAWKGLASS</div><h3 class="mt-5 text-lg font-bold text-white">Cyber Observatory</h3><p class="mt-3 text-sm leading-6 text-gray-500">Board-facing telemetry, controls, dependencies, and decision intelligence.</p></article><article class="card p-6"><div class="mono text-[9px] text-zia">PROJECT NIGHTSHADE</div><h3 class="mt-5 text-lg font-bold text-white">Human-AI Doctrine</h3><p class="mt-3 text-sm leading-6 text-gray-500">Trusted AI collaboration, accountability, escalation, and evidence.</p></article></div></section>
-
-    <section id="engage" class="border-y border-white/5 bg-black py-24"><div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.1fr_.9fr]"><div><p class="mono text-[10px] uppercase tracking-[.25em] text-terminal">Channel // Open</p><h2 class="feather mt-7 text-5xl text-white md:text-7xl">Bring the hard problem.<br>Leave with a battle plan.</h2><p class="mt-7 max-w-2xl leading-8 text-gray-500">Contact Gavin directly, connect on LinkedIn, or use the quick message assistant to prepare an email.</p><div class="mt-8 flex flex-wrap gap-4"><a href="mailto:gavinlujan@gmail.com" class="text-zia underline underline-offset-8">gavinlujan@gmail.com</a><a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="text-signal underline underline-offset-8">linkedin.com/in/gavin-lujan505</a></div></div><form onsubmit="sendQuickMessage(event)" class="frame space-y-4 p-7"><div><label class="mono text-[9px] uppercase text-gray-500">Your name</label><input id="contactName" class="field mt-2" required></div><div><label class="mono text-[9px] uppercase text-gray-500">Your email</label><input id="contactEmail" type="email" class="field mt-2" required></div><div><label class="mono text-[9px] uppercase text-gray-500">What would you like to discuss?</label><textarea id="contactMessage" class="field mt-2 min-h-32" required></textarea></div><button class="cut w-full bg-gradient-to-r from-signal to-magenta px-6 py-3 text-xs font-black uppercase tracking-[.16em] text-white">Ask the Message Assistant</button><p class="text-xs leading-5 text-gray-600">This opens your email app with a prepared message. No message is transmitted by this page itself.</p></form></div></section>
+    <section id="contact" class="mx-auto max-w-6xl px-6 py-24">
+      <div class="grid gap-12 lg:grid-cols-[1fr_.85fr]">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 class="display mt-7 text-5xl text-white md:text-6xl">Bring the hard problem.</h2>
+          <p class="mt-6 max-w-xl leading-8">For leadership, modernization, cybersecurity, cloud integration, or strategic technology conversations, contact me directly.</p>
+          <div class="mt-8 flex flex-wrap gap-5 text-sm">
+            <a href="mailto:gavinlujan@gmail.com" class="text-zia hover:text-white">gavinlujan@gmail.com</a>
+            <a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="text-zia hover:text-white">linkedin.com/in/gavin-lujan505</a>
+          </div>
+        </div>
+        <form onsubmit="sendQuickMessage(event)" class="panel space-y-4 p-7">
+          <div><label class="text-[10px] uppercase tracking-[.15em] text-gray-500">Name</label><input id="contactName" class="field mt-2" required></div>
+          <div><label class="text-[10px] uppercase tracking-[.15em] text-gray-500">Email</label><input id="contactEmail" type="email" class="field mt-2" required></div>
+          <div><label class="text-[10px] uppercase tracking-[.15em] text-gray-500">Message</label><textarea id="contactMessage" class="field mt-2 min-h-32" required></textarea></div>
+          <button class="btn btn-primary w-full">Prepare email</button>
+          <p class="text-xs leading-5 text-gray-600">This opens your email application. The website does not store or transmit your message.</p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <footer class="px-6 py-10"><div class="mx-auto flex max-w-7xl flex-wrap justify-between gap-5 mono text-[9px] uppercase tracking-[.16em] text-gray-700"><p>© 2026 Gavin Lujan. All systems reserved.</p><div class="flex flex-wrap gap-5"><p>New Mexico rooted // Mission hardened</p><a href="https://www.linkedin.com/in/gavin-lujan505/" target="_blank" rel="noopener noreferrer" class="hover:text-zia">LinkedIn</a></div></div></footer>
+  <footer class="border-t border-white/5 px-6 py-8">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 text-[10px] uppercase tracking-[.14em] text-gray-700">
+      <p>© 2026 Gavin Lujan</p>
+      <p>New Mexico rooted · Mission focused</p>
+    </div>
+  </footer>
 
   <script>
-    function sendQuickMessage(e){e.preventDefault();const name=document.getElementById('contactName').value;const email=document.getElementById('contactEmail').value;const msg=document.getElementById('contactMessage').value;const subject=encodeURIComponent('Website inquiry from '+name);const body=encodeURIComponent(`Hello Gavin,
-
-${msg}
-
-From: ${name}
-Email: ${email}`);window.location.href=`mailto:gavinlujan@gmail.com?subject=${subject}&body=${body}`}
+    function sendQuickMessage(e){
+      e.preventDefault();
+      const name=document.getElementById('contactName').value;
+      const email=document.getElementById('contactEmail').value;
+      const msg=document.getElementById('contactMessage').value;
+      const subject=encodeURIComponent('Website inquiry from '+name);
+      const body=encodeURIComponent(`Hello Gavin,\n\n${msg}\n\nFrom: ${name}\nEmail: ${email}`);
+      window.location.href=`mailto:gavinlujan@gmail.com?subject=${subject}&body=${body}`;
+    }
   </script>
 </body>
 </html>
