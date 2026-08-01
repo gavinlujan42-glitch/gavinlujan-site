@@ -8,57 +8,23 @@
     ['ZT','Zero Trust','identity'],['ZT','Zero Trust','devices'],['ZT','Zero Trust','networks'],['ZT','Zero Trust','applications'],['ZT','Zero Trust','data'],['ZT','Zero Trust','visibility and analytics'],['ZT','Zero Trust','automation and orchestration'],
     ['AI','AI RMF','govern'],['AI','AI RMF','map'],['AI','AI RMF','measure'],['AI','AI RMF','manage']
   ];
-  const lenses = [
-    'define the mission outcome','name the accountable owner','establish measurable criteria','document the evidence trail','validate control effectiveness','prioritize by risk and consequence','design for resilience','communicate the decision plainly','monitor for meaningful change','improve through lessons learned'
-  ];
-  const signals = domains.flatMap(([code, framework, domain]) => lenses.map((lens, i) => ({
-    code: `${code}-${String(i + 1).padStart(2,'0')}`,
-    framework,
-    domain,
-    lens,
-    text: `${domain}: ${lens}`
-  })));
-
+  const lenses = ['define the mission outcome','name the accountable owner','establish measurable criteria','document the evidence trail','validate control effectiveness','prioritize by risk and consequence','design for resilience','communicate the decision plainly','monitor for meaningful change','improve through lessons learned'];
+  const signals = domains.flatMap(([code, framework, domain]) => lenses.map((lens, i) => ({code:`${code}-${String(i+1).padStart(2,'0')}`,framework,domain,lens,text:`${domain}: ${lens}`})));
   let index = Math.floor(Math.random() * signals.length);
-  const signalNodes = [...document.querySelectorAll('[data-security-signal]')];
-  const countNodes = [...document.querySelectorAll('[data-signal-count]')];
-  const frameworkNodes = [...document.querySelectorAll('[data-signal-framework]')];
-  const codeNodes = [...document.querySelectorAll('[data-signal-code]')];
-  const progressNodes = [...document.querySelectorAll('[data-signal-progress]')];
-  const cycleGroups = [...document.querySelectorAll('[data-cycle-group]')];
+  const signalNodes=[...document.querySelectorAll('[data-security-signal]')],countNodes=[...document.querySelectorAll('[data-signal-count]')],frameworkNodes=[...document.querySelectorAll('[data-signal-framework]')],codeNodes=[...document.querySelectorAll('[data-signal-code]')],progressNodes=[...document.querySelectorAll('[data-signal-progress]')],cycleGroups=[...document.querySelectorAll('[data-cycle-group]')];
+  countNodes.forEach(node=>node.textContent=String(signals.length));
+  function renderSignal(){const signal=signals[index%signals.length];signalNodes.forEach(node=>{node.classList.remove('signal-enter');void node.offsetWidth;node.textContent=signal.text;node.classList.add('signal-enter')});frameworkNodes.forEach(node=>node.textContent=signal.framework);codeNodes.forEach(node=>node.textContent=signal.code);progressNodes.forEach(node=>{node.style.animation='none';void node.offsetWidth;node.style.animation=`signalProgress ${intervalMs}ms linear forwards`});index=(index+1)%signals.length}
+  cycleGroups.forEach(group=>{const items=[...group.querySelectorAll('[data-cycle-item]')];if(!items.length)return;let active=0;items.forEach((item,i)=>item.classList.toggle('is-active',i===0));setInterval(()=>{items[active].classList.remove('is-active');active=(active+1)%items.length;items[active].classList.add('is-active')},intervalMs)});
+  renderSignal();setInterval(renderSignal,intervalMs);
 
-  countNodes.forEach(node => node.textContent = String(signals.length));
-
-  function renderSignal() {
-    const signal = signals[index % signals.length];
-    signalNodes.forEach(node => {
-      node.classList.remove('signal-enter');
-      void node.offsetWidth;
-      node.textContent = signal.text;
-      node.classList.add('signal-enter');
-    });
-    frameworkNodes.forEach(node => node.textContent = signal.framework);
-    codeNodes.forEach(node => node.textContent = signal.code);
-    progressNodes.forEach(node => {
-      node.style.animation = 'none';
-      void node.offsetWidth;
-      node.style.animation = `signalProgress ${intervalMs}ms linear forwards`;
-    });
-    index = (index + 1) % signals.length;
+  const feed=document.getElementById('signal-feed');
+  if(feed){
+    const terminal=document.createElement('div');
+    terminal.className='intel-terminal';
+    terminal.innerHTML=`<div class="intel-terminal-head"><div><span>EXECUTIVE INTELLIGENCE TERMINAL</span><b>AI / CYBER / CRITICAL INFRASTRUCTURE</b></div><div class="intel-clock" data-intel-clock>--:--:-- MDT</div></div><div class="intel-metrics"><div><span>EXECUTIVE RISK</span><b class="risk-elevated">ELEVATED ↗</b><small>OT exposure and AI-enabled attack velocity</small></div><div><span>ACTIVE WATCH</span><b>6 LANES</b><small>Identity · cloud · OT · AI · KEV · ransomware</small></div><div><span>AUTHORITATIVE SOURCES</span><b>7</b><small>Federal, nonprofit, research and response</small></div><div><span>REFRESH MODEL</span><b>WEEKLY</b><small>Curated for consequence and decision value</small></div></div><div class="intel-lanes"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener"><span>CISA</span><b>Known Exploited Vulnerabilities</b><small>Patch what attackers are using now.</small></a><a href="https://isc.sans.edu/" target="_blank" rel="noopener"><span>SANS ISC</span><b>Internet Storm Center</b><small>Internet-scale observations and handler diaries.</small></a><a href="https://www.cisecurity.org/insights" target="_blank" rel="noopener"><span>CIS / MS-ISAC</span><b>Controls, Benchmarks & Threat Insights</b><small>Actionable defense for public and private organizations.</small></a><a href="https://www.nist.gov/artificial-intelligence" target="_blank" rel="noopener"><span>NIST</span><b>AI Security & Risk</b><small>Standards, agent security and continuous monitoring.</small></a><a href="https://attack.mitre.org/" target="_blank" rel="noopener"><span>MITRE</span><b>ATT&CK Knowledge Base</b><small>Adversary behaviors mapped to defensive action.</small></a><a href="https://www.waterisac.org/" target="_blank" rel="noopener"><span>WATER-ISAC</span><b>Water Sector Intelligence</b><small>Critical-infrastructure awareness for water operators.</small></a></div><div class="intel-bottom"><span><i></i> SIGNAL MODE: CURATED, SOURCED, ATTRIBUTION-AWARE</span><a href="https://avanyu.tech" target="_blank" rel="noopener">OPEN AVANYU DEEP INTELLIGENCE →</a></div>`;
+    const heading=feed.querySelector('.section-heading');
+    if(heading) heading.insertAdjacentElement('afterend',terminal); else feed.prepend(terminal);
+    const clock=terminal.querySelector('[data-intel-clock]');
+    const tick=()=>{clock.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())+' MDT'};tick();setInterval(tick,1000);
   }
-
-  cycleGroups.forEach(group => {
-    const items = [...group.querySelectorAll('[data-cycle-item]')];
-    if (!items.length) return;
-    let active = 0;
-    items.forEach((item, i) => item.classList.toggle('is-active', i === 0));
-    setInterval(() => {
-      items[active].classList.remove('is-active');
-      active = (active + 1) % items.length;
-      items[active].classList.add('is-active');
-    }, intervalMs);
-  });
-
-  renderSignal();
-  setInterval(renderSignal, intervalMs);
 })();
