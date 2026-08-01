@@ -27,4 +27,47 @@
     const clock=terminal.querySelector('[data-intel-clock]');
     const tick=()=>{clock.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())+' MDT'};tick();setInterval(tick,1000);
   }
+
+  const style=document.createElement('style');
+  style.textContent=`
+  .meeting-bot-launch{position:fixed;right:22px;bottom:22px;z-index:120;border:1px solid #50ff91;background:#04130a;color:#baffd0;padding:13px 17px;font:600 11px/1.2 "Josefin Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 0 28px rgba(80,255,145,.24)}
+  .meeting-bot-launch:before{content:"";display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:#50ff91;box-shadow:0 0 12px #50ff91;animation:meetingPulse 1.8s infinite}
+  .meeting-bot{position:fixed;right:22px;bottom:78px;z-index:121;width:min(390px,calc(100vw - 28px));height:min(610px,calc(100vh - 110px));display:none;flex-direction:column;border:1px solid rgba(80,255,145,.55);background:rgba(2,9,5,.97);color:#d7ffe3;box-shadow:0 0 50px rgba(20,255,100,.16);backdrop-filter:blur(16px)}
+  .meeting-bot.is-open{display:flex}.meeting-head{display:flex;justify-content:space-between;align-items:center;padding:15px 16px;border-bottom:1px solid rgba(80,255,145,.2);background:linear-gradient(90deg,rgba(80,255,145,.08),transparent)}
+  .meeting-head span,.meeting-head b{display:block}.meeting-head span{font-size:9px;letter-spacing:.18em;color:#50ff91}.meeting-head b{font-size:13px;letter-spacing:.11em;margin-top:3px}.meeting-close{border:0;background:none;color:#8dffb4;font-size:20px;cursor:pointer}.meeting-log{flex:1;overflow:auto;padding:15px}.meeting-msg{max-width:88%;margin:0 0 11px;padding:11px 12px;border:1px solid rgba(255,255,255,.1);font-size:13px;line-height:1.5}.meeting-msg.bot{background:#07150d;border-color:rgba(80,255,145,.22)}.meeting-msg.user{margin-left:auto;background:#101512;color:#fff}.meeting-options{display:flex;flex-wrap:wrap;gap:7px;margin:3px 0 14px}.meeting-options button{border:1px solid rgba(80,255,145,.34);background:#061109;color:#a8ffc4;padding:8px 9px;font:600 10px "Josefin Sans",sans-serif;letter-spacing:.08em;cursor:pointer}.meeting-options button:hover{background:#50ff91;color:#041007}.meeting-form{display:flex;gap:7px;padding:12px;border-top:1px solid rgba(80,255,145,.18)}.meeting-form input{min-width:0;flex:1;border:1px solid rgba(80,255,145,.25);background:#020704;color:#fff;padding:11px;font:13px "Josefin Sans",sans-serif}.meeting-form button{border:1px solid #50ff91;background:#50ff91;color:#031008;padding:0 14px;font-weight:700;cursor:pointer}.meeting-foot{padding:8px 12px;color:rgba(190,255,210,.48);font-size:9px;letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.06)}
+  @keyframes meetingPulse{50%{opacity:.35;transform:scale(.8)}}@media(max-width:600px){.meeting-bot-launch{right:14px;bottom:14px}.meeting-bot{right:14px;bottom:68px;height:calc(100vh - 94px)}}@media(prefers-reduced-motion:reduce){.meeting-bot-launch:before{animation:none}}
+  `;
+  document.head.appendChild(style);
+
+  const launcher=document.createElement('button');
+  launcher.className='meeting-bot-launch';
+  launcher.type='button';
+  launcher.textContent='Schedule a discussion';
+  launcher.setAttribute('aria-expanded','false');
+  document.body.appendChild(launcher);
+
+  const bot=document.createElement('section');
+  bot.className='meeting-bot';
+  bot.setAttribute('aria-label','Gavin Lujan meeting concierge');
+  bot.innerHTML=`<div class="meeting-head"><div><span>GREEN SIGNAL · MEETING TRIAGE</span><b>GAVIN LUJAN CONCIERGE</b></div><button class="meeting-close" aria-label="Close">×</button></div><div class="meeting-log" aria-live="polite"></div><form class="meeting-form"><input autocomplete="off" aria-label="Your response" placeholder="Type your response"><button type="submit">SEND</button></form><div class="meeting-foot">LOCAL CONCIERGE · DETAILS OPEN IN YOUR EMAIL CLIENT</div>`;
+  document.body.appendChild(bot);
+
+  const log=bot.querySelector('.meeting-log'),form=bot.querySelector('.meeting-form'),input=form.querySelector('input');
+  const state={step:0,name:'',email:'',topic:'',outcome:'',timing:'',format:'',notes:''};
+  const steps=[
+    {key:'name',ask:'Welcome. I can prepare a meeting request for Gavin. What is your name?',placeholder:'Your name'},
+    {key:'email',ask:'What email address should Gavin use to reply?',placeholder:'name@example.com'},
+    {key:'topic',ask:'What would you like to discuss?',placeholder:'Cybersecurity, modernization, AI, collaboration...'},
+    {key:'outcome',ask:'What outcome would make the meeting useful?',placeholder:'Decision, advice, partnership, project review...'},
+    {key:'timing',ask:'When would you prefer to meet? Include your time zone.',placeholder:'Tuesday afternoon, Mountain Time'},
+    {key:'format',ask:'Which meeting format works best?',options:['Video call','Phone call','In person','Flexible']},
+    {key:'notes',ask:'Any final context, links, deadlines, or attendees to include?',placeholder:'Optional details or type none'}
+  ];
+  const add=(text,type='bot')=>{const div=document.createElement('div');div.className=`meeting-msg ${type}`;div.textContent=text;log.appendChild(div);log.scrollTop=log.scrollHeight};
+  const ask=()=>{const s=steps[state.step];if(!s)return finish();add(s.ask);input.placeholder=s.placeholder||'Choose an option';input.disabled=!!s.options;if(s.options){const options=document.createElement('div');options.className='meeting-options';s.options.forEach(label=>{const button=document.createElement('button');button.type='button';button.textContent=label;button.addEventListener('click',()=>answer(label));options.appendChild(button)});log.appendChild(options);log.scrollTop=log.scrollHeight}else{setTimeout(()=>input.focus(),50)}};
+  const answer=value=>{const clean=value.trim();if(!clean)return;if(state.step===1&&!/^\S+@\S+\.\S+$/.test(clean)){add('Please enter a valid email address so Gavin can respond.');return}state[steps[state.step].key]=clean;add(clean,'user');state.step++;input.value='';input.disabled=false;ask()};
+  const finish=()=>{const subject=encodeURIComponent(`Meeting request from ${state.name}: ${state.topic}`);const body=encodeURIComponent(`Hello Gavin,\n\nI would like to schedule a meeting.\n\nName: ${state.name}\nEmail: ${state.email}\nTopic: ${state.topic}\nDesired outcome: ${state.outcome}\nPreferred timing: ${state.timing}\nFormat: ${state.format}\nAdditional context: ${state.notes}\n\nThank you.`);add('Your meeting brief is ready. Select the button below to open the completed request in your email client.');const actions=document.createElement('div');actions.className='meeting-options';actions.innerHTML=`<button type="button" data-email>EMAIL GAVIN</button><button type="button" data-restart>START OVER</button>`;actions.querySelector('[data-email]').addEventListener('click',()=>{window.location.href=`mailto:gavinlujan@gmail.com?subject=${subject}&body=${body}`});actions.querySelector('[data-restart]').addEventListener('click',()=>{Object.assign(state,{step:0,name:'',email:'',topic:'',outcome:'',timing:'',format:'',notes:''});log.innerHTML='';ask()});log.appendChild(actions);input.disabled=true;log.scrollTop=log.scrollHeight};
+  form.addEventListener('submit',event=>{event.preventDefault();if(!input.disabled)answer(input.value)});
+  const toggle=open=>{bot.classList.toggle('is-open',open);launcher.setAttribute('aria-expanded',String(open));if(open&&!log.children.length)ask()};
+  launcher.addEventListener('click',()=>toggle(!bot.classList.contains('is-open')));bot.querySelector('.meeting-close').addEventListener('click',()=>toggle(false));
 })();
