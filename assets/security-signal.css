@@ -121,3 +121,46 @@ nav a:hover{color:#fff;text-shadow:0 0 16px rgba(105,231,255,.5)}
 @media(prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
 }
+
+
+/* Zia identity + active intelligence pane */
+.zia-mark{position:relative;border:0;border-radius:0;width:54px;height:54px;overflow:visible}
+.zia-mark:before,.zia-mark:after,.zia-mark i:before,.zia-mark i:after{
+  content:"";position:absolute;left:50%;top:50%;background:var(--elite-cyan);
+  box-shadow:0 0 13px rgba(105,231,255,.65);transform-origin:center;
+}
+.zia-mark i{position:absolute;left:50%;top:50%;width:17px;height:17px;border:2px solid var(--elite-cyan);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px rgba(105,231,255,.38)}
+.zia-mark:before{width:2px;height:50px;transform:translate(-50%,-50%)}
+.zia-mark:after{width:50px;height:2px;transform:translate(-50%,-50%)}
+.zia-mark i:before{width:2px;height:42px;transform:translate(-50%,-50%) rotate(45deg)}
+.zia-mark i:after{width:42px;height:2px;transform:translate(-50%,-50%) rotate(45deg)}
+.zia-mark{animation:zia-breathe 4s ease-in-out infinite}
+.zia-mark i{animation:zia-core 5.5s linear infinite}
+@keyframes zia-breathe{50%{filter:drop-shadow(0 0 10px rgba(105,231,255,.58));transform:scale(1.045)}}
+@keyframes zia-core{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.intel-command-bar{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem}
+.intel-command-bar .feed-updated{grid-column:1/-1;padding-top:.8rem;border-top:1px solid rgba(105,231,255,.1)}
+.intel-refresh{display:inline-flex;align-items:center;gap:.65rem;padding:.9rem 1rem;border:1px solid rgba(105,231,255,.45);background:linear-gradient(135deg,rgba(105,231,255,.14),rgba(127,255,193,.05));color:#eaffff;font:600 .6rem "Josefin Sans";letter-spacing:.14em;cursor:pointer;transition:.2s}
+.intel-refresh:hover{background:rgba(105,231,255,.2);box-shadow:0 0 28px rgba(105,231,255,.12);transform:translateY(-1px)}
+.intel-refresh:disabled{opacity:.65;cursor:wait}
+.intel-refresh-icon{font-size:1.15rem;color:var(--elite-cyan);line-height:1}
+.intel-refresh.is-loading .intel-refresh-icon{animation:intel-spin .8s linear infinite}
+@keyframes intel-spin{to{transform:rotate(360deg)}}
+.active-threat-head{display:grid;grid-template-columns:1fr .65fr;gap:3rem;align-items:end;padding:1.4rem 0 1rem;border-bottom:1px solid rgba(105,231,255,.22)}
+.active-threat-head span{font-size:.55rem;letter-spacing:.19em;color:var(--elite-cyan)}
+.active-threat-head h3{font:400 1.75rem "Poiret One";color:#fff;margin:.35rem 0 0}
+.active-threat-head p{margin:0;color:rgba(224,241,246,.52);font-size:.74rem}
+.live-threat-pane{display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid var(--line)}
+.live-threat-card{position:relative;display:grid;grid-template-columns:54px 1fr;min-height:230px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(145deg,rgba(105,231,255,.04),transparent 48%),#05090b}
+.live-threat-rank{display:grid;place-items:center;border-right:1px solid rgba(105,231,255,.13);color:rgba(105,231,255,.42);font:300 1rem "Josefin Sans";letter-spacing:.08em}
+.live-threat-copy{padding:1.35rem}
+.live-threat-copy span{color:var(--elite-cyan);font-size:.52rem;letter-spacing:.13em}
+.live-threat-copy h3{font:400 1.25rem "Poiret One";line-height:1.2;color:#fff;margin:1rem 0 .65rem}
+.live-threat-copy p{color:rgba(224,241,246,.55);font-size:.72rem;margin:0 0 1rem}
+.live-threat-copy a{color:var(--elite-cyan);font-size:.54rem;letter-spacing:.13em;text-decoration:none}
+.live-threat-card:hover{background:linear-gradient(145deg,rgba(105,231,255,.09),transparent 55%),#070d0f}
+.incident-divider{display:flex;align-items:center;gap:1rem;margin:2.2rem 0 1rem;color:rgba(224,241,246,.36);font-size:.53rem;letter-spacing:.18em}
+.incident-divider:after{content:"";height:1px;flex:1;background:var(--line)}
+@media(max-width:900px){.live-threat-pane{grid-template-columns:1fr}.active-threat-head{grid-template-columns:1fr}.intel-command-bar{grid-template-columns:1fr}}
+@media(max-width:640px){.zia-mark{width:46px;height:46px}.live-threat-card{grid-template-columns:42px 1fr}.intel-refresh{width:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.zia-mark,.zia-mark i{animation:none}}
