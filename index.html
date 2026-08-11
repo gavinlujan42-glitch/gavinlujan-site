@@ -11,10 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/nexus-executive.css?v=20260801-2">
 <link rel="stylesheet" href="assets/story.css?v=20260801-4">
-<link rel="stylesheet" href="assets/security-signal.css?v=20260810-3">
+<link rel="stylesheet" href="assets/security-signal.css?v=20260810-4">
 <link rel="stylesheet" href="assets/insights.css?v=20260809-1">
 <script defer src="assets/framework-rotator.js?v=20260801-1"></script>
 <script defer src="assets/live-intel.js?v=20260810-1"></script>
+<script defer src="assets/soc-visibility.js?v=20260810-1"></script>
 </head>
 <body>
 <div class="grain" aria-hidden="true">
@@ -34,6 +35,7 @@
 <nav>
 <a href="#story">Story</a>
 <a href="#signal-feed">Cyber Signal</a>
+<a href="#soc-center">SOC Center</a>
 <a href="#journey">Journey</a>
 <a href="#matrix">Capabilities</a>
 <a href="#method">Method</a>
@@ -281,6 +283,50 @@
 <b>04 · GOVERN AI AGENTS</b>Bound tools, permissions, data, logging, and human approval.</span>
 </div>
 <div class="feed-note">Editorial note: Reporting on the water incidents is evolving. Federal agencies had not issued a final public attribution at the time of this update. The feed presents operationally relevant facts and labels unresolved claims rather than turning uncertainty into theater.</div>
+</section>
+
+<section id="soc-center" class="soc-center section-shell" data-soc-center>
+<div class="soc-heading">
+<div><p class="eyebrow">RANGER-INSPIRED · SOC / NOC COMMAND VISIBILITY</p><h2>See the traffic.<br><span>Control the consequence.</span></h2></div>
+<div class="soc-heading-copy"><p>A unified executive view of network conversations, enforcement points, control health, and operational risk. Designed to make technical signals legible at the leadership table.</p><div class="soc-live"><i></i><span data-soc-time>COLLECTORS UPDATED · JUST NOW</span></div></div>
+</div>
+<div class="soc-command">
+<div class="soc-command-top"><div><b>GL / SECURITY OPERATIONS</b><span>ACTIVE CONVERSATION PLANE</span></div><nav class="soc-tabs" aria-label="SOC visibility views"><button class="active" data-soc-view="traffic">TRAFFIC</button><button data-soc-view="controls">CONTROLS</button><button data-soc-view="firewalls">FIREWALLS</button></nav><button class="soc-refresh" data-soc-refresh aria-label="Refresh SOC collectors">↻</button></div>
+<div class="soc-metrics">
+<article><span>FLOW RATE</span><b data-flow-rate>724 Mb/s</b><small>NORTH / SOUTH + EAST / WEST</small></article>
+<article><span>OBSERVED ASSETS</span><b>148</b><small>142 HEALTHY · 6 REVIEW</small></article>
+<article><span>CONTROL HEALTH</span><b>98.6%</b><small>NIST CSF / RMF EVIDENCE</small></article>
+<article><span>OPEN SIGNALS</span><b class="soc-warn">07</b><small>1 HIGH · 2 MEDIUM · 4 WATCH</small></article>
+</div>
+<div class="soc-grid">
+<article class="soc-card soc-traffic">
+<div class="soc-card-head"><div><span>AGGREGATE NETWORK TRAFFIC</span><b>Conversation velocity / 24-hour plane</b></div><div class="soc-legend"><i></i> INBOUND <i></i> OUTBOUND</div></div>
+<canvas aria-label="Animated network traffic chart"></canvas>
+<div class="soc-protocols"><span>HTTPS</span><span>DNS</span><span>SSH</span><span>SMB</span><span>POSTGRES</span><span class="blocked">BLOCKED</span></div>
+</article>
+<article class="soc-card soc-topology">
+<div class="soc-card-head"><div><span>ENFORCEMENT TOPOLOGY</span><b>Trust zones and control points</b></div><em>LIVE SIM</em></div>
+<div class="soc-map">
+<div class="soc-zone internet">INTERNET<br><small>UNTRUSTED</small></div>
+<div class="soc-firewall edge"><b>EDGE FW</b><span>IPS · WAF · GEO</span></div>
+<div class="soc-node core"><b>SECURITY CORE</b><span>SIEM · NDR · IAM</span></div>
+<div class="soc-node apps"><b>APPLICATIONS</b><span>API · WEB · DATA</span></div>
+<div class="soc-node users"><b>WORKFORCE</b><span>ZTNA · EDR · MFA</span></div>
+<div class="soc-firewall internal"><b>SEGMENTATION</b><span>EAST / WEST</span></div>
+<div class="soc-flow f1"></div><div class="soc-flow f2"></div><div class="soc-flow f3"></div><div class="soc-flow f4 alert"></div>
+</div>
+</article>
+</div>
+<div class="soc-lower">
+<div class="soc-card soc-panel" data-soc-panel="traffic"><span>TRAFFIC VISIBILITY</span><h3>Conversations before devices.</h3><p>Observe north-south and east-west flows, protocol distribution, unusual destinations, authentication patterns, and the path each transaction takes through enforcement.</p><ul><li>NetFlow / DNS / proxy / endpoint correlation</li><li>Identity-aware conversation context</li><li>Baseline deviation and anomaly review</li></ul></div>
+<div class="soc-card soc-panel" data-soc-panel="controls" hidden><span>CONTROL ASSURANCE</span><h3>Evidence, not decoration.</h3><p>Map operational telemetry to the controls leaders are accountable for—from identity and segmentation to recovery, monitoring, and supplier risk.</p><ul><li>NIST CSF 2.0 and RMF traceability</li><li>Control ownership and evidence freshness</li><li>Exceptions, compensating controls, and risk acceptance</li></ul></div>
+<div class="soc-card soc-panel" data-soc-panel="firewalls" hidden><span>FIREWALL POSTURE</span><h3>Every boundary has an owner.</h3><p>Make perimeter, application, cloud, and internal segmentation policy visible as one governed system.</p><ul><li>Edge firewall · IPS · geo and reputation controls</li><li>WAF and API enforcement</li><li>Internal segmentation and Zero Trust access</li></ul></div>
+<div class="soc-card soc-events"><div class="soc-card-head"><div><span>ACTIVE CONTROL STREAM</span><b>Recent enforcement decisions</b></div><em>07 SIGNALS</em></div>
+<ol><li><time>21:42:08</time><b>EDGE-FW-01</b><span class="deny">DENY</span><p>Repeated authentication source isolated</p></li><li><time>21:41:37</time><b>ZTNA-GW</b><span>ALLOW</span><p>Privileged session verified with MFA</p></li><li><time>21:39:12</time><b>WAF-PROD</b><span class="deny">BLOCK</span><p>Injection signature interrupted</p></li><li><time>21:36:54</time><b>SEG-CORE</b><span>ALLOW</span><p>Approved application-to-database flow</p></li></ol>
+</div>
+</div>
+<div class="soc-disclaimer">DEMONSTRATION TELEMETRY · CONCEPTUAL EXECUTIVE VISIBILITY MODEL · NO PRODUCTION NETWORK DATA DISPLAYED</div>
+</div>
 </section>
 <section id="story" class="profile section-shell">
 <div class="risk-stack" aria-label="Risk, mission, systems and controls relationship">
