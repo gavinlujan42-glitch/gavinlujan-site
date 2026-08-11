@@ -11,10 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/nexus-executive.css?v=20260801-2">
 <link rel="stylesheet" href="assets/story.css?v=20260801-4">
-<link rel="stylesheet" href="assets/security-signal.css?v=20260810-2">
+<link rel="stylesheet" href="assets/security-signal.css?v=20260810-3">
 <link rel="stylesheet" href="assets/insights.css?v=20260809-1">
-<script defer src="assets/framework-rotator.js?v=20260801-1">
-</script>
+<script defer src="assets/framework-rotator.js?v=20260801-1"></script>
+<script defer src="assets/live-intel.js?v=20260810-1"></script>
 </head>
 <body>
 <div class="grain" aria-hidden="true">
@@ -27,10 +27,7 @@
 </div>
 <header>
 <a class="brand" href="#top">
-<span class="mark">
-<i>
-</i>
-</span>
+<span class="mark zia-mark" aria-hidden="true"><i></i></span>
 <span>GAVIN LUJAN<small>CYBERSECURITY · AI · EXECUTIVE TECHNOLOGY LEADERSHIP</small>
 </span>
 </a>
@@ -200,14 +197,17 @@
 </div>
 <p>A concise executive feed focused on operational consequence, not panic. Incidents are curated from public reporting and primary advisories, with attribution uncertainty stated plainly.</p>
 </div>
-<div class="feed-toolbar">
-<div class="feed-status">
-<i>
-</i>
-<span>CURATED SECURITY SIGNAL · ACTIVE</span>
+<div class="feed-toolbar intel-command-bar">
+<div class="feed-status"><i></i><span>GLOBAL CYBER INTELLIGENCE · ACTIVE</span></div>
+<button class="intel-refresh" type="button" data-refresh-intel aria-controls="live-threat-pane"><b class="intel-refresh-icon" aria-hidden="true">↻</b><span>UPDATE INTELLIGENCE</span></button>
+<div class="feed-updated" data-intel-stamp>READY · CISA KEV + NIST NVD · SELECT UPDATE</div>
 </div>
-<div class="feed-updated">LAST EDITORIAL UPDATE · AUGUST 1, 2026 · 09:48 MDT</div>
+<div class="active-threat-head">
+<div><span>ACTIVE PANE / TOP <b data-threat-count>10</b></span><h3>Current exploited-threat queue</h3></div>
+<p>Ranked for executive awareness. Validate exposure and business relevance before action.</p>
 </div>
+<div id="live-threat-pane" class="live-threat-pane" data-live-threats aria-live="polite"></div>
+<div class="incident-divider"><span>EDITORIAL INTELLIGENCE / CONTEXT</span></div>
 <div class="incident-grid">
 <article class="incident-card high">
 <div class="incident-meta">
