@@ -184,3 +184,116 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .zia-mark i, .security-ticker-track, .hero-security-orbit { animation: none; }
 }
+
+
+/* 2026-08-14 clarity pass — quieter hierarchy, same high-desert signal. */
+:root {
+  --content-wide: 1180px;
+  --content-reading: 760px;
+  --surface-quiet: rgba(9, 11, 11, .62);
+}
+
+body { line-height: 1.6; }
+.grain { opacity: .035; }
+.signal-frame { opacity: .28; }
+.gratitude-bar { font-size: .66rem; letter-spacing: .08em; }
+.gratitude-bar p { max-width: 980px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.site-header {
+  min-height: 68px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.site-header nav { align-items: center; }
+.site-header nav > a,
+.nav-resources summary { padding-block: .55rem; }
+.site-header nav > a:not(.nav-cta) { border-bottom: 1px solid transparent; }
+.site-header nav > a:not(.nav-cta):hover,
+.site-header nav > a[aria-current="page"] { border-color: var(--turq); }
+
+.story-hero {
+  min-height: 700px;
+  padding-top: clamp(7.5rem, 10vw, 9rem);
+  padding-bottom: 4.5rem;
+}
+.story-hero h1 { max-width: 760px; }
+.story-hero .lede { max-width: 700px; font-size: 1rem; }
+.hero-security-grid { opacity: .055; }
+.hero-security-orbit { opacity: .24; }
+.framework-panel {
+  min-height: 460px;
+  background: rgba(7, 10, 10, .62);
+}
+.csf-core { min-height: 270px; }
+.hero-foot { opacity: .58; }
+
+.security-ticker { opacity: .82; }
+.command-strip {
+  max-width: var(--content-wide);
+  background: rgba(7, 9, 9, .72);
+}
+.command-strip div { border-color: rgba(232, 228, 220, .08); }
+
+.section-shell {
+  max-width: var(--content-wide);
+  padding-top: clamp(4.5rem, 7vw, 6.5rem);
+  padding-bottom: clamp(4.5rem, 7vw, 6.5rem);
+}
+.section-heading { margin-bottom: 2.5rem; }
+.section-heading > p { max-width: 560px; }
+.eyebrow { letter-spacing: .16em; opacity: .82; }
+
+.focus-grid article,
+.incident-card,
+.cards article,
+.manual-card {
+  background: var(--surface-quiet);
+  border-color: rgba(232, 228, 220, .1);
+}
+.focus-grid article:hover,
+.incident-card:hover,
+.cards article:hover,
+.manual-card:hover {
+  border-color: rgba(105, 200, 193, .32);
+  background: rgba(10, 14, 14, .78);
+}
+.focus-grid h3,
+.cards h3,
+.incident-card h3 { margin-top: 1.65rem; }
+
+.signal-console { min-height: 54px; opacity: .9; }
+.soc-command { border-color: rgba(105, 200, 193, .2); }
+.soc-card { background: rgba(5, 9, 9, .76); }
+.soc-heading-copy { max-width: 540px; }
+
+.insights-bridge .insights-actions { gap: .65rem; }
+.insight-link { background: rgba(8, 11, 11, .58); }
+.insight-link:hover { background: rgba(10, 16, 15, .82); }
+
+.insights-page .blog-hero {
+  min-height: 52vh;
+  padding-top: clamp(8rem, 13vw, 11rem);
+}
+.insights-page .blog-hero h1 { letter-spacing: -.045em; }
+.insights-page .manual-shell { max-width: var(--content-wide); }
+.insights-page .manual-grid { gap: 1rem; }
+.insights-page .manual-card { box-shadow: none; }
+.insights-page .manual-card h2 { line-height: 1.08; }
+.insights-page [aria-current="page"] { color: var(--white); border-bottom: 1px solid var(--turq); }
+
+.button,
+.nav-cta { border-radius: 2px; }
+.button { letter-spacing: .1em; }
+footer { color: rgba(232, 228, 220, .52); }
+
+@media (max-width: 980px) {
+  .story-hero { min-height: auto; }
+  .gratitude-bar p { white-space: normal; }
+}
+
+@media (max-width: 640px) {
+  .story-hero { padding-top: 4.5rem; }
+  .security-ticker { display: none; }
+  .command-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section-heading { gap: 1.25rem; }
+}
