@@ -1,0 +1,116 @@
+/* Hero wisdom grid: NIST CSF + disciplined leadership traditions */
+.wisdom-framework-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  align-self:center;
+  width:100%;
+  min-width:0
+}
+.wisdom-framework-grid .framework-panel{
+  grid-column:1/-1;
+  min-width:0;
+  margin:0
+}
+.wisdom-card{
+  --wisdom-accent:#67e8f9;
+  position:relative;
+  min-height:132px;
+  padding:15px 14px 13px;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--wisdom-accent) 38%,transparent);
+  background:
+    linear-gradient(145deg,color-mix(in srgb,var(--wisdom-accent) 8%,transparent),transparent 48%),
+    rgba(3,12,18,.88);
+  box-shadow:inset 0 1px rgba(255,255,255,.025);
+  transition:border-color .25s ease,transform .25s ease,background .25s ease
+}
+.wisdom-card::after{
+  content:"";
+  position:absolute;
+  right:-30px;
+  bottom:-36px;
+  width:92px;
+  height:92px;
+  border:1px solid color-mix(in srgb,var(--wisdom-accent) 22%,transparent);
+  border-radius:50%
+}
+.wisdom-card:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb,var(--wisdom-accent) 72%,transparent);
+  background:linear-gradient(145deg,color-mix(in srgb,var(--wisdom-accent) 13%,transparent),transparent 55%),rgba(3,12,18,.94)
+}
+.wisdom-card.kaizen{--wisdom-accent:#76d7a5}
+.wisdom-card.strategy{--wisdom-accent:#d8b46a}
+.wisdom-card.aikido{--wisdom-accent:#82c7dd}
+.wisdom-card.philosophy{--wisdom-accent:#b4a7d8}
+.wisdom-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:12px;
+  color:var(--wisdom-accent)
+}
+.wisdom-card-head span{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.17em
+}
+.wisdom-glyph{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+  border:1px solid currentColor;
+  border-radius:50%;
+  font:600 13px/1 "Josefin Sans",sans-serif
+}
+.wisdom-card h3{
+  position:relative;
+  z-index:1;
+  margin:0 0 7px;
+  color:#f3f6f5;
+  font:500 clamp(14px,1.2vw,18px)/1.1 "Josefin Sans",sans-serif;
+  letter-spacing:.035em
+}
+.wisdom-card p{
+  position:relative;
+  z-index:1;
+  margin:0;
+  color:#9baead;
+  font-size:10px;
+  line-height:1.55;
+  letter-spacing:.025em
+}
+.wisdom-principles{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:10px
+}
+.wisdom-principles span{
+  padding:4px 6px 3px;
+  border:1px solid color-mix(in srgb,var(--wisdom-accent) 24%,transparent);
+  color:color-mix(in srgb,var(--wisdom-accent) 76%,#cbd5d1);
+  font-size:7px;
+  letter-spacing:.1em
+}
+@media(max-width:920px){
+  .wisdom-framework-grid{max-width:680px;margin:0 auto}
+}
+@media(max-width:560px){
+  .wisdom-framework-grid{grid-template-columns:1fr}
+  .wisdom-framework-grid .framework-panel{grid-column:1}
+  .wisdom-card{min-height:118px}
+}
+@media(prefers-reduced-motion:reduce){
+  .wisdom-card{transition:none}
+  .wisdom-card:hover{transform:none}
+}
