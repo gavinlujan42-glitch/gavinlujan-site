@@ -1,0 +1,14 @@
+/* Main-site alignment layer; terminal green remains the resume accent. */
+:root{--green:#69f5a5;--cyan:#69e7ff;--amber:#e9bd6a;--line:rgba(105,231,255,.18)}
+body{background:radial-gradient(circle at 82% 8%,rgba(105,231,255,.055),transparent 26rem),radial-gradient(circle at 10% 48%,rgba(105,245,165,.045),transparent 30rem),#020405}
+.topbar{border-color:var(--line);background:rgba(2,5,7,.94);box-shadow:0 18px 60px rgba(0,0,0,.42)}
+.topbar .shell{width:min(1280px,calc(100% - 8vw));padding:1rem 0}
+.brand{font-family:"Josefin Sans",sans-serif;letter-spacing:.16em}.brand small{color:rgba(174,218,228,.58)}
+.zia-terminal{position:relative;width:54px;height:54px;border:0;box-shadow:none}.zia-terminal:before,.zia-terminal:after,.zia-terminal i:before,.zia-terminal i:after{content:"";position:absolute;left:50%;top:50%;background:var(--green);box-shadow:0 0 13px rgba(105,245,165,.6);transform-origin:center}.zia-terminal:before{width:2px;height:50px;transform:translate(-50%,-50%)}.zia-terminal:after{width:50px;height:2px;transform:translate(-50%,-50%)}.zia-terminal i{position:absolute;left:50%;top:50%;width:17px;height:17px;border:2px solid var(--green);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 20px rgba(105,245,165,.38)}.zia-terminal i:before{width:2px;height:42px;transform:translate(-50%,-50%) rotate(45deg)}.zia-terminal i:after{width:42px;height:2px;transform:translate(-50%,-50%) rotate(45deg)}
+.nav-actions{gap:.45rem;flex-wrap:wrap;justify-content:flex-end}.btn{border-color:rgba(105,231,255,.22);color:#baffd0;background:rgba(105,231,255,.025);border-radius:0}.btn:hover{background:var(--green);border-color:var(--green)}
+.shell{width:min(1180px,calc(100% - 8vw))}.hero{padding-top:clamp(5rem,8vw,7rem);gap:5vw;align-items:start}.hero h1{font-family:"Josefin Sans",sans-serif;font-weight:300;letter-spacing:-.055em}.hero h1 span{color:var(--green);text-shadow:0 0 28px rgba(105,245,165,.18)}.lede{border-left:2px solid rgba(105,231,255,.48);padding-left:1.2rem;color:rgba(216,239,233,.68)}
+.terminal-card,.panel,.role{background:linear-gradient(145deg,rgba(105,231,255,.035),transparent 44%),rgba(5,9,11,.92);border-color:rgba(105,231,255,.2)}.section{padding-block:7rem}.section-title{font-family:"Josefin Sans",sans-serif;font-weight:300;letter-spacing:-.045em}.role{transition:.25s}.role:hover{transform:translateY(-2px);border-color:rgba(105,245,165,.38)}
+.footer{border-top:1px solid var(--line);width:min(1180px,calc(100% - 8vw))}
+@media(max-width:1040px){.topbar .shell{align-items:flex-start}.nav-actions{max-width:520px}.btn{padding:.62rem .75rem;font-size:.56rem}}
+@media(max-width:760px){.topbar .shell{flex-direction:column}.nav-actions{width:100%;justify-content:flex-start}.zia-terminal{width:46px;height:46px}.section{padding-block:5rem}}
+@media print{.zia-terminal{display:none}.lede{border-left:0;padding-left:0}}

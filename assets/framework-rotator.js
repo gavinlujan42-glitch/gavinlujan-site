@@ -17,6 +17,17 @@
   cycleGroups.forEach(group=>{const items=[...group.querySelectorAll('[data-cycle-item]')];if(!items.length)return;let active=0;items.forEach((item,i)=>item.classList.toggle('is-active',i===0));setInterval(()=>{items[active].classList.remove('is-active');active=(active+1)%items.length;items[active].classList.add('is-active')},intervalMs)});
   renderSignal();setInterval(renderSignal,intervalMs);
 
+  const deck=document.querySelector('[data-framework-deck]');
+  if(deck){
+    const slides=[...deck.querySelectorAll('[data-framework-slide]')],counter=deck.querySelector('[data-framework-count]'),progress=deck.querySelector('.framework-deck-progress i');
+    let active=0,timer;
+    const show=next=>{active=(next+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===active));if(counter)counter.textContent=`${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;if(progress){progress.style.animation='none';void progress.offsetWidth;progress.style.animation='frameworkProgress 9s linear infinite'}};
+    const restart=()=>{clearInterval(timer);timer=setInterval(()=>show(active+1),9000)};
+    deck.querySelector('[data-framework-prev]')?.addEventListener('click',()=>{show(active-1);restart()});
+    deck.querySelector('[data-framework-next]')?.addEventListener('click',()=>{show(active+1);restart()});
+    show(0);restart();
+  }
+
   const feed=document.getElementById('signal-feed');
   if(feed){
     const terminal=document.createElement('div');
