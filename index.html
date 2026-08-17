@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/nexus-executive.css?v=20260801-2">
 <link rel="stylesheet" href="assets/story.css?v=20260801-4">
-<link rel="stylesheet" href="assets/security-signal.css?v=20260816-nm-gis-1">
+<link rel="stylesheet" href="assets/security-signal.css?v=20260817-nm-gis-2">
 <link rel="stylesheet" href="assets/insights.css?v=20260809-1">
 <link rel="stylesheet" href="assets/professional-refresh.css?v=20260817-nm-zia-3">
 <link rel="stylesheet" href="assets/wisdom-framework-grid.css?v=20260815-2">
@@ -118,14 +118,14 @@
 <article class="framework-slide nm-gis-slide" data-framework-slide>
 <div class="framework-kicker">NEW MEXICO SOC GIS · CRITICAL CONNECTIVITY</div>
 <div class="nm-gis" aria-label="Conceptual New Mexico infrastructure connectivity and outage-status map">
-<div class="nm-gis-top"><span><i class="gis-live"></i> GOD'S-EYE INFRASTRUCTURE VIEW</span><span>STATUS MODEL · DEMONSTRATION</span></div>
+<div class="nm-gis-top"><span><i class="gis-live"></i> GOD'S-EYE INFRASTRUCTURE VIEW</span><span>NETWORK ACTIVITY · SIMULATED</span></div>
 <div class="nm-gis-body">
 <svg class="nm-map" viewBox="0 0 500 360" role="img" aria-label="New Mexico city and fiber corridor diagram">
 <defs>
 <filter id="gisGlow"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <linearGradient id="fiberA" x1="0" x2="1"><stop stop-color="#69e7ff"/><stop offset=".5" stop-color="#7fffc1"/><stop offset="1" stop-color="#69e7ff"/></linearGradient>
 </defs>
-<path class="nm-outline" d="M92 27 L398 24 L410 277 L382 277 L382 326 L98 330 L88 184 L72 184 Z"/>
+<path class="nm-state-outline" d="M82.8 24.6 295.1 26.1 402.6 24l1 26.6-2.1.3 8 241.8-199.7 1.8c-1.4 2.4-.7 7.3 5.1 11.6l-94.6-.6-.4 24.2-47.7-.9 10.1-292.3z"/>
 <g class="gis-grid"><path d="M100 80H400M95 140H404M91 200H407M95 260H410M155 28V330M220 26V330M285 25V330M350 24V328"/></g>
 <g class="fiber-corridors" filter="url(#gisGlow)">
 <path class="fiber fiber-25" d="M242 298 C232 250 245 218 250 181 C256 145 260 112 263 73"/>
@@ -133,6 +133,13 @@
 <path class="fiber fiber-10" d="M121 292 C178 291 220 299 242 298 C291 296 338 287 384 286"/>
 <path class="fiber fiber-northwest" d="M125 82 C172 108 209 143 250 181"/>
 <path class="fiber fiber-southeast" d="M250 181 C294 209 322 245 357 298"/>
+</g>
+<g class="network-activity" aria-hidden="true">
+<circle class="network-packet packet-cyan" r="3"><animateMotion dur="3.8s" repeatCount="indefinite" path="M242 298 C232 250 245 218 250 181 C256 145 260 112 263 73"/></circle>
+<circle class="network-packet packet-green" r="3"><animateMotion dur="4.6s" begin="-2.1s" repeatCount="indefinite" path="M263 73 C260 112 256 145 250 181 C245 218 232 250 242 298"/></circle>
+<circle class="network-packet packet-gold" r="3"><animateMotion dur="4.1s" repeatCount="indefinite" path="M94 176 C154 176 202 181 250 181 C304 181 347 176 401 169"/></circle>
+<circle class="network-packet packet-cyan" r="3"><animateMotion dur="3.4s" begin="-1.4s" repeatCount="indefinite" path="M125 82 C172 108 209 143 250 181 C294 209 322 245 357 298"/></circle>
+<circle class="network-packet packet-green" r="3"><animateMotion dur="4.8s" begin="-3s" repeatCount="indefinite" path="M121 292 C178 291 220 299 242 298 C291 296 338 287 384 286"/></circle>
 </g>
 <g class="city city-farmington" transform="translate(125 82)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">FARMINGTON</text><text class="city-status" x="11" y="8">BACKBONE NODE</text></g>
 <g class="city city-gallup" transform="translate(103 176)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">GALLUP</text><text class="city-status" x="11" y="8">WEST GATEWAY</text></g>
