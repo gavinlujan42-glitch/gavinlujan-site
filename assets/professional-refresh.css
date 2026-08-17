@@ -297,3 +297,84 @@ footer { color: rgba(232, 228, 220, .52); }
   .command-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-heading { gap: 1.25rem; }
 }
+
+
+/* Quantum Zia: four independently phased rays around a stable core */
+.zia-mark{
+  position:relative;
+  isolation:isolate;
+  overflow:visible;
+  border-color:color-mix(in srgb,var(--turq) 42%,transparent);
+  box-shadow:0 0 22px color-mix(in srgb,var(--turq) 14%,transparent),inset 0 0 14px rgba(255,255,255,.025);
+}
+.zia-mark i{
+  position:relative;
+  z-index:4;
+  background:rgba(0,0,0,.78);
+  border-color:#65f4d4;
+  box-shadow:0 0 0 5px rgba(90,168,160,.055),0 0 13px rgba(101,244,212,.52);
+  animation:quantum-core 5.2s ease-in-out infinite;
+}
+.zia-mark::before,.zia-mark::after,.zia-mark i::before,.zia-mark i::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:16px;
+  height:2px;
+  border-radius:999px;
+  transform-origin:0 50%;
+  background:linear-gradient(90deg,#55e2ce 0%,#a6ff6b 48%,#8d69ff 100%);
+  box-shadow:0 0 6px currentColor,0 0 13px currentColor;
+  color:#55e2ce;
+  will-change:transform,filter,opacity;
+  pointer-events:none;
+}
+.zia-mark::before{z-index:2;animation:quantum-ray-a 7.3s cubic-bezier(.55,.05,.35,1) infinite;}
+.zia-mark::after{z-index:2;animation:quantum-ray-b 9.1s cubic-bezier(.42,0,.58,1) infinite;}
+.zia-mark i::before{z-index:-1;width:15px;animation:quantum-ray-c 6.4s cubic-bezier(.65,0,.25,1) infinite;}
+.zia-mark i::after{z-index:-1;width:17px;animation:quantum-ray-d 11.2s cubic-bezier(.35,.05,.55,.95) infinite;}
+@keyframes quantum-ray-a{
+  0%{transform:translateY(-50%) rotate(0deg) scaleX(.78);filter:hue-rotate(0deg);opacity:.62}
+  17%{transform:translateY(-50%) rotate(84deg) scaleX(1.12);filter:hue-rotate(76deg);opacity:1}
+  39%{transform:translateY(-50%) rotate(151deg) scaleX(.88);filter:hue-rotate(162deg);opacity:.72}
+  58%{transform:translateY(-50%) rotate(119deg) scaleX(1.18);filter:hue-rotate(242deg);opacity:.96}
+  81%{transform:translateY(-50%) rotate(298deg) scaleX(.9);filter:hue-rotate(315deg);opacity:.7}
+  100%{transform:translateY(-50%) rotate(360deg) scaleX(.78);filter:hue-rotate(360deg);opacity:.62}
+}
+@keyframes quantum-ray-b{
+  0%{transform:translateY(-50%) rotate(90deg) scaleX(1.08);filter:hue-rotate(45deg);opacity:.92}
+  22%{transform:translateY(-50%) rotate(17deg) scaleX(.82);filter:hue-rotate(132deg);opacity:.64}
+  43%{transform:translateY(-50%) rotate(-106deg) scaleX(1.16);filter:hue-rotate(205deg);opacity:1}
+  67%{transform:translateY(-50%) rotate(-72deg) scaleX(.9);filter:hue-rotate(286deg);opacity:.7}
+  84%{transform:translateY(-50%) rotate(-244deg) scaleX(1.12);filter:hue-rotate(338deg);opacity:.94}
+  100%{transform:translateY(-50%) rotate(-270deg) scaleX(1.08);filter:hue-rotate(405deg);opacity:.92}
+}
+@keyframes quantum-ray-c{
+  0%{transform:translateY(-50%) rotate(180deg) scaleX(.86);filter:hue-rotate(110deg);opacity:.68}
+  14%{transform:translateY(-50%) rotate(239deg) scaleX(1.2);filter:hue-rotate(181deg);opacity:1}
+  36%{transform:translateY(-50%) rotate(207deg) scaleX(.8);filter:hue-rotate(249deg);opacity:.58}
+  61%{transform:translateY(-50%) rotate(401deg) scaleX(1.1);filter:hue-rotate(322deg);opacity:.92}
+  79%{transform:translateY(-50%) rotate(358deg) scaleX(.94);filter:hue-rotate(390deg);opacity:.74}
+  100%{transform:translateY(-50%) rotate(540deg) scaleX(.86);filter:hue-rotate(470deg);opacity:.68}
+}
+@keyframes quantum-ray-d{
+  0%{transform:translateY(-50%) rotate(270deg) scaleX(1.14);filter:hue-rotate(210deg);opacity:.88}
+  19%{transform:translateY(-50%) rotate(348deg) scaleX(.84);filter:hue-rotate(278deg);opacity:.63}
+  42%{transform:translateY(-50%) rotate(311deg) scaleX(1.22);filter:hue-rotate(354deg);opacity:1}
+  63%{transform:translateY(-50%) rotate(489deg) scaleX(.9);filter:hue-rotate(431deg);opacity:.7}
+  86%{transform:translateY(-50%) rotate(446deg) scaleX(1.12);filter:hue-rotate(512deg);opacity:.93}
+  100%{transform:translateY(-50%) rotate(630deg) scaleX(1.14);filter:hue-rotate(570deg);opacity:.88}
+}
+@keyframes quantum-core{
+  0%,100%{transform:scale(.92);filter:hue-rotate(0deg);box-shadow:0 0 0 5px rgba(90,168,160,.05),0 0 10px rgba(101,244,212,.42)}
+  38%{transform:scale(1.08);filter:hue-rotate(105deg);box-shadow:0 0 0 6px rgba(141,105,255,.08),0 0 16px rgba(141,105,255,.65)}
+  71%{transform:scale(.98);filter:hue-rotate(225deg);box-shadow:0 0 0 4px rgba(166,255,107,.07),0 0 14px rgba(166,255,107,.58)}
+}
+@media (prefers-reduced-motion:reduce){
+  .zia-mark,.zia-mark i,.zia-mark::before,.zia-mark::after,.zia-mark i::before,.zia-mark i::after{animation:none!important}
+  .zia-mark::before{transform:translateY(-50%) rotate(0deg)}
+  .zia-mark::after{transform:translateY(-50%) rotate(90deg)}
+  .zia-mark i::before{transform:translateY(-50%) rotate(180deg)}
+  .zia-mark i::after{transform:translateY(-50%) rotate(270deg)}
+}
