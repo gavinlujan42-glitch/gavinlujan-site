@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/nexus-executive.css?v=20260801-2">
 <link rel="stylesheet" href="assets/story.css?v=20260801-4">
-<link rel="stylesheet" href="assets/security-signal.css?v=20260810-4">
+<link rel="stylesheet" href="assets/security-signal.css?v=20260816-nm-gis-1">
 <link rel="stylesheet" href="assets/insights.css?v=20260809-1">
 <link rel="stylesheet" href="assets/professional-refresh.css?v=20260816-spacetime-cube-1">
 <link rel="stylesheet" href="assets/wisdom-framework-grid.css?v=20260815-2">
@@ -81,7 +81,7 @@
 </div>
 </div>
 <div class="framework-command-deck" data-framework-deck aria-label="Animated cybersecurity and risk frameworks">
-<div class="framework-deck-head"><span>SECURITY ARCHITECTURE · LIVE</span><span data-framework-count>01 / 04</span></div>
+<div class="framework-deck-head"><span>SECURITY ARCHITECTURE · LIVE</span><span data-framework-count>01 / 05</span></div>
 <div class="framework-slides">
 <article class="framework-slide is-active" data-framework-slide>
 <div class="framework-kicker">NIST CSF 2.0 · ENTERPRISE OUTCOMES</div>
@@ -105,6 +105,47 @@
 <div class="framework-kicker">NIST AI RMF · HUMAN-ACCOUNTABLE AI</div>
 <div class="ai-rmf-map" data-cycle-group><div>HUMAN<br>AUTHORITY</div><span data-cycle-item>GOVERN</span><span data-cycle-item>MAP</span><span data-cycle-item>MEASURE</span><span data-cycle-item>MANAGE</span></div>
 <div class="framework-note"><b>Bound autonomy before scaling capability.</b><p>Govern data, permissions, models, tools, evidence, failure modes, and human approval.</p></div>
+</article>
+
+<article class="framework-slide nm-gis-slide" data-framework-slide>
+<div class="framework-kicker">NEW MEXICO SOC GIS · CRITICAL CONNECTIVITY</div>
+<div class="nm-gis" aria-label="Conceptual New Mexico infrastructure connectivity and outage-status map">
+<div class="nm-gis-top"><span><i class="gis-live"></i> GOD'S-EYE INFRASTRUCTURE VIEW</span><span>STATUS MODEL · DEMONSTRATION</span></div>
+<div class="nm-gis-body">
+<svg class="nm-map" viewBox="0 0 500 360" role="img" aria-label="New Mexico city and fiber corridor diagram">
+<defs>
+<filter id="gisGlow"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<linearGradient id="fiberA" x1="0" x2="1"><stop stop-color="#69e7ff"/><stop offset=".5" stop-color="#7fffc1"/><stop offset="1" stop-color="#69e7ff"/></linearGradient>
+</defs>
+<path class="nm-outline" d="M92 27 L398 24 L410 277 L382 277 L382 326 L98 330 L88 184 L72 184 Z"/>
+<g class="gis-grid"><path d="M100 80H400M95 140H404M91 200H407M95 260H410M155 28V330M220 26V330M285 25V330M350 24V328"/></g>
+<g class="fiber-corridors" filter="url(#gisGlow)">
+<path class="fiber fiber-25" d="M242 298 C232 250 245 218 250 181 C256 145 260 112 263 73"/>
+<path class="fiber fiber-40" d="M94 176 C154 176 202 181 250 181 C304 181 347 176 401 169"/>
+<path class="fiber fiber-10" d="M121 292 C178 291 220 299 242 298 C291 296 338 287 384 286"/>
+<path class="fiber fiber-northwest" d="M125 82 C172 108 209 143 250 181"/>
+<path class="fiber fiber-southeast" d="M250 181 C294 209 322 245 357 298"/>
+</g>
+<g class="city city-farmington" transform="translate(125 82)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">FARMINGTON</text><text class="city-status" x="11" y="8">BACKBONE NODE</text></g>
+<g class="city city-gallup" transform="translate(103 176)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">GALLUP</text><text class="city-status" x="11" y="8">WEST GATEWAY</text></g>
+<g class="city city-abq hub" transform="translate(250 181)"><circle r="8"/><circle class="pulse" r="17"/><text x="13" y="-9">ALBUQUERQUE</text><text class="city-status" x="13" y="8">CORE EXCHANGE</text></g>
+<g class="city city-sf" transform="translate(263 111)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">SANTA FE</text><text class="city-status" x="11" y="8">GOVERNMENT NODE</text></g>
+<g class="city city-lc" transform="translate(242 298)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">LAS CRUCES</text><text class="city-status" x="11" y="8">SOUTH GATEWAY</text></g>
+<g class="city city-roswell" transform="translate(330 223)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">ROSWELL</text><text class="city-status" x="11" y="8">REGIONAL NODE</text></g>
+<g class="city city-clovis" transform="translate(399 169)"><circle r="6"/><circle class="pulse" r="12"/><text x="-12" y="-9" text-anchor="end">CLOVIS</text><text class="city-status" x="-12" y="7" text-anchor="end">EAST GATEWAY</text></g>
+<g class="city city-hobbs" transform="translate(357 298)"><circle r="6"/><circle class="pulse" r="12"/><text x="11" y="-7">HOBBS</text><text class="city-status" x="11" y="8">ENERGY CORRIDOR</text></g>
+</svg>
+<div class="nm-gis-side">
+<div class="gis-metric"><span>MAJOR CITY NODES</span><b>08</b><small>CONNECTIVITY MODEL</small></div>
+<div class="gis-metric"><span>BACKBONE CORRIDORS</span><b>05</b><small>I-25 · I-40 · I-10 · REGIONAL</small></div>
+<div class="gis-metric"><span>OUTAGE INDICATOR</span><b class="gis-unverified">UNVERIFIED</b><small>NO LIVE CARRIER FEED ATTACHED</small></div>
+<div class="carrier-layers"><span>CARRIER REFERENCE LAYERS</span><b>LUMEN / CENTURYLINK</b><b>VERIZON</b><b>AT&amp;T</b><b>T-MOBILE</b><b>ZAYO / REGIONAL FIBER</b></div>
+<div class="gis-legend"><span><i class="ok"></i>OPERATIONAL</span><span><i class="watch"></i>WATCH</span><span><i class="down"></i>OUTAGE</span><span><i class="unknown"></i>UNVERIFIED</span></div>
+</div>
+</div>
+<div class="nm-gis-foot">CONCEPTUAL SOC / POLICY VIEW · GIS POSITIONS AND CORRIDORS ARE ILLUSTRATIVE · NOT LIVE CARRIER TELEMETRY</div>
+</div>
+<div class="framework-note"><b>See connectivity as statewide mission infrastructure.</b><p>Correlate cities, fiber corridors, carriers, public services, cyber events, and verified outage data before making policy or operational decisions.</p></div>
 </article>
 </div>
 <div class="framework-deck-controls"><button type="button" data-framework-prev aria-label="Previous framework">←</button><div class="framework-deck-progress"><i></i></div><button type="button" data-framework-next aria-label="Next framework">→</button></div>
