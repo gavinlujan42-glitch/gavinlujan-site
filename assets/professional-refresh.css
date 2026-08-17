@@ -436,58 +436,59 @@ footer { color: rgba(232, 228, 220, .52); }
 /* New Mexico Zia identity — quiet motion, architectural presence */
 .nm-zia-mark{
   position:relative;
-  width:48px;
-  height:48px;
-  flex:0 0 48px;
+  width:54px;
+  height:54px;
+  flex:0 0 54px;
   display:grid;
   place-items:center;
   overflow:visible;
   border:1px solid rgba(90,168,160,.28);
-  border-radius:10px;
-  background:linear-gradient(145deg,rgba(90,168,160,.075),rgba(185,139,75,.035));
+  border-radius:8px;
+  background:linear-gradient(145deg,rgba(90,168,160,.06),rgba(185,139,75,.025));
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.025),0 8px 22px rgba(0,0,0,.28);
 }
 .nm-zia-mark::after{
   content:"";
   position:absolute;
   inset:-1px;
-  border-radius:10px;
+  border-radius:8px;
   box-shadow:0 0 0 rgba(90,168,160,0);
   animation:nm-zia-breathe 7s ease-in-out infinite;
   pointer-events:none;
 }
-.nm-zia-mark svg{width:38px;height:38px;overflow:visible}
+.nm-zia-mark svg{width:48px;height:48px;overflow:visible}
 .nm-outline{
-  fill:rgba(185,139,75,.09);
-  stroke:#b98b4b;
-  stroke-width:1.15;
+  fill:rgba(8,12,12,.82);
+  stroke:#c79b59;
+  stroke-width:2.2;
   stroke-linejoin:round;
   vector-effect:non-scaling-stroke;
 }
 .zia-symbol{
   fill:none;
-  stroke:#5aa8a0;
-  stroke-width:1.65;
+  stroke:#d64032;
+  stroke-width:2.7;
   stroke-linecap:round;
   vector-effect:non-scaling-stroke;
-  filter:drop-shadow(0 0 2px rgba(90,168,160,.38));
-  transform-origin:32px 29.5px;
-  animation:nm-zia-signal 7s ease-in-out infinite;
+  filter:drop-shadow(0 0 1.5px currentColor);
+  transform-origin:51px 43px;
+  animation:nm-zia-color 9s ease-in-out infinite;
 }
-.zia-symbol circle{fill:rgba(157,47,36,.12);stroke:#9d2f24;stroke-width:1.7}
+.zia-symbol circle{fill:rgba(0,0,0,.22);stroke:currentColor;stroke-width:3}
 @keyframes nm-zia-breathe{
   0%,100%{box-shadow:0 0 0 rgba(90,168,160,0)}
   50%{box-shadow:0 0 18px rgba(90,168,160,.16)}
 }
-@keyframes nm-zia-signal{
-  0%,100%{opacity:.78;transform:scale(.985)}
-  50%{opacity:1;transform:scale(1.025)}
+@keyframes nm-zia-color{
+  0%,27%,100%{color:#d64032;stroke:#d64032}
+  33%,60%{color:#f2c94c;stroke:#f2c94c}
+  66%,94%{color:#58c9c1;stroke:#58c9c1}
 }
 @media(max-width:640px){
-  .nm-zia-mark{width:42px;height:42px;flex-basis:42px}
-  .nm-zia-mark svg{width:34px;height:34px}
+  .nm-zia-mark{width:48px;height:48px;flex-basis:48px}
+  .nm-zia-mark svg{width:43px;height:43px}
 }
 @media(prefers-reduced-motion:reduce){
   .nm-zia-mark::after,.zia-symbol{animation:none!important}
-  .zia-symbol{opacity:1}
+  .zia-symbol{color:#58c9c1;stroke:#58c9c1}
 }
