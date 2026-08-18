@@ -11,9 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Poiret+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/nexus-executive.css?v=20260801-2">
 <link rel="stylesheet" href="assets/story.css?v=20260801-4">
-<link rel="stylesheet" href="assets/security-signal.css?v=20260817-nm-gis-2">
+<link rel="stylesheet" href="assets/security-signal.css?v=20260817-framework-nine-1">
 <link rel="stylesheet" href="assets/insights.css?v=20260809-1">
-<link rel="stylesheet" href="assets/professional-refresh.css?v=20260817-nm-zia-3">
+<link rel="stylesheet" href="assets/professional-refresh.css?v=20260817-hero-balance-1">
 <link rel="stylesheet" href="assets/wisdom-framework-grid.css?v=20260815-2">
 <link rel="stylesheet" href="assets/mantra-rotator.css?v=20260815-1">
 <script defer src="assets/framework-rotator.js?v=20260801-1"></script>
@@ -89,7 +89,7 @@
 </div>
 </div>
 <div class="framework-command-deck" data-framework-deck aria-label="Animated cybersecurity and risk frameworks">
-<div class="framework-deck-head"><span>SECURITY ARCHITECTURE · LIVE</span><span data-framework-count>01 / 05</span></div>
+<div class="framework-deck-head"><span>SECURITY ARCHITECTURE · LIVE</span><span data-framework-count>01 / 09</span></div>
 <div class="framework-slides">
 <article class="framework-slide is-active" data-framework-slide>
 <div class="framework-kicker">NIST CSF 2.0 · ENTERPRISE OUTCOMES</div>
@@ -161,6 +161,43 @@
 <div class="nm-gis-foot">CONCEPTUAL SOC / POLICY VIEW · GIS POSITIONS AND CORRIDORS ARE ILLUSTRATIVE · NOT LIVE CARRIER TELEMETRY</div>
 </div>
 <div class="framework-note"><b>See connectivity as statewide mission infrastructure.</b><p>Correlate cities, fiber corridors, carriers, public services, cyber events, and verified outage data before making policy or operational decisions.</p></div>
+</article>
+
+<article class="framework-slide framework-list-slide" data-framework-slide>
+<div class="framework-kicker">CIS CONTROLS v8.1 · 18 PRIORITIZED ACTIONS</div>
+<div class="control-18">
+<span>01 Enterprise Assets</span><span>02 Software Assets</span><span>03 Data Protection</span><span>04 Secure Configuration</span><span>05 Account Management</span><span>06 Access Control</span><span>07 Vulnerability Management</span><span>08 Audit Logs</span><span>09 Email + Browser</span><span>10 Malware Defenses</span><span>11 Data Recovery</span><span>12 Network Infrastructure</span><span>13 Network Monitoring</span><span>14 Awareness + Skills</span><span>15 Service Providers</span><span>16 Application Security</span><span>17 Incident Response</span><span>18 Penetration Testing</span>
+</div>
+<div class="framework-note"><b>Use the current 18—not the retired “Top 20.”</b><p>Start with Implementation Group 1, then scale safeguards according to mission, exposure, resources, and consequence.</p></div>
+</article>
+<article class="framework-slide benchmark-slide" data-framework-slide>
+<div class="framework-kicker">CIS BENCHMARKS · HARDENING COVERAGE</div>
+<div class="benchmark-matrix">
+<div class="benchmark-axis"><span>TECHNOLOGY</span><span>L1 BASELINE</span><span>L2 DEFENSE</span><span>EVIDENCE</span></div>
+<div><b>CLOUD</b><span>IAM · logging</span><span>network · keys</span><em>CONFIG SCAN</em></div>
+<div><b>OPERATING SYSTEMS</b><span>accounts · services</span><span>audit · crypto</span><em>HOST POSTURE</em></div>
+<div><b>CONTAINERS</b><span>images · runtime</span><span>admission · secrets</span><em>PIPELINE GATE</em></div>
+<div><b>NETWORK DEVICES</b><span>management plane</span><span>routing · telemetry</span><em>CONTROL TEST</em></div>
+<div><b>DATABASES</b><span>auth · defaults</span><span>logging · encryption</span><em>DATA CONTROL</em></div>
+</div>
+<div class="framework-note"><b>Configuration is a measurable security control.</b><p>CIS publishes 100+ consensus-developed Benchmarks across more than 25 vendor product families.</p></div>
+</article>
+<article class="framework-slide owasp-slide" data-framework-slide>
+<div class="framework-kicker">OWASP TOP 10:2025 · APPLICATION RISK</div>
+<div class="owasp-10">
+<span><b>A01</b>Broken Access Control</span><span><b>A02</b>Security Misconfiguration</span><span><b>A03</b>Software Supply Chain Failures</span><span><b>A04</b>Cryptographic Failures</span><span><b>A05</b>Injection</span><span><b>A06</b>Insecure Design</span><span><b>A07</b>Authentication Failures</span><span><b>A08</b>Software or Data Integrity Failures</span><span><b>A09</b>Security Logging and Alerting Failures</span><span><b>A10</b>Mishandling of Exceptional Conditions</span>
+</div>
+<div class="framework-note"><b>Design, build, test, and observe the whole application lifecycle.</b><p>The 2025 release is OWASP’s current awareness standard for critical web-application risks.</p></div>
+</article>
+<article class="framework-slide threat20-slide" data-framework-slide>
+<div class="framework-kicker">EXECUTIVE THREAT 20 · OPERATIONAL WATCHLIST</div>
+<div class="threat-20">
+<section><b>IDENTITY</b><span>01 Credential theft</span><span>02 MFA bypass</span><span>03 Privilege abuse</span><span>04 Session hijack</span><span>05 Service accounts</span></section>
+<section><b>EXPOSURE</b><span>06 Known exploits</span><span>07 Edge devices</span><span>08 Cloud misconfig</span><span>09 Shadow assets</span><span>10 Third parties</span></section>
+<section><b>APPLICATION + DATA</b><span>11 Supply chain</span><span>12 Injection</span><span>13 API abuse</span><span>14 Data extortion</span><span>15 AI agent misuse</span></section>
+<section><b>RESILIENCE</b><span>16 Ransomware</span><span>17 OT disruption</span><span>18 DDoS</span><span>19 Recovery failure</span><span>20 Disinformation</span></section>
+</div>
+<div class="framework-note"><b>Watch paths to consequence—not headlines alone.</b><p>This is a curated operating taxonomy, not an asserted universal ranking. Validate it against mission, assets, intelligence, and observed behavior.</p></div>
 </article>
 </div>
 <div class="framework-deck-controls"><button type="button" data-framework-prev aria-label="Previous framework">←</button><div class="framework-deck-progress"><i></i></div><button type="button" data-framework-next aria-label="Next framework">→</button></div>
