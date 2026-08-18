@@ -492,3 +492,40 @@ footer { color: rgba(232, 228, 220, .52); }
   .nm-zia-mark::after,.zia-symbol{animation:none!important}
   .zia-symbol{color:#58c9c1;stroke:#58c9c1}
 }
+
+
+/* Balanced, straight hero composition */
+.story-hero{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;
+  gap:4vw;
+  overflow:hidden;
+}
+.story-hero .hero-copy,.story-hero .framework-command-deck{min-width:0;width:100%;margin:0;transform:none!important}
+.story-hero .hero-copy{min-height:700px}
+.framework-command-deck{
+  height:700px;
+  min-height:700px;
+  overflow:hidden;
+  transform:none!important;
+  border-radius:0!important;
+  clip-path:none!important;
+}
+.framework-deck-head,.framework-slides,.framework-slide,.framework-deck-controls,.framework-panel,.nm-gis{
+  transform:none!important;
+  rotate:none!important;
+  skew:none!important;
+  border-radius:0!important;
+  clip-path:none!important;
+}
+.framework-slides{height:585px;min-height:585px;overflow:hidden}
+.framework-slide{inset:0;min-width:0;max-width:100%;overflow:hidden;padding-top:1rem;padding-bottom:.8rem}
+.framework-slide>*{max-width:100%}
+.framework-slide .orbit-diagram,.framework-slide .rmf-wheel,.framework-slide .trust-diagram,.framework-slide .ai-rmf-map{margin-left:auto;margin-right:auto}
+.mantra-rotator{transform:none!important;clip-path:none!important}
+@media(max-width:980px){
+ .story-hero{grid-template-columns:1fr;overflow:hidden}
+ .story-hero .hero-copy{min-height:0}
+ .framework-command-deck{height:680px;min-height:680px}
+ .framework-slides{height:565px;min-height:565px}
+}
