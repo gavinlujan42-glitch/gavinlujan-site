@@ -529,3 +529,34 @@ footer { color: rgba(232, 228, 220, .52); }
  .framework-command-deck{height:680px;min-height:680px}
  .framework-slides{height:565px;min-height:565px}
 }
+
+/* Rotating wisdom banner — independent word and art cycles */
+.gratitude-bar.wisdom-banner{position:relative;min-height:118px;padding:0;display:grid;place-items:stretch;overflow:hidden;isolation:isolate;background:#120d0a;border-bottom:1px solid #d3a65c4d;color:#f6ead5}
+.wisdom-art{position:absolute;inset:0;z-index:-1;overflow:hidden;transition:background 1.8s ease,filter 1.8s ease}
+.wisdom-card{width:min(1180px,92vw);margin:auto;padding:1rem 0 .85rem;display:grid;gap:.38rem}
+.wisdom-meta,.wisdom-status{display:flex;align-items:center;gap:.7rem;font:600 .58rem "Josefin Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#f6ead59e}
+.wisdom-meta{justify-content:space-between}.wisdom-root{color:#ffd36f}.wisdom-root:not(.is-root){color:#f6ead56b}
+.wisdom-card p{max-width:1040px;margin:0;font:400 clamp(.86rem,1.15vw,1.02rem)/1.55 "Josefin Sans",sans-serif;letter-spacing:.035em;color:#fff7e8;text-wrap:balance;opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease;text-shadow:0 2px 18px #000c}
+.wisdom-banner.is-changing .wisdom-card p{opacity:0;transform:translateY(5px)}
+.wisdom-status i{width:clamp(2rem,7vw,5rem);height:1px;background:linear-gradient(90deg,#d64535,#f4c95d,#55c7bd)}
+.wisdom-sun{position:absolute;width:78px;height:78px;border:1px solid currentColor;border-radius:50%;right:9%;top:50%;translate:0 -50%;color:#ffc74f99;box-shadow:0 0 44px #ffae3733}
+.wisdom-sun:before,.wisdom-sun:after{content:"";position:absolute;inset:-18px;background:repeating-conic-gradient(from 0deg,currentColor 0 1deg,transparent 1deg 22.5deg);mask:radial-gradient(circle,transparent 0 48px,#000 49px);animation:wisdom-spin 34s linear infinite}
+.wisdom-sun:after{inset:-30px;opacity:.4;animation-duration:53s;animation-direction:reverse}
+.wisdom-horizon{position:absolute;inset:auto 0 0;height:62%;opacity:.65;clip-path:polygon(0 72%,12% 55%,25% 68%,38% 36%,49% 62%,63% 44%,78% 67%,90% 47%,100% 65%,100% 100%,0 100%);background:linear-gradient(180deg,transparent,#3d1c15)}
+.wisdom-stars{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.3px);background-size:53px 47px;transform:rotate(-2deg)}
+.wisdom-banner[data-art=mesa] .wisdom-art{background:radial-gradient(circle at 80% 80%,#9d351f55,transparent 28%),linear-gradient(120deg,#0c1718,#24140e 58%,#4b1c12)}
+.wisdom-banner[data-art=turquoise] .wisdom-art{background:radial-gradient(circle at 18% 20%,#55c7bd55,transparent 28%),repeating-linear-gradient(45deg,transparent 0 28px,#72ddd90d 29px 30px),#071719}
+.wisdom-banner[data-art=night] .wisdom-art{background:radial-gradient(ellipse at 75% 140%,#553c7b88,transparent 48%),linear-gradient(110deg,#05060c,#10162d 60%,#220e27)}
+.wisdom-banner[data-art=adobe] .wisdom-art{background:repeating-linear-gradient(90deg,transparent 0 79px,#f0c17b12 80px 81px),linear-gradient(125deg,#28130e,#6d2c1a 55%,#bc6534)}
+.wisdom-banner[data-art=rain] .wisdom-art{background:repeating-linear-gradient(105deg,transparent 0 22px,#70e5dc18 23px 24px),radial-gradient(circle at 75% 20%,#5fcfc54a,transparent 25%),#071416}
+.wisdom-banner[data-art=fire] .wisdom-art{background:radial-gradient(circle at 82% 95%,#ffbd4170,transparent 18%),radial-gradient(circle at 70% 110%,#df382855,transparent 34%),#170a08}
+.wisdom-banner[data-art=cottonwood] .wisdom-art{background:radial-gradient(circle at 85% 60%,#bfd66b3d,transparent 25%),linear-gradient(115deg,#0b1713,#283422 65%,#574c25)}
+.wisdom-banner[data-art=snow] .wisdom-art{background:linear-gradient(155deg,#172328,#43565b 54%,#b7c4c2);filter:saturate(.8)}
+.wisdom-banner[data-art=weave] .wisdom-art{background:repeating-linear-gradient(135deg,#190e0b 0 18px,#bb55321a 19px 20px,#0a1717 21px 39px,#5bcac51c 40px 41px)}
+.wisdom-banner[data-art=canyon] .wisdom-art{background:linear-gradient(110deg,#100a09 0 22%,#502014 22% 37%,#1d1010 37% 49%,#74311d 49% 62%,#130d0c 62%)}
+.wisdom-banner[data-art=monsoon] .wisdom-art{background:radial-gradient(ellipse at 70% 0,#a79bcc55,transparent 34%),linear-gradient(#10151e,#242735 55%,#5a3c31)}
+.wisdom-banner[data-art=sage] .wisdom-art{background:radial-gradient(circle at 90% 40%,#d3ba7950,transparent 25%),linear-gradient(120deg,#111813,#354335 65%,#726644)}
+.wisdom-banner[data-art=singularity] .wisdom-art{background:conic-gradient(from 220deg at 82% 50%,#071515,#59c9bf,#f4c95d,#d64535,#171021,#071515)}
+@keyframes wisdom-spin{to{transform:rotate(1turn)}}
+@media(max-width:640px){.gratitude-bar.wisdom-banner{display:grid;min-height:142px}.wisdom-card{width:90vw;padding:.8rem 0}.wisdom-card p{font-size:.78rem;line-height:1.45;padding-right:2.5rem}.wisdom-sun{right:-20px;width:64px;height:64px}.wisdom-status{letter-spacing:.12em}}
+@media(prefers-reduced-motion:reduce){.wisdom-sun:before,.wisdom-sun:after{animation:none}.wisdom-card p{transition:none}}
