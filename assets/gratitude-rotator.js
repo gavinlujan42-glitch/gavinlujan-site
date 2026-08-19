@@ -1,1 +1,37 @@
-(()=>{const b=document.querySelector("[data-wisdom-banner]");if(!b)return;const q=["With gratitude to Mother Earth, Great Spirit, the One — and whatever name we give the greater mystery. Thank you for the time, the work, the people, and the opportunity to serve.","With gratitude to Mother Earth, Great Spirit, the One—and every name through which we honor the greater mystery. Thank you for this life, this work, our shared humanity, and the opportunity to serve.","In gratitude to the Earth, the cosmos, and the One that lives through all things. Thank you for time, purpose, companionship, and the sacred opportunity to serve.","With reverence for Mother Earth and the infinite mystery that unites us all. May every name, path, and tradition lead us toward one harmony—and may our work be of service.","To Earth beneath us, the universe around us, and the singular spirit within us: thank you for the time, the people, the work, and the privilege of serving something greater than ourselves.","With gratitude to the living Earth, the Great Mystery, and the indivisible One. Across every culture, faith, and philosophy, may we recognize our shared origin and serve our shared future.","Many names. Many paths. One Earth, one humanity, one unfolding mystery. With gratitude for the time we are given and the opportunity to serve the whole.","With gratitude to the source beyond all names—the unity from which we arise and to which we belong. Thank you for life, for one another, and for every opportunity to serve.","In honor of Mother Earth and the boundless intelligence woven through all existence: may our differences enrich us, our shared purpose unite us, and our work serve the common good.","One planet beneath us. One cosmos around us. One mystery moving through us. With gratitude for every moment, every person, and every chance to serve.","With gratitude to all that sustains us—Earth, spirit, consciousness, community, and the unnamed mystery at the heart of being. May we meet this moment in harmony and service.","To the One known by countless names and encountered through countless paths: thank you for the gift of time, the dignity of work, the fellowship of others, and the calling to serve.","From many traditions, we approach one horizon. From many lives, we shape one future. With gratitude to the living Earth and the greater mystery, may all we create contribute to harmony."],a=[["mesa","HIGH DESERT DAWN"],["turquoise","TURQUOISE CURRENT"],["night","COSMIC NIGHT"],["adobe","ADOBE LIGHT"],["rain","DESERT RAIN"],["fire","SACRED HORIZON"],["cottonwood","COTTONWOOD"],["snow","SANGRE DE CRISTO"],["weave","WOVEN SIGNAL"],["canyon","CANYON MEMORY"],["monsoon","MONSOON SKY"],["sage","SAGE EARTH"],["singularity","THE ONE"]],e=b.querySelector("[data-wisdom-quote]"),c=b.querySelector("[data-wisdom-count]"),r=b.querySelector("[data-wisdom-root]"),n=b.querySelector("[data-wisdom-art-name]");let i=0,j=0;const words=()=>{i=(i+1)%q.length;b.classList.add("is-changing");setTimeout(()=>{e.textContent=q[i];c.textContent=String(i+1).padStart(2,"0")+" / 13";r.textContent=i===0?"ROOT · 01":"FROM THE ROOT · "+String(i+1).padStart(2,"0");r.classList.toggle("is-root",i===0);b.classList.remove("is-changing")},620)},art=()=>{let x=j;while(x===j)x=Math.floor(Math.random()*a.length);j=x;b.dataset.art=a[j][0];n.textContent=a[j][1]};if(!matchMedia("(prefers-reduced-motion: reduce)").matches){setInterval(words,13000);setInterval(art,8100)}})();
+(()=>{
+  const b=document.querySelector("[data-wisdom-banner]");
+  if(!b)return;
+
+  // The English prayer remains the canonical text. Indigenous-language entries are
+  // intentionally not machine-translated here. Sacred/community language should be
+  // reviewed by fluent speakers or tribal language programs before publication.
+  const prayer="With gratitude to Mother Earth, Great Spirit, the One — and whatever name we give the greater mystery. Thank you for the time, the work, the people, and the opportunity to serve.";
+  const entries=[
+    {lang:"English",community:"ROOT · 01",text:prayer,verified:true},
+    {lang:"Tewa",community:"Tewa-speaking Pueblos",text:"Translation pending community review",verified:false},
+    {lang:"Diné Bizaad",community:"Navajo Nation",text:"Translation pending fluent-speaker review",verified:false},
+    {lang:"Jicarilla Apache",community:"Jicarilla Apache Nation",text:"Translation pending community review",verified:false},
+    {lang:"Mescalero Apache",community:"Mescalero Apache Tribe",text:"Translation pending community review",verified:false},
+    {lang:"Tiwa",community:"Tiwa-speaking Pueblos",text:"Translation pending community review",verified:false},
+    {lang:"Towa",community:"Jemez Pueblo",text:"Translation pending community review",verified:false},
+    {lang:"Keres",community:"Keres-speaking Pueblos",text:"Translation pending community review",verified:false},
+    {lang:"Zuni",community:"Pueblo of Zuni",text:"Translation pending community review",verified:false}
+  ];
+  const art=[["mesa","HIGH DESERT DAWN"],["turquoise","TURQUOISE CURRENT"],["night","COSMIC NIGHT"],["adobe","ADOBE LIGHT"],["rain","DESERT RAIN"],["fire","SACRED HORIZON"],["cottonwood","COTTONWOOD"],["snow","SANGRE DE CRISTO"],["weave","WOVEN SIGNAL"],["canyon","CANYON MEMORY"],["monsoon","MONSOON SKY"],["sage","SAGE EARTH"],["singularity","THE ONE"]];
+  const e=b.querySelector("[data-wisdom-quote]"),c=b.querySelector("[data-wisdom-count]"),r=b.querySelector("[data-wisdom-root]"),n=b.querySelector("[data-wisdom-art-name]");
+  let i=0,j=0;
+  const words=()=>{
+    i=(i+1)%entries.length;
+    const x=entries[i];
+    b.classList.add("is-changing");
+    setTimeout(()=>{
+      e.textContent=x.verified?x.text:`${x.lang} · ${x.text}`;
+      c.textContent=String(i+1).padStart(2,"0")+" / "+String(entries.length).padStart(2,"0");
+      r.textContent=x.verified?x.community:`${x.community} · REVIEW`; 
+      r.classList.toggle("is-root",i===0);
+      b.classList.remove("is-changing");
+    },620);
+  };
+  const cycleArt=()=>{let x=j;while(x===j)x=Math.floor(Math.random()*art.length);j=x;b.dataset.art=art[j][0];n.textContent=art[j][1]};
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){setInterval(words,13000);setInterval(cycleArt,8100)}
+})();
