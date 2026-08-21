@@ -43,73 +43,22 @@
     { text: "The strongest response uses only the force required.", theme: "harmony" },
     { text: "Protect the whole—even while neutralizing the threat.", theme: "harmony" }
   ];
+  const root = document.querySelector("[data-mantra-rotator]"); if (!root) return;
+  const output=root.querySelector("[data-mantra-text]"),discipline=root.querySelector("[data-mantra-discipline]"),counter=root.querySelector("[data-mantra-counter]"),toggle=root.querySelector("[data-mantra-toggle]"),reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+  const labels={systems:"SYSTEMS VISION",cosmos:"COSMIC PERSPECTIVE",quality:"QUALITY & CRAFT",virtue:"VIRTUE IN COMMAND",inquiry:"THE EDGE OF INQUIRY",strategy:"STRATEGIC ADVANTAGE",harmony:"HARMONIZED FORCE"};
+  let bag=[],current=-1,timer=0,paused=false;
+  function refill(){bag=mantras.map((_,i)=>i);for(let i=bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]]}if(bag[bag.length-1]===current&&bag.length>1)[bag[bag.length-1],bag[0]]=[bag[0],bag[bag.length-1]]}
+  function next(){if(!bag.length)refill();current=bag.pop();const mantra=mantras[current];root.classList.add("is-changing");window.setTimeout(()=>{output.textContent=mantra.text;discipline.textContent=labels[mantra.theme];counter.textContent=`${String(current+1).padStart(2,"0")} / 42`;root.dataset.theme=mantra.theme;root.classList.remove("is-changing");root.classList.remove("is-counting");void root.offsetWidth;if(!paused&&!reduceMotion.matches)root.classList.add("is-counting")},reduceMotion.matches?0:360)}
+  function schedule(){window.clearInterval(timer);if(!paused&&!reduceMotion.matches)timer=window.setInterval(next,15000)}
+  toggle?.addEventListener("click",()=>{paused=!paused;toggle.textContent=paused?"RESUME":"PAUSE";toggle.setAttribute("aria-pressed",String(paused));root.classList.toggle("is-paused",paused);schedule()});reduceMotion.addEventListener?.("change",schedule);refill();next();schedule();
+})();
 
-  const root = document.querySelector("[data-mantra-rotator]");
-  if (!root) return;
-
-  const output = root.querySelector("[data-mantra-text]");
-  const discipline = root.querySelector("[data-mantra-discipline]");
-  const counter = root.querySelector("[data-mantra-counter]");
-  const toggle = root.querySelector("[data-mantra-toggle]");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const labels = {
-    systems: "SYSTEMS VISION",
-    cosmos: "COSMIC PERSPECTIVE",
-    quality: "QUALITY & CRAFT",
-    virtue: "VIRTUE IN COMMAND",
-    inquiry: "THE EDGE OF INQUIRY",
-    strategy: "STRATEGIC ADVANTAGE",
-    harmony: "HARMONIZED FORCE"
-  };
-
-  let bag = [];
-  let current = -1;
-  let timer = 0;
-  let paused = false;
-
-  function refill() {
-    bag = mantras.map((_, index) => index);
-    for (let i = bag.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [bag[i], bag[j]] = [bag[j], bag[i]];
-    }
-    if (bag[bag.length - 1] === current && bag.length > 1) {
-      [bag[bag.length - 1], bag[0]] = [bag[0], bag[bag.length - 1]];
-    }
-  }
-
-  function next() {
-    if (!bag.length) refill();
-    current = bag.pop();
-    const mantra = mantras[current];
-    root.classList.add("is-changing");
-    window.setTimeout(() => {
-      output.textContent = mantra.text;
-      discipline.textContent = labels[mantra.theme];
-      counter.textContent = `${String(current + 1).padStart(2, "0")} / 42`;
-      root.dataset.theme = mantra.theme;
-      root.classList.remove("is-changing");
-      root.classList.remove("is-counting");
-      void root.offsetWidth;
-      if (!paused && !reduceMotion.matches) root.classList.add("is-counting");
-    }, reduceMotion.matches ? 0 : 360);
-  }
-
-  function schedule() {
-    window.clearInterval(timer);
-    if (!paused && !reduceMotion.matches) timer = window.setInterval(next, 15000);
-  }
-
-  toggle?.addEventListener("click", () => {
-    paused = !paused;
-    toggle.textContent = paused ? "RESUME" : "PAUSE";
-    toggle.setAttribute("aria-pressed", String(paused));
-    root.classList.toggle("is-paused", paused);
-    schedule();
-  });
-
-  reduceMotion.addEventListener?.("change", schedule);
-  refill();
-  next();
-  schedule();
+(() => {
+  const nav=document.querySelector('.site-header nav');
+  if(!nav || nav.querySelector('[data-zia-v3-toggle]')) return;
+  const link=document.createElement('a');
+  link.href='v3.html'; link.dataset.ziaV3Toggle='true'; link.textContent='ZIA V3 // AI SITE';
+  link.setAttribute('aria-label','Open V3 ZIA-driven AI command center');
+  link.style.cssText='border:1px solid rgba(169,245,199,.65);padding:.7rem .9rem;color:#a9f5c7;background:#06100a;box-shadow:0 0 20px rgba(169,245,199,.08);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-decoration:none;white-space:nowrap';
+  nav.appendChild(link);
 })();
