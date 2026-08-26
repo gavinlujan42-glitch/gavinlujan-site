@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="CIO: The Rogue Game — an ASCII DevSecOps leadership roguelike by Gavin Lujan."><title>CIO: The Rogue Game | Gavin Lujan</title><style>*{box-sizing:border-box}body{margin:0;background:#050908;color:#b8f7d4;font:16px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}.shell{max-width:1000px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #254c3a;padding-bottom:14px}a{color:#f0c75e}.screen{white-space:pre-wrap;border:1px solid #315d49;background:#07100c;padding:22px;min-height:430px;box-shadow:0 0 40px #0c281a inset}.gold{color:#f0c75e}.muted{color:#769b86}.cmd{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}button{background:#0a1711;color:#b8f7d4;border:1px solid #376c51;padding:10px 13px;font:inherit;cursor:pointer}button:hover{color:#f0c75e;border-color:#f0c75e}h1{font-size:clamp(24px,5vw,46px);margin:25px 0 8px;letter-spacing:-2px}.stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:15px}.sigil{color:#f0c75e}@media(max-width:600px){.shell{padding:15px}.screen{padding:14px;font-size:13px}}</style></head><body><main class="shell"><div class="top"><span>GAVINLUJAN.COM // PROJECTS</span><a href="../../projects.html">[ RETURN TO PROJECTS ]</a></div><h1>CIO: THE ROGUE GAME</h1><p class="muted">ASCII DevSecOps leadership roguelike // ALPHA 0.1</p><div class="stats"><span>MISSION: <b id="mission">1</b></span><span>TRUST: <b id="trust">75</b>%</span><span>RISK: <b id="risk">22</b>%</span><span>TEAM: <b id="team">8</b></span></div><div class="screen" id="screen"><span class="sigil">              |  |  |  |
+           ---   (☼)   ---
+              |  |  |  |
+
+        C I O   //   THE ROGUE GAME
+</span>
+You awaken in the High Desert Command Keep.
+
+Your party awaits:
+  [DEV]   Kael, Builder of Releases
+  [SEC]   Nyx, Keeper of the Zero Trust Gate
+  [OPS]   Rook, Warden of Uptime
+  [NET]   Inez, Weaver of Routes
+  [INFRA] Tor, Smith of Compute
+  [PM]    Mira, Keeper of Scope
+  [WEB]   Pixel, Scribe of the Frontend
+  [COMMS] Sol, Herald of the Mission
+
+A bell sounds from the production tower.
+The dashboard burns amber.
+
+INCIDENT: Authentication latency rising.
+Choose your command.</div><div class="cmd"><button onclick="act('observe')">[O] OBSERVE</button><button onclick="act('team')">[T] ASSEMBLE TEAM</button><button onclick="act('secure')">[S] SECURE</button><button onclick="act('deploy')">[D] DEPLOY</button><button onclick="act('quest')">[Q] NEXT QUEST</button></div><p class="muted">Leadership is the combat system. Evidence is armor. Trust is mana. Production has permadeath.</p></main><script>let mission=1,trust=75,risk=22;const s=document.getElementById('screen');function stats(){document.getElementById('mission').textContent=mission;document.getElementById('trust').textContent=trust;document.getElementById('risk').textContent=risk}function log(x){s.innerHTML+='\n\n'+x;s.scrollTop=s.scrollHeight}function act(a){if(a==='observe'){risk=Math.max(0,risk-3);log('> OBSERVE\nNyx correlates identity telemetry. Rook checks service health.\nEvidence acquired: token refresh storm. RISK -3.')}if(a==='team'){trust=Math.min(100,trust+5);log('> ASSEMBLE TEAM\nThe war room forms. No blame. One mission. Clear roles.\nTEAM TRUST +5.')}if(a==='secure'){risk=Math.max(0,risk-8);trust=Math.min(100,trust+2);log('> SECURE\nNyx narrows policy and Inez validates paths.\nThe Zero Trust Gate hums turquoise. RISK -8.')}if(a==='deploy'){if(risk>30){trust=Math.max(0,trust-8);log('> DEPLOY\nThe release dragon wakes. Rollback! TRUST -8.')}else{trust=Math.min(100,trust+6);risk=Math.max(0,risk-4);log('> DEPLOY\nKael ships the fix behind a controlled gate.\nTelemetry holds. The keep remains online. TRUST +6.')}}if(a==='quest'){mission++;risk=Math.min(100,risk+Math.floor(Math.random()*16+10));const q=['A shadow dependency appears in the software supply chain.','The Treasury API begins returning forbidden runes: HTTP 503.','An auditor arrives carrying the Scroll of NIST 800-53.','A rogue AI agent requests production credentials.','The ancient SAN whispers: DISK CAPACITY 94%.'];log('> QUEST '+mission+'\n'+q[(mission-2)%q.length]+'\nChoose your command, CIO.')}stats()}document.addEventListener('keydown',e=>{let k=e.key.toLowerCase();({o:'observe',t:'team',s:'secure',d:'deploy',q:'quest'}[k])&&act({o:'observe',t:'team',s:'secure',d:'deploy',q:'quest'}[k])});</script></body></html>
