@@ -1,0 +1,58 @@
+name: Install GTM sitewide
+on:
+  push:
+    paths:
+      - '.github/workflows/install-gtm.yml'
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GTM-TWL45TGP on all HTML pages
+        shell: python
+        run: |
+          from pathlib import Path
+          gtm_head = '''<!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-TWL45TGP');</script>
+          <!-- End Google Tag Manager -->'''
+          gtm_body = '''<!-- Google Tag Manager (noscript) -->
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWL45TGP"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <!-- End Google Tag Manager (noscript) -->'''
+          changed=[]
+          for p in Path('.').rglob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              if 'GTM-TWL45TGP' in s:
+                  continue
+              low=s.lower()
+              hi=low.find('<head')
+              if hi < 0: continue
+              hi=low.find('>',hi)
+              bi=low.find('<body',hi)
+              if bi < 0: continue
+              bi=low.find('>',bi)
+              s=s[:hi+1]+'\n'+gtm_head+'\n'+s[hi+1:]
+              # body index moved by head insertion, so locate again
+              low=s.lower(); bi=low.find('<body'); bi=low.find('>',bi)
+              s=s[:bi+1]+'\n'+gtm_body+'\n'+s[bi+1:]
+              p.write_text(s,encoding='utf-8')
+              changed.append(str(p))
+          print(f'Installed GTM on {len(changed)} HTML files')
+          print('\n'.join(changed))
+      - name: Commit sitewide GTM installation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' '**/*.html' || true
+          if git diff --cached --quiet; then
+            echo "No HTML changes required"
+          else
+            git commit -m "Install Google Tag Manager GTM-TWL45TGP sitewide"
+            git push
+          fi
