@@ -1,4 +1,4 @@
-name: Accessibility navigation hotfix
+name: Site-wide accessibility baseline
 
 on:
   push:
@@ -15,27 +15,49 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add accessibility stylesheet to homepage
+      - name: Apply WCAG accessibility layer across public HTML
         shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          s = p.read_text(encoding='utf-8')
-          tag = '<link rel="stylesheet" href="assets/accessibility-2026.css?v=20260902-1">'
-          if tag not in s:
-              s = s.replace('</head>', f'{tag}\n</head>', 1)
-              p.write_text(s, encoding='utf-8')
+          import re
+
+          tag = '<link rel="stylesheet" href="assets/accessibility-2026.css?v=20260902-2">'
+          old = re.compile(r'<link rel="stylesheet" href="assets/accessibility-2026\.css\?v=[^"]+">')
+          changed = []
+
+          for p in sorted(Path('.').glob('*.html')):
+              s = p.read_text(encoding='utf-8')
+              original = s
+
+              if old.search(s):
+                  s = old.sub(tag, s, count=1)
+              elif '</head>' in s:
+                  s = s.replace('</head>', f'{tag}\n</head>', 1)
+
+              if '<html' in s and not re.search(r'<html[^>]*\blang=', s, re.I):
+                  s = re.sub(r'<html(\s*[^>]*)>', r'<html lang="en"\1>', s, count=1, flags=re.I)
+
+              if '<body' in s and 'class="skip-link"' not in s and 'id="main-content"' in s:
+                  s = re.sub(r'(<body[^>]*>)', r'\1\n<a class="skip-link" href="#main-content">Skip to main content</a>', s, count=1, flags=re.I)
+
+              if s != original:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+
+          print(f'Updated {len(changed)} HTML files')
+          for name in changed:
+              print(name)
           PY
-      - name: Commit hotfix if needed
+      - name: Commit accessibility baseline if needed
         shell: bash
         run: |
           if git diff --quiet; then
-            echo 'Accessibility layer already wired.'
+            echo 'Accessibility layer already applied site-wide.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html
-          git commit -m 'Wire accessibility navigation layer into homepage'
+          git add '*.html'
+          git commit -m 'Apply WCAG accessibility baseline site-wide'
           git push
