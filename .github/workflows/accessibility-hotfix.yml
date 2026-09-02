@@ -1,0 +1,41 @@
+name: Accessibility navigation hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/accessibility-2026.css'
+      - '.github/workflows/accessibility-hotfix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  wire-accessibility-layer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add accessibility stylesheet to homepage
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          tag = '<link rel="stylesheet" href="assets/accessibility-2026.css?v=20260902-1">'
+          if tag not in s:
+              s = s.replace('</head>', f'{tag}\n</head>', 1)
+              p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit hotfix if needed
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo 'Accessibility layer already wired.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Wire accessibility navigation layer into homepage'
+          git push
