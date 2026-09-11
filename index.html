@@ -47,15 +47,14 @@
 .site-header .nav-cta{color:#08110f!important;background:linear-gradient(135deg,#52e2d0,#e4ad43)!important;border-color:transparent!important}
 </style>
 <link rel="stylesheet" href="assets/site-compliance.css?v=20260910-1"><script defer src="assets/site-compliance.js?v=20260910-1"></script><style id="cinematic-title-art-style">
-.visual-title-art{position:relative;isolation:isolate;overflow:hidden;background:#03090c;border-bottom:1px solid rgba(82,226,208,.34);box-shadow:0 24px 70px rgba(0,0,0,.42)}
-.visual-title-art:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(2,7,10,.08) 0%,transparent 52%,rgba(3,8,10,.82) 100%),linear-gradient(90deg,rgba(2,8,10,.26),transparent 32%,transparent 70%,rgba(2,8,10,.18))}
-.visual-title-art img{display:block;width:100%;height:auto;max-height:72vh;object-fit:cover;object-position:center center;filter:saturate(.96) contrast(1.04)}
-.visual-title-art__meta{position:absolute;z-index:2;left:clamp(1rem,4vw,4.5rem);right:clamp(1rem,4vw,4.5rem);bottom:clamp(.8rem,2.4vw,2rem);display:flex;justify-content:space-between;align-items:end;gap:1rem;color:#dffbf6;font:800 .64rem/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 14px #000}
-.visual-title-art__meta span{padding:.5rem .65rem;border:1px solid rgba(82,226,208,.45);background:rgba(3,12,15,.68);backdrop-filter:blur(8px)}
-.visual-title-art__meta span:last-child{color:#f5ce79;border-color:rgba(228,173,67,.5)}
-@media(max-width:700px){.visual-title-art img{min-height:52vh;object-fit:cover;object-position:42% center}.visual-title-art__meta{align-items:stretch;flex-direction:column}.visual-title-art__meta span{width:max-content;max-width:100%}}
-@media(prefers-reduced-motion:reduce){.visual-title-art img{filter:saturate(.92)}}
-</style></head>
+.hero.story-hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(900px,92vh);background-image:linear-gradient(90deg,rgba(2,8,11,.88) 0%,rgba(2,10,13,.62) 42%,rgba(2,8,11,.78) 100%),linear-gradient(180deg,rgba(2,8,11,.18) 0%,rgba(2,8,11,.24) 50%,rgba(2,8,11,.94) 100%),url("assets/gavin-lujan-cyber-new-mexico-title.png")!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-bottom:1px solid rgba(82,226,208,.34);box-shadow:inset 0 -80px 100px rgba(3,8,10,.55)}
+.hero.story-hero:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 28% 46%,transparent 0 22%,rgba(1,7,9,.22) 54%,rgba(1,7,9,.48) 100%)}
+.story-hero .hero-copy,.story-hero .framework-command-deck,.story-hero .hero-security-grid,.story-hero .hero-security-orbit{position:relative;z-index:2}
+.story-hero .hero-copy{padding:clamp(1rem,3vw,2.5rem);border:1px solid rgba(82,226,208,.18);background:linear-gradient(135deg,rgba(3,11,14,.58),rgba(3,11,14,.18));backdrop-filter:blur(5px);box-shadow:0 20px 55px rgba(0,0,0,.24)}
+.story-hero .framework-command-deck{background:rgba(4,12,15,.76);backdrop-filter:blur(10px);box-shadow:0 24px 65px rgba(0,0,0,.34)}
+@media(max-width:900px){.hero.story-hero{min-height:auto;background-position:30% center!important}.story-hero .hero-copy{background:rgba(3,11,14,.76)}}
+@media(max-width:600px){.hero.story-hero{background-position:24% center!important;background-image:linear-gradient(180deg,rgba(2,8,11,.58),rgba(2,8,11,.92)),url("assets/gavin-lujan-cyber-new-mexico-title.png")!important}.story-hero .hero-copy{padding:1rem}}
+</style><link rel="preload" as="image" href="assets/gavin-lujan-cyber-new-mexico-title.png" fetchpriority="high"></head>
 <body>
 
 
@@ -109,11 +108,7 @@
 </nav>
 </header>
 <main id="main-content">
-<div id="top"></div><section class="visual-title-art" aria-label="Gavin Lujan cybersecurity and New Mexico visual identity">
-<img src="assets/gavin-lujan-cyber-new-mexico-title.png" width="1024" height="576" alt="A wolf overlooking the Rio Grande landscape at sunrise with Gavin Lujan cybersecurity, technology and New Mexico identity graphics." fetchpriority="high">
-<div class="visual-title-art__meta"><span>NEW MEXICO · CYBERSECURITY · RESPONSIBLE AI</span><span>CISO · CIO · INNOVATOR · DISRUPTOR</span></div>
-</section>
-<section class="hero story-hero">
+<div id="top"></div><section class="hero story-hero">
 <div class="hero-security-grid" aria-hidden="true">
 </div>
 <div class="hero-security-orbit" aria-hidden="true">
