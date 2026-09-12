@@ -83,7 +83,7 @@
   transform:scaleX(0);
   transform-origin:left;
 }
-.mantra-rotator.is-counting .mantra-progress::after { animation:mantra-count 15s linear forwards; }
+.mantra-rotator.is-counting .mantra-progress::after { animation:mantra-count 60s linear forwards; }
 .mantra-rotator.is-paused .mantra-progress::after { animation-play-state:paused; }
 @keyframes mantra-count { to { transform:scaleX(1); } }
 @media (prefers-reduced-motion: reduce) {
