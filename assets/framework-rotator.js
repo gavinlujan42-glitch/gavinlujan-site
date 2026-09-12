@@ -19,12 +19,14 @@
 
   const deck=document.querySelector('[data-framework-deck]');
   if(deck){
-    const slides=[...deck.querySelectorAll('[data-framework-slide]')],counter=deck.querySelector('[data-framework-count]'),progress=deck.querySelector('.framework-deck-progress i');
-    let active=0,timer;
-    const show=next=>{active=(next+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===active));if(counter)counter.textContent=`${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;if(progress){progress.style.animation='none';void progress.offsetWidth;progress.style.animation='frameworkProgress 9s linear infinite'}};
-    const restart=()=>{clearInterval(timer);timer=setInterval(()=>show(active+1),9000)};
+    const slides=[...deck.querySelectorAll('[data-framework-slide]')],counter=deck.querySelector('[data-framework-count]'),progress=deck.querySelector('.framework-deck-progress i'),toggle=deck.querySelector('[data-framework-toggle]'),reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active=0,timer,paused=false;
+    const show=next=>{active=(next+slides.length)%slides.length;slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===active));if(counter)counter.textContent=`${String(active+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;if(progress){progress.style.animation='none';void progress.offsetWidth;if(!paused&&!reduceMotion.matches)progress.style.animation='frameworkProgress 9s linear forwards'}};
+    const restart=()=>{clearInterval(timer);if(!paused&&!reduceMotion.matches)timer=setInterval(()=>show(active+1),9000)};
     deck.querySelector('[data-framework-prev]')?.addEventListener('click',()=>{show(active-1);restart()});
     deck.querySelector('[data-framework-next]')?.addEventListener('click',()=>{show(active+1);restart()});
+    toggle?.addEventListener('click',()=>{paused=!paused;toggle.textContent=paused?'RESUME':'PAUSE';toggle.setAttribute('aria-pressed',String(paused));show(active);restart()});
+    reduceMotion.addEventListener?.('change',()=>{show(active);restart()});
     show(0);restart();
   }
 
