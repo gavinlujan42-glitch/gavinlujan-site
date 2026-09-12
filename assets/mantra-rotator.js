@@ -1,6 +1,6 @@
 (() => {
   const mantras = [
-    { text: "NEW MEXICO CYBER THREAT DASHBOARD", theme: "strategy", priority: true },
+    { text: "Govern risk. Modernize critical systems. Build public trust.", theme: "systems", intro: true },
     { text: "Build the system that makes the old failure obsolete.", theme: "systems" },
     { text: "See the whole. Strengthen the essential. Remove the drag.", theme: "systems" },
     { text: "Design for the world arriving, not the one disappearing.", theme: "systems" },
@@ -51,7 +51,7 @@
   const cta=document.createElement('a'); cta.href='nm-cyber-threat-dashboard.html'; cta.textContent='OPEN THREAT CONSTELLATION →'; cta.className='priority-threat-cta'; cta.style.cssText='display:inline-block;margin-top:.8rem;padding:.65rem .85rem;border:1px solid rgba(116,255,155,.55);color:#baffcc;text-decoration:none;font:800 .64rem ui-monospace,monospace;letter-spacing:.1em;background:#031008'; root.appendChild(cta);
   let bag=mantras.map((_,i)=>i).slice(1),current=0,timer=0,paused=false,first=true;
   function shuffle(){for(let i=bag.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[bag[i],bag[j]]=[bag[j],bag[i]]}}
-  function render(index){current=index;const m=mantras[index];root.classList.add('is-changing');setTimeout(()=>{output.textContent=m.text;discipline.textContent=m.priority?'PRIORITY SPLASH · ZIA WOLF THREAT INTELLIGENCE':labels[m.theme];counter.textContent=m.priority?'NM / 01':`${String(index+1).padStart(2,'0')} / ${mantras.length}`;root.dataset.theme=m.theme;cta.style.display=m.priority?'inline-block':'none';root.classList.remove('is-changing');root.classList.remove('is-counting');void root.offsetWidth;if(!paused&&!reduceMotion.matches)root.classList.add('is-counting')},reduceMotion.matches?0:360)}
+  function render(index){current=index;const m=mantras[index];root.classList.add('is-changing');setTimeout(()=>{output.textContent=m.text;discipline.textContent=m.intro?'EXECUTIVE OPERATING POSITION':labels[m.theme];counter.textContent=`${String(index+1).padStart(2,'0')} / ${mantras.length}`;root.dataset.theme=m.theme;cta.style.display='none';root.classList.remove('is-changing');root.classList.remove('is-counting');void root.offsetWidth;if(!paused&&!reduceMotion.matches)root.classList.add('is-counting')},reduceMotion.matches?0:360)}
   function next(){if(first){first=false;render(0);return}if(!bag.length){bag=mantras.map((_,i)=>i).slice(1);shuffle()}render(bag.pop())}
   function schedule(){clearInterval(timer);if(!paused&&!reduceMotion.matches)timer=setInterval(next,60000)}
   previous?.addEventListener('click',()=>{first=false;render((current-1+mantras.length)%mantras.length);schedule()});following?.addEventListener('click',()=>{first=false;render((current+1)%mantras.length);schedule()});toggle?.addEventListener('click',()=>{paused=!paused;toggle.textContent=paused?'RESUME':'PAUSE';toggle.setAttribute('aria-pressed',String(paused));root.classList.toggle('is-paused',paused);schedule()});
