@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ziawolf-grc-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "vars": { "ENVIRONMENT": "production", "ALLOWED_ORIGIN": "https://gavinlujan.com" },
+  "d1_databases": [{ "binding": "DB", "database_name": "ziawolf-grc", "database_id": "REPLACE_WITH_D1_DATABASE_ID" }],
+  "r2_buckets": [{ "binding": "EVIDENCE", "bucket_name": "ziawolf-grc-evidence" }],
+  "triggers": { "crons": ["0 12 * * *", "0 21 * * *"] }
+}

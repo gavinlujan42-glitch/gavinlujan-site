@@ -1,0 +1,11 @@
+PRAGMA foreign_keys = ON;
+CREATE TABLE IF NOT EXISTS tenants (id TEXT PRIMARY KEY, name TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS controls (id TEXT NOT NULL, tenant_id TEXT NOT NULL, domain TEXT NOT NULL, title TEXT NOT NULL, maturity INTEGER NOT NULL DEFAULT 0, evidence_confidence INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(id,tenant_id), FOREIGN KEY(tenant_id) REFERENCES tenants(id));
+CREATE TABLE IF NOT EXISTS signals (id TEXT PRIMARY KEY, tenant_id TEXT NOT NULL, type TEXT NOT NULL, domain TEXT NOT NULL, severity TEXT NOT NULL, title TEXT NOT NULL, source TEXT NOT NULL, confidence INTEGER NOT NULL, payload_key TEXT, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(tenant_id) REFERENCES tenants(id));
+CREATE TABLE IF NOT EXISTS findings (id TEXT PRIMARY KEY, tenant_id TEXT NOT NULL, control_id TEXT, domain TEXT NOT NULL, title TEXT NOT NULL, severity TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open', due_at TEXT, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(tenant_id) REFERENCES tenants(id));
+CREATE TABLE IF NOT EXISTS risk_snapshots (id TEXT PRIMARY KEY, tenant_id TEXT NOT NULL, risk_score INTEGER NOT NULL, control_confidence INTEGER NOT NULL, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(tenant_id) REFERENCES tenants(id));
+CREATE TABLE IF NOT EXISTS audit_log (id TEXT PRIMARY KEY, tenant_id TEXT NOT NULL, actor TEXT NOT NULL, action TEXT NOT NULL, object_type TEXT NOT NULL, object_id TEXT, detail TEXT, created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX IF NOT EXISTS idx_signals_tenant_time ON signals(tenant_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_findings_tenant_status ON findings(tenant_id,status);
+CREATE INDEX IF NOT EXISTS idx_snapshots_tenant_time ON risk_snapshots(tenant_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_audit_tenant_time ON audit_log(tenant_id,created_at DESC);
