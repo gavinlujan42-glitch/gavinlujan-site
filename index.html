@@ -134,8 +134,146 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 </style>
 <style id="gl-free-tier-policy-style">.gl-free-tier-status{margin:12px 0;padding:12px 15px;border:1px solid #7951a1;border-radius:9px;background:#211333;color:#e6d4ff;font:12px/1.6 system-ui}.gl-free-tier-status strong{color:#d9b8ff}.gl-ai-note{font-size:11px!important}</style>
 <style id="gl-original-audio-style">.gl-audio-control{position:fixed;bottom:16px;left:16px;z-index:9005;display:flex;align-items:center;gap:9px;background:#201031eb;border:1px solid #8756ba;border-radius:999px;padding:7px 12px;box-shadow:0 8px 32px #0008;font:600 11px system-ui;color:#eadbff}.gl-audio-control button{background:#4d2777;color:#fff;border:1px solid #9c6dcc;border-radius:999px;padding:7px 12px;font:700 11px system-ui;cursor:pointer}.gl-audio-control button:focus-visible{outline:2px solid #f0c577;outline-offset:2px}.gl-audio-control span{max-width:160px}@media(max-width:600px){.gl-audio-control{bottom:66px;left:10px;padding:5px 8px}.gl-audio-control span{max-width:110px;font-size:10px}}</style>
+<style id="amethyst-home-theme">
+.amethyst-home {
+  --amethyst-canvas: #100a18;
+  --amethyst-panel: #1d1229;
+  --amethyst-text: #f5f0fa;
+  --amethyst-muted: #c7afde;
+  --amethyst-border: #634980;
+  --amethyst-action: #6d28d9;
+  background: var(--amethyst-canvas) !important;
+  color: var(--amethyst-text);
+  padding-bottom: 4.5rem;
+}
+.amethyst-home :focus-visible {
+  outline: 2px solid #e0c2ff;
+  outline-offset: 4px;
+}
+.amethyst-home .site-header {
+  flex-wrap: wrap;
+  gap: .65rem 1.5rem;
+  background: #130c1ceF !important;
+  border-bottom-color: var(--amethyst-border) !important;
+  box-shadow: none;
+}
+.amethyst-home .brand small { display: none; }
+.amethyst-home .site-header nav { display: flex; flex-wrap: wrap; }
+.amethyst-home .site-header nav > a,
+.amethyst-home .site-header nav > a[href="sec-intel.html"] {
+  color: var(--amethyst-text);
+  background: transparent;
+  border-color: transparent;
+  font-size: .78rem !important;
+  letter-spacing: normal !important;
+  text-transform: none;
+}
+.amethyst-home .site-header nav > a.amethyst-archive,
+.amethyst-home .site-header nav > a.nav-cta {
+  color: var(--amethyst-text) !important;
+  background: transparent !important;
+  border: 1px solid var(--amethyst-border) !important;
+}
+.amethyst-home .site-header nav > a:hover,
+.amethyst-home .site-header nav > a:focus-visible {
+  color: #fff;
+  background: #3b2153 !important;
+}
+.amethyst-hero {
+  display: grid;
+  align-items: center;
+  min-height: clamp(29rem, 64vh, 47rem);
+  padding: clamp(3rem, 8vw, 8rem) max(1.25rem, calc((100% - 74rem) / 2));
+  background:
+    linear-gradient(90deg, #100a18 12%, #100a18ed 48%, #1d122988),
+    url("assets/gavin-lujan-ziawolf-hero-v2.webp") right center / cover no-repeat;
+  border-bottom: 1px solid var(--amethyst-border);
+}
+.amethyst-hero-copy { max-width: 48rem; min-width: 0; }
+.amethyst-hero .amethyst-kicker {
+  margin: 0 0 1rem;
+  color: #debbff;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.amethyst-hero h1 {
+  margin: 0;
+  color: var(--amethyst-text);
+  font-size: clamp(2.3rem, 5.7vw, 5.15rem);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.amethyst-hero .amethyst-lede {
+  max-width: 38rem;
+  margin: 1.25rem 0 0;
+  color: var(--amethyst-muted);
+  font-size: clamp(1rem, 1.4vw, 1.16rem);
+  line-height: 1.65;
+}
+.amethyst-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.65rem; }
+.amethyst-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: .62rem 1rem;
+  border: 1px solid #9675b7;
+  border-radius: .5rem;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.amethyst-actions a:first-child, .amethyst-home .gl-ai-launch {
+  background: var(--amethyst-action);
+  color: #fff;
+  border-color: #a783eb;
+}
+.amethyst-actions a:hover { background: #522778; }
+.amethyst-home .sfe-impact,
+.amethyst-home .sfe-pathways,
+.amethyst-home .executive-focus,
+.amethyst-home .profile,
+.amethyst-home #ai-hpc-current-state {
+  background: var(--amethyst-panel) !important;
+  border-color: var(--amethyst-border) !important;
+}
+.amethyst-home .executive-focus, .amethyst-home .profile { background: var(--amethyst-canvas) !important; }
+.amethyst-lab {
+  width: min(74rem, calc(100% - 2.5rem));
+  margin: 2rem auto;
+  border: 1px solid var(--amethyst-border);
+  border-radius: .65rem;
+  background: var(--amethyst-panel);
+}
+.amethyst-lab summary { padding: 1rem; cursor: pointer; font-weight: 700; }
+.amethyst-lab .hero-side-stack {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+}
+.amethyst-lab .hero-side-screen { min-width: 0; }
+.amethyst-home .footer-brief-bar,
+.amethyst-home .gl-audio-control {
+  position: static;
+  transform: none;
+  width: min(74rem, calc(100% - 2.5rem));
+  margin: 1rem auto;
+}
+.amethyst-home .gl-ai-launch { bottom: 1rem; right: 1rem; }
+@media (max-width: 720px) {
+  .amethyst-home .site-header { position: relative; }
+  .amethyst-hero {
+    min-height: 0;
+    padding-block: 3rem;
+    background-image: linear-gradient(90deg, #100a18f5, #1d1229d9),
+      url("assets/gavin-lujan-ziawolf-hero-v2.webp");
+  }
+  .amethyst-lab .hero-side-stack { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
 </head>
-<body>
+<body class="amethyst-home">
 
 
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -143,11 +281,6 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 </div>
 <div class="signal-frame" aria-hidden="true">
 </div>
-<section class="gratitude-bar wisdom-banner" data-wisdom-banner data-art="mesa" aria-label="Rotating gratitude and wisdom">
-<div class="wisdom-art" aria-hidden="true"><span class="wisdom-sun"></span><span class="wisdom-horizon"></span><span class="wisdom-stars"></span></div>
-<div class="wisdom-card"><div class="wisdom-meta"><span>8 · 8 · 2026</span><span class="wisdom-root" data-wisdom-root>ROOT · 01</span></div>
-<p data-wisdom-quote>With gratitude to Mother Earth, Great Spirit, the One — and whatever name we give the greater mystery. Thank you for the time, the work, the people, and the opportunity to serve.</p>
-<div class="wisdom-status"><span data-wisdom-count>01 / 13</span><i aria-hidden="true"></i><span data-wisdom-art-name>HIGH DESERT DAWN</span></div></div></section>
 <header class="site-header">
 <a class="brand" href="#top">
 <span class="mark nm-zia-mark" aria-hidden="true">
@@ -169,32 +302,87 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 <a href="blog.html">Briefs</a>
 <a href="resume.html">Résumé</a>
 <a href="time-machine.html">Time Machine</a>
-<a href="legacy-2026.html" title="View the preserved 2026 homepage" style="color:#d8b4ff">Legacy 2026 Site Archive</a>
+<a class="amethyst-archive" href="legacy-2026.html">Legacy 2026 Site Archive</a>
 <a class="nav-cta" href="#contact">Connect</a>
 </nav>
 </header>
 <main id="main-content">
-<div id="top"></div><section class="hero story-hero">
-<div class="hero-security-grid" aria-hidden="true">
+<section id="top" class="amethyst-hero" aria-labelledby="home-title">
+  <div class="amethyst-hero-copy">
+    <p class="amethyst-kicker">New Mexico public-sector CIO</p>
+    <h1 id="home-title">Govern risk. Modernize critical systems. Build public trust.</h1>
+    <p class="amethyst-lede">Gavin Lujan brings 25 years of technology experience to public-sector leadership, cybersecurity, infrastructure modernization, and responsible AI. He holds CISSP and CCSP certifications and is rooted in Española, New Mexico.</p>
+    <div class="amethyst-actions">
+      <a href="resume.html">View executive record</a>
+      <a href="projects.html">Explore current work</a>
+    </div>
+  </div>
+</section>
+<section class="sfe-impact" aria-label="Selected executive impact">
+<div><strong>25+</strong><span>Years leading technology</span></div>
+<div><strong>2× CIO</strong><span>New Mexico public service</span></div>
+<div><strong>600K+</strong><span>Annual transactions supported</span></div>
+<div><strong>$115M+</strong><span>Annual mission revenue enabled</span></div>
+<div><strong>CISSP · CCSP</strong><span>Security leadership</span></div>
+</section>
+<section class="sfe-pathways section-shell" aria-labelledby="sfe-pathways-title">
+<div class="sfe-pathway-intro"><p class="eyebrow">CHOOSE THE LENS</p><h2 id="sfe-pathways-title">One career.<br>Three ways in.</h2><p>Start with the evidence most relevant to your mission. The deeper command systems remain available without competing for the first impression.</p></div>
+<div class="sfe-pathway-grid">
+<a href="#executive-focus"><span>01 · EXECUTIVE LEADERSHIP</span><strong>Govern the whole system.</strong><small>Strategy, modernization, teams, procurement and public trust.</small></a>
+<a href="sec-intel.html"><span>02 · RESEARCH + INTELLIGENCE</span><strong>Turn signal into action.</strong><small>Cyber intelligence, Project IO, AI/HPC and evidence-first analysis.</small></a>
+<a href="projects.html"><span>03 · SYSTEMS + EXPERIMENTS</span><strong>Build what endures.</strong><small>Water, GIS, cloud, responsible AI and working prototypes.</small></a>
 </div>
-<div class="hero-security-orbit" aria-hidden="true">
+</section>
+<section id="executive-focus" class="executive-focus section-shell">
+<div class="section-heading">
+<div>
+<p class="eyebrow">8 · 8 · 2026 EXECUTIVE POSITIONING</p>
+<h2>Security leadership.<br>Research-scale technology.</h2>
 </div>
-<div class="hero-triptych">
-<div class="hero-copy hero-primary-screen">
-<p class="eyebrow">PROJECT SANTA FE EYE · PUBLIC-SECTOR CIO · NEW MEXICO</p>
-<div class="mantra-rotator" data-mantra-rotator data-theme="systems">
-<p class="mantra-kicker" data-mantra-discipline>EXECUTIVE OPERATING POSITION</p>
-<h1 data-mantra-text>Govern risk. Modernize critical systems. Build public trust.</h1>
-<div class="mantra-status hero-panel-controls"><button type="button" data-mantra-prev aria-label="Previous primary feature">←</button><span data-mantra-counter>00 / 42</span><button type="button" data-mantra-toggle aria-pressed="false">PAUSE</button><button type="button" data-mantra-next aria-label="Next primary feature">→</button><span>60 SEC MAIN SCREEN</span></div>
-<div class="mantra-progress" aria-hidden="true"></div>
+<p>Two complementary lanes built from the same career: protect complex public institutions, and create reliable technology environments where people can do consequential work.</p>
 </div>
-<p class="lede">Gavin Lujan is a New Mexico CIO, CISSP and CCSP who turns cybersecurity, infrastructure and responsible AI into durable public capability. Twenty-five years of technical depth meet executive accountability—rooted in Española and built for consequential systems.</p>
-<div class="actions">
-<a class="button primary" href="resume.html">View executive record</a>
-<a class="button secondary" href="projects.html">Explore current work</a>
+<div class="focus-grid">
+<article>
+<span>STATEWIDE CISO READINESS</span>
+<h3>Cybersecurity as public trust.</h3>
+<p>Executive governance across NIST CSF, RMF and 800-53; Zero Trust; identity; resilience; PCI; risk evidence; incident readiness; policy; cloud security; and clear communication with leaders, technologists and the public.</p>
+<ul>
+<li>CISSP + CCSP with continuing governance, risk and compliance study</li>
+<li>Security leadership embedded across multiple CIO and infrastructure roles</li>
+<li>Human-centered leadership that develops staff and makes accountability visible</li>
+<li>Responsible AI governance: embrace capability while bounding data, permissions, evidence and human authority</li>
+</ul>
+</article>
+<article>
+<span>RESEARCH CIO READINESS</span>
+<h3>Strategy with hands-on roots.</h3>
+<p>Leadership grounded in Linux, mission-critical computing clusters, high-speed interconnects, enterprise networking, virtualization, cloud, storage, continuity, multi-site operations and service management.</p>
+<ul>
+<li>Hewlett-Packard mission-critical Linux / clustered-computing experience</li>
+<li>Statewide network and infrastructure leadership</li>
+<li>Budget, vendor, procurement, portfolio and modernization governance</li>
+<li>Disciplined prioritization across simultaneous mission demands</li>
+</ul>
+</article>
 </div>
+<div class="time-stewardship">
+<b>TIME IS THE NONRENEWABLE ASSET.</b>
+<p>Prioritize deliberately. Protect focus. Empower capable people. Use automation and AI responsibly. Reserve human attention for judgment, relationships and the decisions that matter.</p>
 </div>
-<div class="hero-side-stack">
+</section>
+<section class="signal-console" aria-live="polite">
+<span class="signal-id">
+<span data-signal-code>GV-01</span> / <span data-signal-count>400</span>
+</span>
+<strong data-security-signal>organizational context: define the mission outcome</strong>
+<span class="signal-meta">
+<span data-signal-framework>NIST CSF</span> · NEXT SIGNAL 10 SEC</span>
+<span class="signal-progress" data-signal-progress>
+</span>
+</section>
+<details class="amethyst-lab">
+  <summary>Explore the security and intelligence dashboards</summary>
+  <div class="hero-side-stack">
 <div class="framework-command-deck hero-side-screen" data-framework-deck aria-label="Animated cybersecurity and risk frameworks">
 <div class="framework-deck-head"><span>SECURITY ARCHITECTURE · LIVE</span><span data-framework-count>01 / 09</span></div>
 <div class="framework-slides">
@@ -316,73 +504,8 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 <article class="signal-deck-slide" data-signal-deck-slide><div class="signal-metric"><strong>AI / HPC</strong><span>CONTROL PLANE</span></div><div class="signal-deck-copy"><small>COMPUTE · IDENTITY · ENERGY</small><b>SECURE THE SYSTEM BEHIND THE MODEL.</b><p>Govern privileged access, schedulers, model registries, storage fabrics, power, cooling and recovery.</p></div></article>
 <article class="signal-deck-slide" data-signal-deck-slide><div class="signal-metric"><strong>CISO</strong><span>DECISION ADVANTAGE</span></div><div class="signal-deck-copy"><small>RISK · TRUST · CONSEQUENCE</small><b>TURN SIGNAL INTO ACTION.</b><p>Prioritize exposure reduction, identity assurance, telemetry, tested recovery and accountable governance.</p></div></article>
 </div><div class="signal-deck-controls"><button type="button" data-signal-deck-prev aria-label="Previous intelligence card">←</button><div class="signal-deck-progress"><i></i></div><button type="button" data-signal-deck-toggle aria-pressed="false">PAUSE</button><button type="button" data-signal-deck-next aria-label="Next intelligence card">→</button></div></div>
-</div></div><div class="hero-foot"><span>35.0844° N</span>
-<span>RISK / TRUST / CONSEQUENCE</span>
-<span>NEW MEXICO, USA</span>
 </div>
-</section>
-<section class="sfe-impact" aria-label="Selected executive impact">
-<div><strong>25+</strong><span>Years leading technology</span></div>
-<div><strong>2× CIO</strong><span>New Mexico public service</span></div>
-<div><strong>600K+</strong><span>Annual transactions supported</span></div>
-<div><strong>$115M+</strong><span>Annual mission revenue enabled</span></div>
-<div><strong>CISSP · CCSP</strong><span>Security leadership</span></div>
-</section>
-<section class="sfe-pathways section-shell" aria-labelledby="sfe-pathways-title">
-<div class="sfe-pathway-intro"><p class="eyebrow">CHOOSE THE LENS</p><h2 id="sfe-pathways-title">One career.<br>Three ways in.</h2><p>Start with the evidence most relevant to your mission. The deeper command systems remain available without competing for the first impression.</p></div>
-<div class="sfe-pathway-grid">
-<a href="#executive-focus"><span>01 · EXECUTIVE LEADERSHIP</span><strong>Govern the whole system.</strong><small>Strategy, modernization, teams, procurement and public trust.</small></a>
-<a href="sec-intel.html"><span>02 · RESEARCH + INTELLIGENCE</span><strong>Turn signal into action.</strong><small>Cyber intelligence, Project IO, AI/HPC and evidence-first analysis.</small></a>
-<a href="projects.html"><span>03 · SYSTEMS + EXPERIMENTS</span><strong>Build what endures.</strong><small>Water, GIS, cloud, responsible AI and working prototypes.</small></a>
-</div>
-</section>
-<section id="executive-focus" class="executive-focus section-shell">
-<div class="section-heading">
-<div>
-<p class="eyebrow">8 · 8 · 2026 EXECUTIVE POSITIONING</p>
-<h2>Security leadership.<br>Research-scale technology.</h2>
-</div>
-<p>Two complementary lanes built from the same career: protect complex public institutions, and create reliable technology environments where people can do consequential work.</p>
-</div>
-<div class="focus-grid">
-<article>
-<span>STATEWIDE CISO READINESS</span>
-<h3>Cybersecurity as public trust.</h3>
-<p>Executive governance across NIST CSF, RMF and 800-53; Zero Trust; identity; resilience; PCI; risk evidence; incident readiness; policy; cloud security; and clear communication with leaders, technologists and the public.</p>
-<ul>
-<li>CISSP + CCSP with continuing governance, risk and compliance study</li>
-<li>Security leadership embedded across multiple CIO and infrastructure roles</li>
-<li>Human-centered leadership that develops staff and makes accountability visible</li>
-<li>Responsible AI governance: embrace capability while bounding data, permissions, evidence and human authority</li>
-</ul>
-</article>
-<article>
-<span>RESEARCH CIO READINESS</span>
-<h3>Strategy with hands-on roots.</h3>
-<p>Leadership grounded in Linux, mission-critical computing clusters, high-speed interconnects, enterprise networking, virtualization, cloud, storage, continuity, multi-site operations and service management.</p>
-<ul>
-<li>Hewlett-Packard mission-critical Linux / clustered-computing experience</li>
-<li>Statewide network and infrastructure leadership</li>
-<li>Budget, vendor, procurement, portfolio and modernization governance</li>
-<li>Disciplined prioritization across simultaneous mission demands</li>
-</ul>
-</article>
-</div>
-<div class="time-stewardship">
-<b>TIME IS THE NONRENEWABLE ASSET.</b>
-<p>Prioritize deliberately. Protect focus. Empower capable people. Use automation and AI responsibly. Reserve human attention for judgment, relationships and the decisions that matter.</p>
-</div>
-</section>
-<section class="signal-console" aria-live="polite">
-<span class="signal-id">
-<span data-signal-code>GV-01</span> / <span data-signal-count>400</span>
-</span>
-<strong data-security-signal>organizational context: define the mission outcome</strong>
-<span class="signal-meta">
-<span data-signal-framework>NIST CSF</span> · NEXT SIGNAL 10 SEC</span>
-<span class="signal-progress" data-signal-progress>
-</span>
-</section>
+</details>
 <section id="signal-feed" class="threat-feed section-shell">
 <div class="section-heading">
 <div>
@@ -779,6 +902,11 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 </article>
 </div>
 </section>
+<section class="gratitude-bar wisdom-banner" data-wisdom-banner data-art="mesa" aria-label="Rotating gratitude and wisdom">
+<div class="wisdom-art" aria-hidden="true"><span class="wisdom-sun"></span><span class="wisdom-horizon"></span><span class="wisdom-stars"></span></div>
+<div class="wisdom-card"><div class="wisdom-meta"><span>8 · 8 · 2026</span><span class="wisdom-root" data-wisdom-root>ROOT · 01</span></div>
+<p data-wisdom-quote>With gratitude to Mother Earth, Great Spirit, the One — and whatever name we give the greater mystery. Thank you for the time, the work, the people, and the opportunity to serve.</p>
+<div class="wisdom-status"><span data-wisdom-count>01 / 13</span><i aria-hidden="true"></i><span data-wisdom-art-name>HIGH DESERT DAWN</span></div></div></section>
 <section class="quote-band">
 <p>“Everything comes down to two things: <strong>risk</strong> and <strong>trust</strong>. It is all simple math from there.”</p>
 </section>
