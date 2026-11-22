@@ -1,0 +1,28 @@
+name: Executive resume staging validation
+on:
+  push:
+    branches: [staging/executive-resume-2026]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check staging HTML and required sections
+        shell: bash
+        run: |
+          test -s staging/index.html
+          for section in about expertise experience work contact; do
+            grep -q "id=\"$section\"" staging/index.html
+          done
+          if grep -Eiq 'href="(javascript:|http:)' staging/index.html; then
+            echo "Unsafe link detected"; exit 1
+          fi
+      - name: Package preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gavinlujan-executive-staging
+          path: staging/
+          if-no-files-found: error
