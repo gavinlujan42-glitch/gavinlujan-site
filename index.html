@@ -283,7 +283,9 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
   initial-value: 0deg;
   inherits: false;
 }
-.amethyst-home .tron-box { position: relative; }
+.amethyst-home .tron-box,
+.amethyst-home .amethyst-hero { position: relative; }
+.amethyst-home .amethyst-lab summary { border-radius: .65rem; }
 .amethyst-home .tron-border {
   position: absolute;
   inset: 0;
@@ -1066,7 +1068,7 @@ button.addEventListener('click',()=>playing?stop():start());document.addEventLis
     element.append(trail);
   }
   for (const element of document.querySelectorAll(
-    '.sfe-pathway-grid a, .amethyst-lab, .hero-side-screen, .soc-command, .footer-brief-bar, .amethyst-archive'
+    '.sfe-pathway-grid a, .amethyst-lab summary, .hero-side-screen, .soc-command, .footer-brief-bar, .amethyst-archive'
   )) {
     element.classList.add('tron-box');
     addTrail(element, 'tron-border');
