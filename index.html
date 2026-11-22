@@ -277,6 +277,61 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
   .amethyst-lab .hero-side-stack { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
+<style id="amethyst-tron-borders">
+@property --tron-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.amethyst-home .tron-box { position: relative; }
+.amethyst-home .tron-border {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  box-sizing: border-box;
+  display: block;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(from var(--tron-angle),
+    transparent 0deg, transparent var(--tron-tail),
+    var(--tron-soft) calc(var(--tron-tail) + 1deg),
+    var(--tron-hot) 354deg, #f5f0fa 358deg, transparent 360deg);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: tron-perimeter var(--tron-time) linear var(--tron-delay) infinite var(--tron-direction);
+}
+.amethyst-home .tron-line {
+  position: absolute;
+  z-index: 3;
+  inset: auto 0 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  background: #634980;
+}
+.amethyst-home .tron-line::after {
+  content: "";
+  display: block;
+  width: var(--tron-width);
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--tron-hot) 80%, #f5f0fa);
+  box-shadow: 0 0 8px var(--tron-hot);
+  animation: tron-line-scan var(--tron-time) linear var(--tron-delay) infinite var(--tron-direction);
+}
+@keyframes tron-perimeter { to { --tron-angle: 1turn; } }
+@keyframes tron-line-scan {
+  from { margin-inline-start: calc(-1 * var(--tron-width)); }
+  to { margin-inline-start: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amethyst-home .tron-border, .amethyst-home .tron-line::after { animation: none; }
+  .amethyst-home .tron-line::after { margin-inline-start: 65%; }
+}
+@media (forced-colors: active) {
+  .amethyst-home .tron-border, .amethyst-home .tron-line { display: none; }
+}
+</style>
 </head>
 <body class="amethyst-home">
 
@@ -983,6 +1038,42 @@ function playChord(){if(!playing||!ctx)return;const chord=chordSets[step++%chord
 async function start(){const AudioContext=window.AudioContext||window.webkitAudioContext;if(!AudioContext){button.textContent='Audio unavailable';return}try{ctx=new AudioContext();master=ctx.createGain();master.gain.value=.17;master.connect(ctx.destination);await ctx.resume();playing=true;playChord();interval=setInterval(playChord,4800);button.textContent='♪ Mute Sound';button.setAttribute('aria-pressed','true')}catch(e){button.textContent='Audio unavailable'}}
 async function stop(){playing=false;clearInterval(interval);interval=null;if(master&&ctx){master.gain.setTargetAtTime(0,ctx.currentTime,.08)}button.textContent='♪ Enable Sound';button.setAttribute('aria-pressed','false');if(ctx){const old=ctx;ctx=null;setTimeout(()=>old.close().catch(()=>{}),450)}}
 button.addEventListener('click',()=>playing?stop():start());document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)stop()});window.addEventListener('pagehide',()=>{if(playing)stop()});
+})();
+</script>
+<script id="amethyst-tron-light-cycles">
+(() => {
+  const palette = ['#65ff9e', '#58eaff', '#ffcb69', '#c998ff', '#ff8acc'];
+  const range = (min, max) => min + Math.random() * (max - min);
+  let previousColor;
+  function addTrail(element, type) {
+    const nextColors = palette.filter(color => color !== previousColor);
+    const color = nextColors[Math.floor(Math.random() * nextColors.length)];
+    previousColor = color;
+    const seconds = range(6, 15);
+    const trail = document.createElement('i');
+    trail.className = type;
+    trail.setAttribute('aria-hidden', 'true');
+    const styles = [
+      ['--tron-hot', color],
+      ['--tron-soft', color + '25'],
+      ['--tron-time', seconds.toFixed(2) + 's'],
+      ['--tron-delay', (-range(0, seconds)).toFixed(2) + 's'],
+      ['--tron-direction', Math.random() < .5 ? 'normal' : 'reverse'],
+      ['--tron-tail', range(260, 318).toFixed(0) + 'deg'],
+      ['--tron-width', range(9, 24).toFixed(0) + '%']
+    ];
+    for (const [property, value] of styles) trail.style.setProperty(property, value);
+    element.append(trail);
+  }
+  for (const element of document.querySelectorAll(
+    '.sfe-pathway-grid a, .amethyst-lab, .hero-side-screen, .soc-command, .footer-brief-bar, .amethyst-archive'
+  )) {
+    element.classList.add('tron-box');
+    addTrail(element, 'tron-border');
+  }
+  for (const element of document.querySelectorAll('.site-header, .amethyst-hero')) {
+    addTrail(element, 'tron-line');
+  }
 })();
 </script>
 </body>
