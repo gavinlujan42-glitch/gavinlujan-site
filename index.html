@@ -376,6 +376,7 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
   pointer-events: none;
 }
 .amethyst-home .amethyst-actions .hearth-glyph { margin-inline-end: 0; }
+.amethyst-home .footer-brief-bar.tron-box { inset: auto; }
 .spirit-prayer {
   width: min(74rem, calc(100% - 2.5rem));
   margin: 1.5rem auto;
@@ -1182,7 +1183,8 @@ button.addEventListener('click',()=>playing?stop():start());document.addEventLis
     stroke.setAttribute('stroke-linecap', 'round');
     stroke.setAttribute('stroke-linejoin', 'round');
     glyph.append(stroke);
-    link.prepend(glyph);
+    const label = link.closest('.sfe-pathway-grid') ? link.querySelector('span') : link;
+    label.prepend(glyph);
   });
 
   const prayers = [
