@@ -29,7 +29,8 @@ jobs:
           test -f CNAME
           grep -q '^gavinlujan.com$' CNAME
           grep -q 'amethyst-production-v1' index.html
-          grep -q 'Legacy 2026 Archive' index.html
+          grep -Eq 'Legacy 2026 (Site )?Archive' index.html
+          grep -q 'Return to New Site' legacy-2026.html
           grep -q 'gl-original-sound' index.html
           python3 -m json.tool assets/proto-knowledge-index.json >/dev/null
       - name: Configure GitHub Pages
@@ -41,3 +42,23 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public production
+        shell: bash
+        run: |
+          set -euo pipefail
+          smoke_dir=$(mktemp -d)
+          trap 'rm -rf "$smoke_dir"' EXIT
+          for attempt in {1..12}; do
+            if curl -fsSL --proto '=https' --proto-redir '=https' --max-time 15 -o "$smoke_dir/index.html" "https://gavinlujan.com/?deploy=$GITHUB_SHA&check=$attempt" &&
+               curl -fsSL --proto '=https' --proto-redir '=https' --max-time 15 -o "$smoke_dir/legacy-2026.html" "https://gavinlujan.com/legacy-2026.html?deploy=$GITHUB_SHA&check=$attempt" &&
+               curl -fsSL --proto '=https' --proto-redir '=https' --max-time 15 -o "$smoke_dir/index.json" "https://gavinlujan.com/assets/proto-knowledge-index.json?deploy=$GITHUB_SHA&check=$attempt" &&
+               cmp -s index.html "$smoke_dir/index.html" &&
+               cmp -s legacy-2026.html "$smoke_dir/legacy-2026.html" &&
+               cmp -s assets/proto-knowledge-index.json "$smoke_dir/index.json"; then
+              exit 0
+            fi
+            echo "Public production does not yet match deployment $GITHUB_SHA (attempt $attempt of 12)."
+            if [[ $attempt -lt 12 ]]; then sleep 10; fi
+          done
+          echo "::error::Public homepage, archive or knowledge index did not match the deployed commit."
+          exit 1
