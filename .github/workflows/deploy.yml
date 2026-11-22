@@ -1,0 +1,43 @@
+name: Publish GavinLujan.com (Free Tier)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Validate production files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s index.html
+          test -s legacy-2026.html
+          test -s assets/proto-knowledge-index.json
+          test -f CNAME
+          grep -q '^gavinlujan.com$' CNAME
+          grep -q 'amethyst-production-v1' index.html
+          grep -q 'Legacy 2026 Archive' index.html
+          grep -q 'gl-original-sound' index.html
+          python3 -m json.tool assets/proto-knowledge-index.json >/dev/null
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
