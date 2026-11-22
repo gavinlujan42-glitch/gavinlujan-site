@@ -334,6 +334,76 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
   .amethyst-home .tron-border, .amethyst-home .tron-line { display: none; }
 }
 </style>
+<style id="amethyst-hearth-theme">
+@font-face {
+  font-family: "Eaglefeather Local";
+  src: local("P22 FLW Eaglefeather"), local("P22 Eaglefeather"), local("P22Eaglefeather-Regular"), local("FLW Eaglefeather");
+  font-display: swap;
+}
+.amethyst-home {
+  --hearth-heading: "Eaglefeather Local", "Josefin Sans", system-ui, sans-serif;
+  --hearth-ember: #ecc08d;
+  --hearth-edge: #946b58;
+}
+.amethyst-home main :is(h1,h2,h3),
+.amethyst-home .site-header .brand,
+.amethyst-home .spirit-prayer summary {
+  font-family: var(--hearth-heading);
+  letter-spacing: -.025em;
+}
+.amethyst-home .amethyst-hero h1 {
+  font-family: var(--hearth-heading);
+  font-weight: 600;
+  color: #fff0df;
+}
+.amethyst-home .amethyst-hero {
+  background-image:
+    radial-gradient(ellipse at 84% 100%, #9b4a243d, transparent 48%),
+    linear-gradient(90deg, #100a18 12%, #100a18ed 48%, #26172775),
+    url("assets/gavin-lujan-ziawolf-hero-v2.webp");
+  border-bottom-color: var(--hearth-edge);
+}
+.amethyst-home .amethyst-hero .amethyst-kicker { color: var(--hearth-ember); }
+.amethyst-home .amethyst-actions a { gap: .55rem; }
+.amethyst-home .hearth-glyph {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  margin-inline-end: .38em;
+  vertical-align: -.12em;
+  color: var(--hearth-ember);
+  pointer-events: none;
+}
+.amethyst-home .amethyst-actions .hearth-glyph { margin-inline-end: 0; }
+.spirit-prayer {
+  width: min(74rem, calc(100% - 2.5rem));
+  margin: 1.5rem auto;
+  border: 1px solid var(--hearth-edge);
+  border-radius: .65rem;
+  background: radial-gradient(ellipse at 0% 0%, #75412845, transparent 65%), #1d1229;
+  color: #f5e6db;
+}
+.spirit-prayer summary {
+  min-height: 44px;
+  padding: .85rem 1rem;
+  cursor: pointer;
+  color: var(--hearth-ember);
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+.spirit-prayer-body { padding: 0 1rem 1.15rem; }
+.spirit-prayer time { color: #dfbca7; font-size: .84rem; }
+.spirit-prayer p { max-width: 43rem; margin: .6rem 0 0; line-height: 1.65; }
+@media(max-width:720px) {
+  .amethyst-home .amethyst-hero {
+    background-image:
+      radial-gradient(ellipse at 90% 100%, #9b4a242e, transparent 52%),
+      linear-gradient(90deg, #100a18f5, #251727e8),
+      url("assets/gavin-lujan-ziawolf-hero-v2.webp");
+  }
+}
+</style>
 </head>
 <body class="amethyst-home">
 
@@ -380,6 +450,13 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
     </div>
   </div>
 </section>
+<details class="spirit-prayer">
+  <summary>Daily Spirit &amp; Universe Prayer</summary>
+  <div class="spirit-prayer-body">
+    <time id="spirit-prayer-date"></time>
+    <p id="spirit-prayer-text">Spirit of life, steady my attention. May I act with kindness, listen with patience, and leave what I touch a little better than I found it.</p>
+  </div>
+</details>
 <section class="sfe-impact" aria-label="Selected executive impact">
 <div><strong>25+</strong><span>Years leading technology</span></div>
 <div><strong>2× CIO</strong><span>New Mexico public service</span></div>
@@ -1076,6 +1153,59 @@ button.addEventListener('click',()=>playing?stop():start());document.addEventLis
   for (const element of document.querySelectorAll('.site-header, .amethyst-hero')) {
     addTrail(element, 'tron-line');
   }
+})();
+</script>
+<script id="amethyst-hearth-script">
+(() => {
+  const svgNamespace = 'http://www.w3.org/2000/svg';
+  // Original geometric marks for decoration, without a ceremonial attribution.
+  const marks = [
+    'M19 12a7 7 0 1 1-7-7 5 5 0 1 1-5 5 3 3 0 1 1 3 3',
+    'M3 16l5-5 4 4 5-7 4 5M4 20h16M12 3v3M5 6l2 2M19 4l-2 2',
+    'M12 4l8 8-8 8-8-8zM12 8v8M8 12h8',
+    'M4 18l4-3 4 1 4-5 4-2M5 11h.1M9 7h.1M14 5h.1'
+  ];
+  const links = document.querySelectorAll(
+    '.amethyst-actions a, .site-header nav a[href="legacy-2026.html"], .sfe-pathway-grid a'
+  );
+  links.forEach((link, index) => {
+    const glyph = document.createElementNS(svgNamespace, 'svg');
+    glyph.setAttribute('class', 'hearth-glyph');
+    glyph.setAttribute('viewBox', '0 0 24 24');
+    glyph.setAttribute('aria-hidden', 'true');
+    glyph.setAttribute('focusable', 'false');
+    const stroke = document.createElementNS(svgNamespace, 'path');
+    stroke.setAttribute('d', marks[index % marks.length]);
+    stroke.setAttribute('fill', 'none');
+    stroke.setAttribute('stroke', 'currentColor');
+    stroke.setAttribute('stroke-width', '1.7');
+    stroke.setAttribute('stroke-linecap', 'round');
+    stroke.setAttribute('stroke-linejoin', 'round');
+    glyph.append(stroke);
+    link.prepend(glyph);
+  });
+
+  const prayers = [
+    'Spirit of life, steady my attention. May I act with kindness, listen with patience, and leave what I touch a little better than I found it.',
+    'Universe, remind me how much I have yet to learn. May I meet this day with curiosity and give others room to grow.',
+    'Spirit of life, give me the courage to speak plainly and the patience to hear what is hard to say.',
+    'Universe, give me perspective when the day feels crowded. May I do the next good thing with care.',
+    'Spirit of life, let gratitude guide my choices. May I notice the people who sustain me and return their generosity.',
+    'Universe, keep me mindful of what my choices leave behind. May I use what I have well and share what I can.',
+    'Spirit of life, let me rest without guilt and begin again without fear. May I offer others the same grace.'
+  ];
+  const date = document.getElementById('spirit-prayer-date');
+  const text = document.getElementById('spirit-prayer-text');
+  function showDailyPrayer() {
+    const now = new Date();
+    // Count local calendar days without an hour shift at daylight-saving transitions.
+    const day = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+    date.dateTime = new Date(day * 86400000).toISOString().slice(0, 10);
+    date.textContent = new Intl.DateTimeFormat(undefined, { dateStyle: 'long' }).format(now);
+    text.textContent = prayers[((day % prayers.length) + prayers.length) % prayers.length];
+  }
+  showDailyPrayer();
+  date.closest('details').addEventListener('toggle', showDailyPrayer);
 })();
 </script>
 </body>
