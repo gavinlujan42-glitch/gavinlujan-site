@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Gavin Lujan is a New Mexico CIO and cybersecurity executive focused on statewide security governance, research computing, responsible AI, enterprise modernization, and human-centered technology leadership.">
-<meta name="site-version" content="2026-11-22-amethyst-production-v1">
+<meta name="site-version" content="2026-11-22-tactical-executive-v1">
 <title>Gavin Lujan | Executive Intelligence · Cybersecurity · Responsible AI</title>
 <link rel="canonical" href="https://gavinlujan.com/">
 <meta name="author" content="Gavin Lujan">
@@ -420,6 +420,135 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 .site-rights-notice p + p { margin-top: .4rem; }
 .site-rights-notice a { color: #ecc08d; text-decoration: underline; }
 </style>
+<style id="tactical-executive">
+.amethyst-home {
+  --exec-ink: #161715;
+  --exec-panel: #20211e;
+  --exec-paper: #f3eee4;
+  --exec-muted: #c2bdb2;
+  --exec-copper: #e1ac84;
+  --exec-rule: #514b42;
+  --exec-serif: Georgia, "Times New Roman", serif;
+  --exec-mono: ui-monospace, Consolas, monospace;
+}
+.amethyst-home .site-header {
+  background: var(--exec-ink);
+  border-bottom-color: var(--exec-rule);
+  box-shadow: none;
+}
+.amethyst-home .site-header .brand > span:last-child {
+  color: var(--exec-paper);
+  font: 700 1rem/1.2 system-ui, sans-serif;
+  letter-spacing: .12em;
+}
+.amethyst-home .site-header .brand small { color: var(--exec-muted); }
+.amethyst-home .site-header nav .nav-cta { border-color: var(--exec-copper); color: var(--exec-copper); }
+.amethyst-home .amethyst-hero {
+  min-height: clamp(34rem, 72vh, 48rem);
+  padding-block: clamp(4rem, 10vw, 9rem);
+  background-image:
+    linear-gradient(90deg, #161715 4%, #161715f5 30%, #161715b5 57%, #16171525 100%),
+    url("assets/gavin-lujan-ziawolf-hero-v2.webp");
+  border-bottom: 1px solid var(--exec-rule);
+}
+.amethyst-home .amethyst-hero .amethyst-kicker {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  color: var(--exec-copper);
+  font: 600 .75rem/1.5 var(--exec-mono);
+  letter-spacing: .13em;
+}
+.amethyst-home .amethyst-kicker::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+}
+.amethyst-home .amethyst-hero h1 {
+  max-width: 12ch;
+  color: var(--exec-paper);
+  font: 400 clamp(3rem, 6.4vw, 6.7rem)/.99 var(--exec-serif);
+  letter-spacing: -.062em;
+  text-wrap: balance;
+}
+.amethyst-home .amethyst-hero .amethyst-lede {
+  max-width: 35rem;
+  color: var(--exec-paper);
+  font: 400 clamp(1rem, 1.35vw, 1.16rem)/1.65 system-ui, sans-serif;
+}
+.amethyst-home .amethyst-actions a {
+  min-height: 46px;
+  border: 1px solid var(--exec-copper);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--exec-paper);
+  box-shadow: none;
+  font-family: system-ui, sans-serif;
+}
+.amethyst-home .amethyst-actions a:first-child {
+  background: var(--exec-copper);
+  color: var(--exec-ink);
+}
+.amethyst-home .amethyst-actions a:hover {
+  background: var(--exec-paper);
+  border-color: var(--exec-paper);
+  color: var(--exec-ink);
+}
+.amethyst-home .amethyst-actions .hearth-glyph { color: currentColor; }
+.amethyst-home .sfe-impact {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: var(--exec-panel);
+  border-color: var(--exec-rule);
+}
+.amethyst-home .sfe-impact div { min-height: 7rem; border-color: var(--exec-rule); }
+.amethyst-home .sfe-impact strong { color: var(--exec-paper); font: 400 clamp(1.15rem, 2.25vw, 2.25rem)/1.1 var(--exec-serif); }
+.amethyst-home .sfe-impact span { color: var(--exec-muted); font-size: .72rem; }
+.amethyst-home .sfe-pathways, .amethyst-home .executive-focus {
+  background: var(--exec-ink);
+  color: var(--exec-muted);
+  border-color: var(--exec-rule);
+}
+.amethyst-home :is(.sfe-pathways, .executive-focus) :is(h2, h3) {
+  color: var(--exec-paper);
+  font-family: var(--exec-serif);
+  font-weight: 400;
+}
+.amethyst-home :is(.sfe-pathways, .executive-focus) :is(.eyebrow, article > span),
+.amethyst-home .sfe-pathway-grid a :is(span, .hearth-glyph),
+.amethyst-home .sfe-pathway-grid a::after { color: var(--exec-copper); }
+.amethyst-home .sfe-pathway-grid a, .amethyst-home .executive-focus .focus-grid article {
+  background: var(--exec-panel);
+  border: 1px solid var(--exec-rule);
+  border-radius: 2px;
+  box-shadow: none;
+}
+.amethyst-home .sfe-pathway-grid a:hover {
+  background: #2a2824;
+  border-color: var(--exec-copper);
+  transform: none;
+}
+.amethyst-home .sfe-pathway-grid a strong { color: var(--exec-paper); font: 400 clamp(1.35rem, 2.2vw, 1.95rem)/1.15 var(--exec-serif); }
+.amethyst-home .sfe-pathway-grid a small { color: var(--exec-muted); }
+.amethyst-home :is(.site-header, .amethyst-hero, .sfe-pathways) a:focus-visible { outline: 2px solid var(--exec-copper); outline-offset: 4px; }
+.amethyst-home .spirit-prayer { background: var(--exec-panel); border-color: var(--exec-rule); }
+.amethyst-home .spirit-prayer summary { color: var(--exec-copper); }
+@media (max-width: 900px) {
+  .amethyst-home .sfe-impact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .amethyst-home .amethyst-hero {
+    min-height: 0;
+    background-position: 66% center;
+    background-image:
+      linear-gradient(90deg, #161715f7, #161715c9),
+      url("assets/gavin-lujan-ziawolf-hero-v2.webp");
+  }
+  .amethyst-home .sfe-impact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .amethyst-home .sfe-impact div { min-height: 5.5rem; }
+  .amethyst-home .sfe-impact div:last-child { grid-column: 1 / -1; }
+}
+</style>
 </head>
 <body class="amethyst-home">
 
@@ -458,13 +587,20 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 <section id="top" class="amethyst-hero" aria-labelledby="home-title">
   <div class="amethyst-hero-copy">
     <p class="amethyst-kicker">New Mexico public-sector CIO</p>
-    <h1 id="home-title">Govern risk. Modernize critical systems. Build public trust.</h1>
+    <h1 id="home-title">Govern risk. Build public trust.</h1>
     <p class="amethyst-lede">Gavin Lujan brings 25 years of technology experience to public-sector leadership, cybersecurity, infrastructure modernization, and responsible AI. He holds CISSP and CCSP certifications and is rooted in Española, New Mexico.</p>
     <div class="amethyst-actions">
       <a href="resume.html">View executive record</a>
       <a href="projects.html">Explore current work</a>
     </div>
   </div>
+</section>
+<section class="sfe-impact" aria-label="Selected executive impact">
+<div><strong>25+</strong><span>Years leading technology</span></div>
+<div><strong>2× CIO</strong><span>New Mexico public service</span></div>
+<div><strong>600K+</strong><span>Annual transactions supported</span></div>
+<div><strong>$115M+</strong><span>Annual mission revenue enabled</span></div>
+<div><strong>CISSP · CCSP</strong><span>Security leadership</span></div>
 </section>
 <details class="spirit-prayer">
   <summary>Daily Spirit &amp; Universe Prayer</summary>
@@ -473,15 +609,8 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
     <p id="spirit-prayer-text">Spirit of life, steady my attention. May I act with kindness, listen with patience, and leave what I touch a little better than I found it.</p>
   </div>
 </details>
-<section class="sfe-impact" aria-label="Selected executive impact">
-<div><strong>25+</strong><span>Years leading technology</span></div>
-<div><strong>2× CIO</strong><span>New Mexico public service</span></div>
-<div><strong>600K+</strong><span>Annual transactions supported</span></div>
-<div><strong>$115M+</strong><span>Annual mission revenue enabled</span></div>
-<div><strong>CISSP · CCSP</strong><span>Security leadership</span></div>
-</section>
 <section class="sfe-pathways section-shell" aria-labelledby="sfe-pathways-title">
-<div class="sfe-pathway-intro"><p class="eyebrow">CHOOSE THE LENS</p><h2 id="sfe-pathways-title">One career.<br>Three ways in.</h2><p>Start with the evidence most relevant to your mission. The deeper command systems remain available without competing for the first impression.</p></div>
+<div class="sfe-pathway-intro"><p class="eyebrow">LEADERSHIP &amp; WORK</p><h2 id="sfe-pathways-title">Explore the work.</h2><p>Executive leadership, security intelligence, and systems I’ve helped build.</p></div>
 <div class="sfe-pathway-grid">
 <a href="#executive-focus"><span>01 · EXECUTIVE LEADERSHIP</span><strong>Govern the whole system.</strong><small>Strategy, modernization, teams, procurement and public trust.</small></a>
 <a href="sec-intel.html"><span>02 · RESEARCH + INTELLIGENCE</span><strong>Turn signal into action.</strong><small>Cyber intelligence, Project IO, AI/HPC and evidence-first analysis.</small></a>
@@ -1165,13 +1294,10 @@ button.addEventListener('click',()=>playing?stop():start());document.addEventLis
     element.append(trail);
   }
   for (const element of document.querySelectorAll(
-    '.sfe-pathway-grid a, .amethyst-lab summary, .hero-side-screen, .soc-command, .footer-brief-bar, .amethyst-archive'
+    '.amethyst-lab summary, .hero-side-screen, .soc-command, .footer-brief-bar, .amethyst-archive'
   )) {
     element.classList.add('tron-box');
     addTrail(element, 'tron-border');
-  }
-  for (const element of document.querySelectorAll('.site-header, .amethyst-hero')) {
-    addTrail(element, 'tron-line');
   }
 })();
 </script>
