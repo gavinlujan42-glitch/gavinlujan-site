@@ -41,6 +41,8 @@
     const tick=()=>{clock.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date())+' MDT'};tick();setInterval(tick,1000);
   }
 
+  if (document.querySelector('.gl-site-actions')) return;
+
   const style=document.createElement('style');
   style.textContent=`
   .meeting-bot-launch{position:fixed;right:22px;bottom:22px;z-index:120;border:1px solid #50ff91;background:#04130a;color:#baffd0;padding:13px 17px;font:600 11px/1.2 "Josefin Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 0 28px rgba(80,255,145,.24)}
