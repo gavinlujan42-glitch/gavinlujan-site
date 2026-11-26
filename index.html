@@ -101,29 +101,51 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @media(max-width:700px){.sfe-impact{grid-template-columns:1fr}.sfe-impact div{min-height:92px;border-right:0;border-bottom:1px solid rgba(255,255,255,.07)}.sfe-acceptance{bottom:170px}.story-hero .hero-triptych{grid-template-columns:1fr!important}.story-hero .hero-primary-screen{grid-column:auto;min-height:610px!important}.story-hero .hero-side-screen{height:440px!important}.story-hero .hero-copy h1{font-size:clamp(2.8rem,13vw,4.5rem)!important}.site-header nav a[href="time-machine.html"]{display:none}}
 @media(prefers-reduced-motion:reduce){.sfe-pathway-grid a{transition:none}.sfe-pathway-grid a:hover{transform:none}}
 </style><style id="gl-ai-modernization">
-.gl-ai-launch, .gl-ai-panel { font: 400 .9rem/1.5 system-ui, sans-serif; }
-.gl-ai-launch {
+.gl-ai-panel { font: 400 .9rem/1.5 system-ui, sans-serif; }
+:root {
+  --gl-actions-edge: max(1rem, env(safe-area-inset-right));
+  --gl-actions-bottom: max(1rem, env(safe-area-inset-bottom));
+  --gl-actions-height: 46px;
+}
+.gl-site-actions {
   position: fixed;
   z-index: 9000;
-  inset-inline-end: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  min-height: 44px;
-  padding: .65rem 1rem;
-  border: 1px solid var(--exec-copper);
-  border-radius: 4px;
-  background: var(--exec-copper);
-  color: var(--exec-ink);
-  font-weight: 700;
-  box-shadow: 0 6px 22px #0006;
+  inset-inline-end: var(--gl-actions-edge);
+  bottom: var(--gl-actions-bottom);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .375rem;
+  width: min(20rem, calc(100% - var(--gl-actions-edge) - max(1rem, env(safe-area-inset-left))));
+}
+.gl-site-action {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: var(--gl-actions-height);
+  padding: 0 .375rem;
+  border: 1px solid #9878ba;
+  border-radius: 999px;
+  background: #241537;
+  color: #f8efff;
+  font: 700 .875rem/1 system-ui, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px #0007;
   cursor: pointer;
 }
+.gl-site-action:hover, .gl-site-action[aria-expanded="true"] {
+  background: #41265c;
+  color: #fff;
+  border-color: #d8b8ff;
+}
+.amethyst-home { padding-bottom: calc(var(--gl-actions-height) + var(--gl-actions-bottom) + .75rem); }
 .gl-ai-panel {
   position: fixed;
   z-index: 9010;
-  inset-inline-end: max(1rem, env(safe-area-inset-right));
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  width: min(28rem, calc(100% - 2rem - env(safe-area-inset-right)));
-  max-height: min(36rem, calc(100dvh - 2rem - env(safe-area-inset-bottom)));
+  inset-inline-end: var(--gl-actions-edge);
+  bottom: calc(var(--gl-actions-bottom) + var(--gl-actions-height) + .5rem);
+  width: min(28rem, calc(100% - var(--gl-actions-edge) - max(1rem, env(safe-area-inset-left))));
+  max-height: min(36rem, calc(100dvh - var(--gl-actions-bottom) - var(--gl-actions-height) - 1rem));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -134,7 +156,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   border-radius: 6px;
   box-shadow: 0 18px 58px #0009;
 }
-.gl-ai-panel[hidden], .gl-ai-launch[hidden] { display: none; }
+.gl-ai-panel[hidden] { display: none; }
 .gl-ai-head, .gl-ai-form { display: flex; align-items: center; gap: .75rem; padding: .75rem 1rem; }
 .gl-ai-head { justify-content: space-between; border-bottom: 1px solid var(--exec-rule); }
 .gl-ai-head h2 { margin: 0; font: 400 1.35rem/1.2 var(--exec-serif); }
@@ -183,8 +205,8 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   cursor: pointer;
   font-weight: 700;
 }
-.gl-ai-launch:hover, .gl-ai-form button:hover { background: var(--exec-paper); }
-.gl-ai-panel :is(button, input, a):focus-visible, .gl-ai-launch:focus-visible {
+.gl-ai-form button:hover { background: var(--exec-paper); }
+.gl-ai-panel :is(button, input, a):focus-visible, .gl-site-action:focus-visible {
   outline: 2px solid var(--exec-copper);
   outline-offset: 2px;
 }
@@ -1301,7 +1323,10 @@ a[href="proto.html"][aria-current="page"]{color:#d8b4ff!important;text-shadow:0 
 </aside>
 <script id="santa-fe-eye-motion-control">window.addEventListener("DOMContentLoaded",()=>{setTimeout(()=>{document.querySelector("[data-framework-toggle]")?.click();document.querySelector("[data-signal-deck-toggle]")?.click()},150)});</script>
 <script id="hero-signal-deck-script">(()=>{const d=document.querySelector('[data-signal-deck]');if(!d)return;const s=[...d.querySelectorAll('[data-signal-deck-slide]')],c=d.querySelector('[data-signal-deck-count]'),b=d.querySelector('.signal-deck-progress i'),t=d.querySelector('[data-signal-deck-toggle]'),r=matchMedia('(prefers-reduced-motion: reduce)');let a=0,x=0,p=false;const show=n=>{a=(n+s.length)%s.length;s.forEach((e,i)=>e.classList.toggle('is-active',i===a));c.textContent=`${String(a+1).padStart(2,'0')} / ${String(s.length).padStart(2,'0')}`;if(b){b.style.animation='none';void b.offsetWidth;if(!p&&!r.matches)b.style.animation='signalDeckProgress 11s linear forwards'}};const restart=()=>{clearInterval(x);if(!p&&!r.matches)x=setInterval(()=>show(a+1),11000)};d.querySelector('[data-signal-deck-prev]').addEventListener('click',()=>{show(a-1);restart()});d.querySelector('[data-signal-deck-next]').addEventListener('click',()=>{show(a+1);restart()});t.addEventListener('click',()=>{p=!p;t.textContent=p?'RESUME':'PAUSE';t.setAttribute('aria-pressed',String(p));show(a);restart()});r.addEventListener?.('change',()=>{show(a);restart()});show(0);restart()})();</script>
-<button type="button" class="gl-ai-launch" id="gl-ai-launch" aria-haspopup="dialog" aria-controls="gl-ai-panel" aria-expanded="false">Site Assistant</button>
+<div class="gl-site-actions" role="group" aria-label="Site actions">
+  <button type="button" class="gl-site-action" id="gl-ai-launch" aria-haspopup="dialog" aria-controls="gl-ai-panel" aria-expanded="false">Site Assistant</button>
+  <a class="gl-site-action" href="mailto:gavinlujan@gmail.com?subject=Schedule%20a%20conversation" aria-label="Schedule a conversation by email">Schedule</a>
+</div>
 <section class="gl-ai-panel" id="gl-ai-panel" role="dialog" aria-labelledby="gl-ai-title" hidden>
   <header class="gl-ai-head">
     <h2 id="gl-ai-title">Site Assistant</h2>
@@ -1341,16 +1366,14 @@ const e=add('Searching published site content…');try{const docs=await load(),t
 function open() {
   panel.hidden = false;
   launch.setAttribute('aria-expanded', 'true');
-  launch.hidden = true;
   input.focus();
 }
 function shut() {
-  launch.hidden = false;
   launch.setAttribute('aria-expanded', 'false');
   launch.focus();
   panel.hidden = true;
 }
-launch.addEventListener('click', open);
+launch.addEventListener('click', () => panel.hidden ? open() : shut());
 close.addEventListener('click', shut);
 panel.addEventListener('keydown', event => {
   if (event.key === 'Escape') shut();
