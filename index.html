@@ -139,9 +139,15 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   border-color: #d8b8ff;
 }
 .amethyst-home { padding-bottom: calc(var(--gl-actions-height) + var(--gl-actions-bottom) + .75rem); }
+.amethyst-home .consent-panel {
+  bottom: calc(var(--gl-actions-bottom) + var(--gl-actions-height) + .5rem);
+  max-height: calc(100dvh - var(--gl-actions-bottom) - var(--gl-actions-height) - 1rem);
+  box-sizing: border-box;
+  overflow: auto;
+}
 .gl-ai-panel {
   position: fixed;
-  z-index: 9010;
+  z-index: 100001;
   inset-inline-end: var(--gl-actions-edge);
   bottom: calc(var(--gl-actions-bottom) + var(--gl-actions-height) + .5rem);
   width: min(28rem, calc(100% - var(--gl-actions-edge) - max(1rem, env(safe-area-inset-left))));
